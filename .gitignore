@@ -100,7 +100,7 @@ target/
 # pyenv
 .python-version
 
-.env
+# .env
 .venv
 .idea
 .vscode

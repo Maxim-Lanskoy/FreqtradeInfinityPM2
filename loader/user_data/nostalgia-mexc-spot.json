@@ -1,0 +1,10 @@
+{
+  "strategy": "NostalgiaForInfinityX5",
+  "add_config_files": [
+    "trading_mode-spot.json",
+    "pairlist-volume-mexc-usdt.json",
+    "blacklist-mexc.json",
+    "settings-config.json",
+    "secrets-config.json"
+  ]
+}
