@@ -6,18 +6,29 @@ try:
     from pathlib import Path
     from urllib.request import urlopen
     from datetime import datetime as dt
+    from dotenv import load_dotenv
 
     print('\n\n####################################\n' + str(dt.now()) + '\n')
 except ModuleNotFoundError as e:
     print(str(e) + '. Please install required dependencies.')
+    sys.exit(1)
 except ImportError as e:
     print(e)
+    sys.exit(1)
 else:
     print('All required dependencies successfully loaded.')
 
-# Put in your telegram data here
-telegram_api_key = ''
-telegram_chat_id = ''
+# Load environment variables from ../.env
+env_path = Path('..') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+# Retrieve the telegram API key and chat ID from the environment variables
+telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
+telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
+
+if not telegram_api_key or not telegram_chat_id:
+    print("Error: 'TELEGRAM_API_KEY' or 'TELEGRAM_CHAT_ID' is not set in the .env file.")
+    sys.exit(1)
 
 # Add the paths to your files
 path_local_blacklist_base = 'user_data/'
@@ -38,7 +49,7 @@ path_strategy4 = Path(path_strategy4)
 path_strategy5 = Path(path_strategy5)
 path_strategy_c = Path(path_strategy_c)
 
-# Local varuables used in the script
+# Local variables used in the script
 restart_required = False
 ft_update = False
 
@@ -157,7 +168,7 @@ def update_blacklist(exchange):
         }
     }
 
-    if latestprivate != now_bl: 
+    if latestprivate != now_bl:
         with open(path_local_blacklist, 'w') as file:
             json.dump(latestprivate, file, indent=4)
         restart_required = True
@@ -215,14 +226,14 @@ if update_ft:
     datetoday = str(dt.now())[8:10]
 
     try:
-        with open('date.txt', 'r') as datefromfile:
+        with open('last_update.txt', 'r') as datefromfile:
             datefromfile = datefromfile.read()
-            print(f'\U00002705 date.txt successfully loaded.')
+            print(f'\U00002705 last_update.txt successfully loaded.')
     except FileNotFoundError:
-        print(f'\U0000274C Could not load date.txt. Creating it...')
-        with open('date.txt', 'w') as f:
+        print(f'\U0000274C Could not load last_update.txt. Creating it...')
+        with open('last_update.txt', 'w') as f:
             f.write(str(int(datetoday) - 1))
-        with open('date.txt', 'r') as datefromfile:
+        with open('last_update.txt', 'r') as datefromfile:
             datefromfile = datefromfile.read()
     except Exception as e:
         print(e)
@@ -241,7 +252,7 @@ if update_ft:
             print(f'\U00002705 Old Freqtrade version: {old_ft_version}')
 
             # Stop pm2 service
-            subprocess.run('pm2 stop FreqTrade', shell=True)
+            subprocess.run('pm2 stop Freqtrade', shell=True)
             time.sleep(10)
 
             # Update Freqtrade (assuming a virtualenv setup)
@@ -261,7 +272,7 @@ if update_ft:
             else:
                 print(f'\U00002705 No new version for Freqtrade.')
 
-            with open('date.txt', 'w') as f:
+            with open('last_update.txt', 'w') as f:
                 f.write(datetoday)
     else:
         print(f'\U00002705 Already checked for updates for Freqtrade today. Skipping this step until tomorrow.')
@@ -295,7 +306,7 @@ if restart_required:
         print(f'\U0000274C something is wrong\n')
 
     # Restart pm2 service only once
-    subprocess.run('pm2 restart FreqTrade', shell=True)
+    subprocess.run('pm2 restart Freqtrade', shell=True)
 
     print(messagetext)
     url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"

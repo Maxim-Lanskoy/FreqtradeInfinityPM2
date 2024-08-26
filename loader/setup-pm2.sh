@@ -40,4 +40,25 @@ else
     echo "PM2 has been updated to the latest version."
 fi
 
+# Check if pip is installed
+if ! command_exists pip; then
+    echo "pip is not installed. Installing pip now..."
+    sudo apt update -y
+    sudo apt install -y python3-pip
+    echo "pip has been installed."
+else
+    echo "pip is already installed."
+fi
+
+# Install or update python-dotenv
+if ! pip show python-dotenv > /dev/null 2>&1; then
+    echo "python-dotenv is not installed. Installing python-dotenv..."
+    pip install python-dotenv
+    echo "python-dotenv has been installed."
+else
+    echo "python-dotenv is already installed. Checking for updates..."
+    pip install --upgrade python-dotenv
+    echo "python-dotenv has been updated to the latest version."
+fi
+
 echo "Setup complete."
