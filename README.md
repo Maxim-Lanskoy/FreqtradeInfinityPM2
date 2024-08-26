@@ -20,8 +20,8 @@ Read the [exchange specific notes](docs/exchanges.md) to learn about configurati
 
 - Clone repository with `git clone git@github.com:Maxim-Lanskoy/FreqtradeInfinityPM2.git`.
 - Install Freqtrade from scratch - `./setup.sh -i` (Debian, Ubuntu or MacOS).
-- Use `./loader/setup-pm2.sh` to install or update automation related dependencies - `npm` and `pm2`.
 - Virtual environment - you must run `source .venv/bin/activate` to activate your environment.
+- Use `./loader/setup-pm2.sh` to install or update automation related dependencies - `npm` and `pm2`.
 
 For troubleshooting please refer to the [installation documentation page](https://www.freqtrade.io/en/stable/installation/) or [NostalgiaToInfinity strategy page](https://github.com/iterativv/NostalgiaForInfinity).
 
