@@ -1,0 +1,10 @@
+{
+  "strategy": "${FREQTRADE__STRATEGY_FILE_NAME}",
+  "add_config_files": [
+    "trading_mode-${FREQTRADE__TRADING_MODE_TYPE}.json",
+    "pairlist-volume-${FREQTRADE__EXCHANGE__NAME}-usdt.json",
+    "blacklist-${FREQTRADE__EXCHANGE__NAME}.json",
+    "settings-config.json",
+    "secrets-config.json"
+  ]
+}
