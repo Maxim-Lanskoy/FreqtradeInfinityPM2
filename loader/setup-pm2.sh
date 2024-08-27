@@ -28,6 +28,18 @@ install_package() {
     fi
 }
 
+# Function to set Python 3.11 as the default version
+set_default_python() {
+    if command_exists python3.11; then
+        echo "🔄 Setting Python 3.11 as the default Python version..."
+        sudo ln -sf $(which python3.11) /usr/bin/python3
+        sudo ln -sf $(which python3.11) /usr/bin/python
+        sudo ln -sf $(which pip3.11) /usr/local/bin/pip3
+        sudo ln -sf $(which pip3.11) /usr/local/bin/pip
+        echo "✅ Default Python and pip have been updated to Python 3.11."
+    fi
+}
+
 # Check Python version
 PYTHON_INSTALLED="false"
 if command_exists python3; then
@@ -55,9 +67,10 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
         brew install python@3.11
     fi
     echo "✅ Python 3.11 has been installed."
-    echo "python_installed_by_script=true" >> date.txt
+    echo "python_installed_by_script=true" >> last_update.txt
+    set_default_python
 else
-    echo "python_installed_by_script=false" >> date.txt
+    echo "python_installed_by_script=false" >> last_update.txt
 fi
 
 # Function to install remaining dependencies

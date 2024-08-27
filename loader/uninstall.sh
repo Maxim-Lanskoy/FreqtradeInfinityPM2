@@ -34,6 +34,20 @@ remove_package() {
     fi
 }
 
+# Function to revert Python symlinks if changed by the script
+revert_python_symlinks() {
+    if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
+        if command_exists python3.11; then
+            echo "🔄 Reverting Python symlinks..."
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python3  # Replace with your system's default Python
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python   # Replace with your system's default Python
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip3  # Replace with your system's default pip
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip   # Replace with your system's default pip
+            echo "✅ Python symlinks reverted to original version."
+        fi
+    fi
+}
+
 echo "🚀 Starting uninstallation..."
 
 # Remove PM2 if installed
@@ -92,8 +106,8 @@ fi
 
 # Remove Python if it was installed by the script
 if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
-    if command_exists python3; then
-        echo "🗑️ Removing Python3..."
+    if command_exists python3.11; then
+        echo "🗑️ Removing Python3.11..."
         if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
             remove_package python3.11
         elif [ "$OS_NAME" = "Linux" ]; then
@@ -101,10 +115,13 @@ if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
         elif [ "$OS_NAME" = "Darwin" ]; then
             brew uninstall python@3.11
         fi
-        echo "✅ Python3 has been removed."
+        echo "✅ Python3.11 has been removed."
     fi
 else
     echo "🔍 Python was not installed by this script, skipping removal."
 fi
+
+# Revert Python symlinks if needed
+revert_python_symlinks
 
 echo "🎉 Uninstallation complete!"
