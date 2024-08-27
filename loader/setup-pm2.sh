@@ -34,22 +34,32 @@ set_default_python() {
         echo "🔄 Setting Python 3.11 as the default Python version..."
         sudo ln -sf $(which python3.11) /usr/bin/python3
         sudo ln -sf $(which python3.11) /usr/bin/python
-        sudo ln -sf $(which pip3.11) /usr/local/bin/pip3
-        sudo ln -sf $(which pip3.11) /usr/local/bin/pip
+        if command_exists pip3.11; then
+            sudo ln -sf $(which pip3.11) /usr/local/bin/pip3
+            sudo ln -sf $(which pip3.11) /usr/local/bin/pip
+        else
+            echo "❌ pip3.11 not found, installing..."
+            python3.11 -m ensurepip --upgrade
+            sudo ln -sf $(which pip3.11) /usr/local/bin/pip3
+            sudo ln -sf $(which pip3.11) /usr/local/bin/pip
+        fi
         echo "✅ Default Python and pip have been updated to Python 3.11."
     fi
 }
+
+# Update the PATH variable for the current session
+export PATH=/usr/local/bin:$PATH
 
 # Check Python version
 PYTHON_INSTALLED="false"
 if command_exists python3; then
     PYTHON_VERSION=$(python3 --version | awk '{print $2}')
-    if [[ "$PYTHON_VERSION" < "3.9" ]]; then
-        echo "⚠️ Python version is less than 3.9. Upgrading Python..."
-        PYTHON_INSTALLED="false"
-    else
+    if [[ "$(printf '%s\n' "3.9" "$PYTHON_VERSION" | sort -V | head -n1)" != "3.9" ]]; then
         echo "✅ Python version $PYTHON_VERSION is already installed."
         PYTHON_INSTALLED="true"
+    else
+        echo "⚠️ Python version is less than 3.9. Upgrading Python..."
+        PYTHON_INSTALLED="false"
     fi
 else
     echo "📦 Python3 is not installed. Installing Python 3.11..."
@@ -68,11 +78,11 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
     fi
     echo "✅ Python 3.11 has been installed."
     # Update python_installed_by_script flag in last_update.txt
-    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' loader/last_update.txt
+    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' last_update.txt
     set_default_python
 else
     # Ensure python_installed_by_script flag remains false in last_update.txt
-    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' loader/last_update.txt
+    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' last_update.txt
 fi
 
 # Function to install remaining dependencies
@@ -140,7 +150,7 @@ install_dependencies() {
     fi
 
     # Install or update python-dotenv
-    if ! pip show python-dotenv > /dev/null 2>&1; then
+    if ! command_exists pip || ! pip show python-dotenv > /dev/null 2>&1; then
         echo "📦 python-dotenv is not installed. Installing python-dotenv..."
         pip install python-dotenv
         echo "✅ python-dotenv has been installed."
