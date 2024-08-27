@@ -16,10 +16,10 @@ fi
 
 # Function to install a package if it's not installed
 install_package() {
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
         echo "🔄 Installing $1 with dnf..."
         sudo dnf install -y "$1"
-    elif [ "$OS_NAME" = "Linux" ]; then
+    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
         echo "🔄 Installing $1 with apt..."
         sudo apt install -y "$1"
     elif [ "$OS_NAME" = "Darwin" ]; then
@@ -47,19 +47,22 @@ set_default_python() {
     fi
 }
 
-# Update the PATH variable for the current session
-export PATH=/usr/local/bin:$PATH
+# Install EPEL release and development tools on RHEL/CentOS/Fedora
+if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    echo "📦 Installing EPEL release..."
+    install_package epel-release
+fi
 
 # Check Python version
 PYTHON_INSTALLED="false"
 if command_exists python3; then
     PYTHON_VERSION=$(python3 --version | awk '{print $2}')
-    if [[ "$(printf '%s\n' "3.9" "$PYTHON_VERSION" | sort -V | head -n1)" == "3.9" && "$PYTHON_VERSION" != "3.9" ]]; then
-        echo "✅ Python version $PYTHON_VERSION is already installed."
-        PYTHON_INSTALLED="true"
-    else
+    if [[ "$PYTHON_VERSION" < "3.9" ]]; then
         echo "⚠️ Python version is less than 3.9. Upgrading Python..."
         PYTHON_INSTALLED="false"
+    else
+        echo "✅ Python version $PYTHON_VERSION is already installed."
+        PYTHON_INSTALLED="true"
     fi
 else
     echo "📦 Python3 is not installed. Installing Python 3.11..."
@@ -68,21 +71,19 @@ fi
 
 # Install Python if needed
 if [ "$PYTHON_INSTALLED" = "false" ]; then
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
-        sudo dnf install -y python3.11
-    elif [ "$OS_NAME" = "Linux" ]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+        sudo dnf install -y python3.11 python3.11-devel
+    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
         sudo apt update -y
-        sudo apt install -y python3.11
+        sudo apt install -y python3.11 python3.11-dev
     elif [ "$OS_NAME" = "Darwin" ]; then
         brew install python@3.11
     fi
-    echo "✅ Python 3.11 has been installed."
-    # Update python_installed_by_script flag in loader/last_update.txt
-    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' loader/last_update.txt
-    set_default_python
+    echo "✅ Python 3.11 and development tools have been installed."
+    echo "python_installed_by_script=true" >> loader/last_update.txt
+    set_default_python # Set Python 3.11 as default after installation
 else
-    # Ensure python_installed_by_script flag remains false in loader/last_update.txt
-    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' loader/last_update.txt
+    echo "python_installed_by_script=false" >> loader/last_update.txt
 fi
 
 # Function to install remaining dependencies
@@ -93,10 +94,10 @@ install_dependencies() {
     if ! command_exists node || ! command_exists npm; then
         echo "📦 Node.js and npm are not installed. Installing now..."
         
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
             install_package nodejs
-        elif [ "$OS_NAME" = "Linux" ]; then
+        elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
             sudo apt update -y
             curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
             install_package nodejs
@@ -109,10 +110,10 @@ install_dependencies() {
     else
         echo "🔍 Node.js and npm are already installed. Checking for updates..."
 
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             sudo npm install -g n
             sudo n stable
-        elif [ "$OS_NAME" = "Linux" ]; then
+        elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
             sudo npm install -g n
             sudo n stable
         elif [ "$OS_NAME" = "Darwin" ]; then
@@ -134,11 +135,11 @@ install_dependencies() {
     fi
 
     # Check if pip is installed
-    if ! command_exists pip; then
+    if ! command_exists pip3.11; then
         echo "📦 pip is not installed. Installing pip now..."
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             install_package python3-pip
-        elif [ "$OS_NAME" = "Linux" ]; then
+        elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
             sudo apt update -y
             install_package python3-pip
         elif [ "$OS_NAME" = "Darwin" ]; then
@@ -150,13 +151,13 @@ install_dependencies() {
     fi
 
     # Install or update python-dotenv
-    if ! command_exists pip || ! pip show python-dotenv > /dev/null 2>&1; then
+    if ! pip3.11 show python-dotenv > /dev/null 2>&1; then
         echo "📦 python-dotenv is not installed. Installing python-dotenv..."
-        pip install --user python-dotenv
+        pip3.11 install python-dotenv
         echo "✅ python-dotenv has been installed."
     else
         echo "🔍 python-dotenv is already installed. Checking for updates..."
-        pip install --user --upgrade python-dotenv
+        pip3.11 install --upgrade python-dotenv
         echo "🔄 python-dotenv has been updated to the latest version."
     fi
 

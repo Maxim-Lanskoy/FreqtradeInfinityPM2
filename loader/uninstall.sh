@@ -15,15 +15,15 @@ else
 fi
 
 # Read whether Python was installed by the script
-PYTHON_INSTALLED_BY_SCRIPT=$(grep "python_installed_by_script" last_update.txt | cut -d'=' -f2)
+PYTHON_INSTALLED_BY_SCRIPT=$(grep "python_installed_by_script" loader/last_update.txt | cut -d'=' -f2)
 
 # Function to remove a package if it's installed
 remove_package() {
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
         echo "🗑️ Removing $1 with dnf..."
         sudo dnf remove -y "$1"
         sudo dnf autoremove -y
-    elif [ "$OS_NAME" = "Linux" ]; then
+    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
         echo "🗑️ Removing $1 with apt..."
         sudo apt-get remove --purge -y "$1"
         sudo apt-get autoremove -y
@@ -39,10 +39,12 @@ revert_python_symlinks() {
     if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
         if command_exists python3.11; then
             echo "🔄 Reverting Python symlinks..."
-            sudo ln -sf /usr/bin/python3.6 /usr/bin/python3  # Replace with your system's default Python
-            sudo ln -sf /usr/bin/python3.6 /usr/bin/python   # Replace with your system's default Python
-            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip3  # Replace with your system's default pip
-            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip   # Replace with your system's default pip
+            # Replace python3.6 with your system's default Python version
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python3
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python
+            # Replace pip3.6 with your system's default pip version
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip3
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip
             echo "✅ Python symlinks reverted to original version."
         fi
     fi
@@ -62,9 +64,9 @@ fi
 # Remove npm and Node.js if installed
 if command_exists npm || command_exists node; then
     echo "🗑️ Removing Node.js and npm..."
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
         remove_package nodejs
-    elif [ "$OS_NAME" = "Linux" ]; then
+    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
         remove_package nodejs
         sudo apt-get remove --purge -y npm
     elif [ "$OS_NAME" = "Darwin" ]; then
@@ -82,7 +84,7 @@ sudo rm -rf ~/.npm
 sudo rm -rf ~/.nvm
 
 # Optionally remove NodeSource setup script (Linux only)
-if [ "$OS_NAME" = "Linux" ]; then
+if [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
     echo "🗑️ Removing NodeSource setup script if present..."
     sudo rm -f /etc/apt/sources.list.d/nodesource.list
 fi
@@ -107,15 +109,15 @@ fi
 # Remove Python if it was installed by the script
 if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
     if command_exists python3.11; then
-        echo "🗑️ Removing Python3.11..."
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        echo "🗑️ Removing Python 3.11..."
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             remove_package python3.11
-        elif [ "$OS_NAME" = "Linux" ]; then
-            sudo apt-get remove --purge -y python3.11
+        elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
+            sudo apt-get remove --purge -y python3.11 python3.11-dev
         elif [ "$OS_NAME" = "Darwin" ]; then
             brew uninstall python@3.11
         fi
-        echo "✅ Python3.11 has been removed."
+        echo "✅ Python 3.11 has been removed."
     fi
 else
     echo "🔍 Python was not installed by this script, skipping removal."
