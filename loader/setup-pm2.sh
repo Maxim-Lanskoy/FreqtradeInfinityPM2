@@ -68,11 +68,11 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
     fi
     echo "✅ Python 3.11 has been installed."
     # Update python_installed_by_script flag in last_update.txt
-    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' last_update.txt
+    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' loader/last_update.txt
     set_default_python
 else
     # Ensure python_installed_by_script flag remains false in last_update.txt
-    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' last_update.txt
+    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' loader/last_update.txt
 fi
 
 # Function to install remaining dependencies
