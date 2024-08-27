@@ -14,6 +14,9 @@ else
     OS_NAME=$OS
 fi
 
+# Read whether Python was installed by the script
+PYTHON_INSTALLED_BY_SCRIPT=$(grep "python_installed_by_script" last_update.txt | cut -d'=' -f2)
+
 # Function to remove a package if it's installed
 remove_package() {
     if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
@@ -85,6 +88,23 @@ if command_exists envsubst; then
     echo "✅ gettext (including envsubst) has been removed."
 else
     echo "🔍 gettext (including envsubst) is not installed, skipping..."
+fi
+
+# Remove Python if it was installed by the script
+if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
+    if command_exists python3; then
+        echo "🗑️ Removing Python3..."
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+            remove_package python3.11
+        elif [ "$OS_NAME" = "Linux" ]; then
+            sudo apt-get remove --purge -y python3.11
+        elif [ "$OS_NAME" = "Darwin" ]; then
+            brew uninstall python@3.11
+        fi
+        echo "✅ Python3 has been removed."
+    fi
+else
+    echo "🔍 Python was not installed by this script, skipping removal."
 fi
 
 echo "🎉 Uninstallation complete!"

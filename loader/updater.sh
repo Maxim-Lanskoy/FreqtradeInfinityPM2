@@ -195,6 +195,7 @@ def update_file(url, local_path, description):
     print()
 
 print("🔄 Updating additional configuration files...")
+
 ####################################
 # PAIRLISTS UPDATER
 ####################################
@@ -221,19 +222,23 @@ if update_ft:
     datetoday = str(dt.now())[8:10]
 
     try:
-        with open('last_update.txt', 'r') as datefromfile:
-            datefromfile = datefromfile.read()
-            print(f'📄 Loaded last update date from last_update.txt.')
+        with open('last_update.txt', 'r') as file:
+            for line in file:
+                if line.startswith('last_checked_date='):
+                    last_checked_date = line.strip().split('=')[1]
+                    print(f'📄 Loaded last update date from last_update.txt.')
+                # Skip lines that are comments or unrelated to updater logic
+                if line.startswith("#") or line.strip() == "" or "python_installed_by_script" in line:
+                    continue
     except FileNotFoundError:
         print(f'⚠️ last_update.txt not found. Creating it...')
         with open('last_update.txt', 'w') as f:
-            f.write(str(int(datetoday) - 1))
-        with open('last_update.txt', 'r') as datefromfile:
-            datefromfile = datefromfile.read()
+            f.write(f"last_checked_date={int(datetoday) - 1}\n")
+        last_checked_date = str(int(datetoday) - 1)
     except Exception as e:
         print(f'❌ Error: {e}')
 
-    if datetoday != datefromfile:
+    if datetoday != last_checked_date:
         command = 'freqtrade --version'
         try:
             output = execute_command(command)
@@ -266,8 +271,9 @@ if update_ft:
             else:
                 print(f'✅ Freqtrade is already up to date.')
 
+            # Update last_checked_date in last_update.txt
             with open('last_update.txt', 'w') as f:
-                f.write(datetoday)
+                f.write(f"last_checked_date={datetoday}\n")
     else:
         print(f'✅ Freqtrade updates already checked today. Skipping until tomorrow.')
 else:

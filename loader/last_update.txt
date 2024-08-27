@@ -1,0 +1,7 @@
+# last_update.txt
+
+# General update information
+last_checked_date=2024-08-01
+
+# Python installation tracking (added by setup/uninstall scripts)
+python_installed_by_script=false
