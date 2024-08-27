@@ -19,11 +19,11 @@ PYTHON_INSTALLED_BY_SCRIPT=$(grep "python_installed_by_script" loader/last_updat
 
 # Function to remove a package if it's installed
 remove_package() {
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
         echo "🗑️ Removing $1 with dnf..."
         sudo dnf remove -y "$1"
         sudo dnf autoremove -y
-    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
+    elif [ "$OS_NAME" = "Linux" ]; then
         echo "🗑️ Removing $1 with apt..."
         sudo apt-get remove --purge -y "$1"
         sudo apt-get autoremove -y
@@ -33,6 +33,17 @@ remove_package() {
         brew uninstall "$1"
     fi
 }
+
+# Remove sysstat and revert EPEL repository configuration on RHEL/CentOS/Fedora
+if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
+    echo "🗑️ Removing sysstat..."
+    remove_package sysstat
+
+    if [ "$OS_NAME" = "ol" ]; then
+        echo "🔄 Disabling ol8_developer_EPEL repository..."
+        sudo dnf config-manager --disable ol8_developer_EPEL
+    fi
+fi
 
 # Function to revert Python symlinks if changed by the script
 revert_python_symlinks() {

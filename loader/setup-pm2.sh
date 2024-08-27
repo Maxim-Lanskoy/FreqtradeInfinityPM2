@@ -16,7 +16,7 @@ fi
 
 # Function to install a package if it's not installed
 install_package() {
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
         echo "🔄 Installing $1 with dnf..."
         sudo dnf install -y "$1"
     elif [ "$OS_NAME" = "Linux" ]; then
@@ -28,10 +28,16 @@ install_package() {
     fi
 }
 
-# Install EPEL release and development tools on RHEL/CentOS/Fedora
-if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+# Enable EPEL release and install development tools on RHEL/CentOS/Fedora
+if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
     echo "📦 Installing EPEL release..."
     install_package epel-release
+
+    # Enable ol8_developer_EPEL repository for Oracle Linux
+    if [[ "$OS_NAME" = "ol" ]]; then
+        echo "🔄 Enabling ol8_developer_EPEL repository..."
+        sudo dnf config-manager --enable ol8_developer_EPEL
+    fi
 
     echo "📦 Installing Development Tools..."
     sudo dnf groupinstall -y "Development Tools"
@@ -39,6 +45,9 @@ if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
     echo "📦 Installing gcc-c++ (g++ equivalent) and Python development tools..."
     install_package gcc-c++  # Correct package name for g++
     install_package python3.11-devel  # Ensure the package name is correct
+
+    echo "📦 Installing sysstat for system performance monitoring..."
+    install_package sysstat
 fi
 
 # Function to set Python 3.11 as the default version
@@ -81,7 +90,7 @@ fi
 
 # Install Python if needed
 if [ "$PYTHON_INSTALLED" = "false" ]; then
-    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
         sudo dnf install -y python3.11 python3.11-devel
     elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
         sudo apt update -y
@@ -106,7 +115,7 @@ install_dependencies() {
     if ! command_exists node || ! command_exists npm; then
         echo "📦 Node.js and npm are not installed. Installing now..."
         
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
             curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
             install_package nodejs
         elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
@@ -122,7 +131,7 @@ install_dependencies() {
     else
         echo "🔍 Node.js and npm are already installed. Checking for updates..."
 
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
             sudo npm install -g n
             sudo n stable
         elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
@@ -149,7 +158,7 @@ install_dependencies() {
     # Check if pip is installed
     if ! command_exists pip; then
         echo "📦 pip is not installed. Installing pip now..."
-        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+        if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora|ol8)$ ]]; then
             install_package python3-pip
         elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
             sudo apt update -y
