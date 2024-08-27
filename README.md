@@ -27,27 +27,28 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
 
 1. **Clone the Repository** 📂
    ```bash
-   git clone git@github.com:Maxim-Lanskoy/FreqtradeInfinityPM2.git
-   cd freqtrade-management-automation
+   git clone git@github.com:Maxim-Lanskoy/FreqtradeInfinityPM2.git Freqtrade
+   cd Freqtrade
    ```
 
-2. **Install Freqtrade from Scratch** 💻
-   ```bash
-   ./setup.sh -i
-   ```
-   This works for Debian, Ubuntu, Oracle Limux or macOS.
-
-3. **Activate Virtual Environment** 🌐
-   ```bash
-   source .venv/bin/activate
-   ```
-
-4. **Install or Update Dependencies** 🔧
+2. **Install or Update Dependencies** 🔧
 
 
    Use the `setup-pm2.sh` script to install or update automation-related dependencies (`npm` and `pm2`):
    ```bash
    ./loader/setup-pm2.sh
+   ```
+
+
+3. **Install Freqtrade from Scratch** 💻
+   ```bash
+   ./setup.sh -i
+   ```
+   This works for Debian, Ubuntu, Oracle Limux or macOS. This step may take a while!
+
+4. **Activate Virtual Environment** 🌐
+   ```bash
+   source .venv/bin/activate
    ```
 
 5. **Start Your Bots** 🚀
@@ -61,7 +62,7 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
 6. **Update Bots and Configurations** 🔄
 
 
-   Run the `updater.sh` script to check for updates and apply them:
+   Run the `updater.sh` script to check for updates and apply them (`chmod` command only needed once):
    ```bash
    ./updater.sh
    ```
@@ -70,7 +71,7 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
 ## **Uninstallation** 🗑️
 
 
-   To uninstall specific for this repo dependencies, like Node.js, npm, and PM2, run the `uninstall.sh` script:
+   To uninstall specific dependencies related to this repo, like Node.js, npm, and PM2, run the `uninstall.sh` script:
    ```bash
    ./loader/uninstall.sh
    ```
