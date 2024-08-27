@@ -36,8 +36,8 @@ if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
     echo "📦 Installing Development Tools..."
     sudo dnf groupinstall -y "Development Tools"
 
-    echo "📦 Installing g++ and Python development tools..."
-    install_package g++
+    echo "📦 Installing gcc-c++ (g++ equivalent) and Python development tools..."
+    install_package gcc-c++  # Correct package name for g++
     install_package python3.11-devel  # Ensure the package name is correct
 fi
 
