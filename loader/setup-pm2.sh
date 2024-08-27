@@ -67,10 +67,12 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
         brew install python@3.11
     fi
     echo "✅ Python 3.11 has been installed."
-    echo "python_installed_by_script=true" >> last_update.txt
+    # Update python_installed_by_script flag in last_update.txt
+    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' last_update.txt
     set_default_python
 else
-    echo "python_installed_by_script=false" >> last_update.txt
+    # Ensure python_installed_by_script flag remains false in last_update.txt
+    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' last_update.txt
 fi
 
 # Function to install remaining dependencies
