@@ -54,7 +54,7 @@ export PATH=/usr/local/bin:$PATH
 PYTHON_INSTALLED="false"
 if command_exists python3; then
     PYTHON_VERSION=$(python3 --version | awk '{print $2}')
-    if [[ "$(printf '%s\n' "3.9" "$PYTHON_VERSION" | sort -V | head -n1)" != "3.9" ]]; then
+    if [[ "$(printf '%s\n' "3.9" "$PYTHON_VERSION" | sort -V | head -n1)" == "3.9" && "$PYTHON_VERSION" != "3.9" ]]; then
         echo "✅ Python version $PYTHON_VERSION is already installed."
         PYTHON_INSTALLED="true"
     else
@@ -77,12 +77,12 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
         brew install python@3.11
     fi
     echo "✅ Python 3.11 has been installed."
-    # Update python_installed_by_script flag in last_update.txt
-    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' last_update.txt
+    # Update python_installed_by_script flag in loader/last_update.txt
+    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' loader/last_update.txt
     set_default_python
 else
-    # Ensure python_installed_by_script flag remains false in last_update.txt
-    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' last_update.txt
+    # Ensure python_installed_by_script flag remains false in loader/last_update.txt
+    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' loader/last_update.txt
 fi
 
 # Function to install remaining dependencies
@@ -152,11 +152,11 @@ install_dependencies() {
     # Install or update python-dotenv
     if ! command_exists pip || ! pip show python-dotenv > /dev/null 2>&1; then
         echo "📦 python-dotenv is not installed. Installing python-dotenv..."
-        pip install python-dotenv
+        pip install --user python-dotenv
         echo "✅ python-dotenv has been installed."
     else
         echo "🔍 python-dotenv is already installed. Checking for updates..."
-        pip install --upgrade python-dotenv
+        pip install --user --upgrade python-dotenv
         echo "🔄 python-dotenv has been updated to the latest version."
     fi
 
