@@ -39,12 +39,10 @@ revert_python_symlinks() {
     if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
         if command_exists python3.11; then
             echo "🔄 Reverting Python symlinks..."
-            # Replace python3.6 with your system's default Python version
-            sudo ln -sf /usr/bin/python3.6 /usr/bin/python3
-            sudo ln -sf /usr/bin/python3.6 /usr/bin/python
-            # Replace pip3.6 with your system's default pip version
-            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip3
-            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python3  # Replace with your system's default Python
+            sudo ln -sf /usr/bin/python3.6 /usr/bin/python   # Replace with your system's default Python
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip3  # Replace with your system's default pip
+            sudo ln -sf /usr/local/bin/pip3.6 /usr/local/bin/pip   # Replace with your system's default pip
             echo "✅ Python symlinks reverted to original version."
         fi
     fi
@@ -112,6 +110,7 @@ if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
         echo "🗑️ Removing Python 3.11..."
         if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             remove_package python3.11
+            remove_package python3.11-devel
         elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
             sudo apt-get remove --purge -y python3.11 python3.11-dev
         elif [ "$OS_NAME" = "Darwin" ]; then
@@ -125,5 +124,12 @@ fi
 
 # Revert Python symlinks if needed
 revert_python_symlinks
+
+# Remove EPEL release if installed (for RHEL/CentOS/Fedora)
+if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    echo "🗑️ Removing EPEL release..."
+    remove_package epel-release
+    echo "✅ EPEL release has been removed."
+fi
 
 echo "🎉 Uninstallation complete!"

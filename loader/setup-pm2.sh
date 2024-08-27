@@ -28,6 +28,12 @@ install_package() {
     fi
 }
 
+# Install EPEL release on RHEL/CentOS/Fedora
+if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
+    echo "📦 Installing EPEL release..."
+    install_package epel-release
+fi
+
 # Function to set Python 3.11 as the default version
 set_default_python() {
     if command_exists python3.11; then
@@ -47,22 +53,19 @@ set_default_python() {
     fi
 }
 
-# Install EPEL release and development tools on RHEL/CentOS/Fedora
-if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
-    echo "📦 Installing EPEL release..."
-    install_package epel-release
-fi
+# Update the PATH variable for the current session
+export PATH=/usr/local/bin:$PATH
 
 # Check Python version
 PYTHON_INSTALLED="false"
 if command_exists python3; then
     PYTHON_VERSION=$(python3 --version | awk '{print $2}')
-    if [[ "$PYTHON_VERSION" < "3.9" ]]; then
-        echo "⚠️ Python version is less than 3.9. Upgrading Python..."
-        PYTHON_INSTALLED="false"
-    else
+    if [[ "$(printf '%s\n' "3.9" "$PYTHON_VERSION" | sort -V | head -n1)" == "3.9" && "$PYTHON_VERSION" != "3.9" ]]; then
         echo "✅ Python version $PYTHON_VERSION is already installed."
         PYTHON_INSTALLED="true"
+    else
+        echo "⚠️ Python version is less than 3.9. Upgrading Python..."
+        PYTHON_INSTALLED="false"
     fi
 else
     echo "📦 Python3 is not installed. Installing Python 3.11..."
@@ -79,11 +82,13 @@ if [ "$PYTHON_INSTALLED" = "false" ]; then
     elif [ "$OS_NAME" = "Darwin" ]; then
         brew install python@3.11
     fi
-    echo "✅ Python 3.11 and development tools have been installed."
-    echo "python_installed_by_script=true" >> loader/last_update.txt
-    set_default_python # Set Python 3.11 as default after installation
+    echo "✅ Python 3.11 has been installed."
+    # Update python_installed_by_script flag in loader/last_update.txt
+    sed -i 's/python_installed_by_script=false/python_installed_by_script=true/' loader/last_update.txt
+    set_default_python
 else
-    echo "python_installed_by_script=false" >> loader/last_update.txt
+    # Ensure python_installed_by_script flag remains false in loader/last_update.txt
+    sed -i 's/python_installed_by_script=true/python_installed_by_script=false/' loader/last_update.txt
 fi
 
 # Function to install remaining dependencies
@@ -135,7 +140,7 @@ install_dependencies() {
     fi
 
     # Check if pip is installed
-    if ! command_exists pip3.11; then
+    if ! command_exists pip; then
         echo "📦 pip is not installed. Installing pip now..."
         if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
             install_package python3-pip
@@ -151,13 +156,13 @@ install_dependencies() {
     fi
 
     # Install or update python-dotenv
-    if ! pip3.11 show python-dotenv > /dev/null 2>&1; then
+    if ! command_exists pip || ! pip show python-dotenv > /dev/null 2>&1; then
         echo "📦 python-dotenv is not installed. Installing python-dotenv..."
-        pip3.11 install python-dotenv
+        pip install --user python-dotenv
         echo "✅ python-dotenv has been installed."
     else
         echo "🔍 python-dotenv is already installed. Checking for updates..."
-        pip3.11 install --upgrade python-dotenv
+        pip install --user --upgrade python-dotenv
         echo "🔄 python-dotenv has been updated to the latest version."
     fi
 
