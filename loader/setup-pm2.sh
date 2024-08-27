@@ -7,14 +7,23 @@ command_exists() {
 
 # Detect the operating system
 OS="$(uname -s)"
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS_NAME=$ID
+else
+    OS_NAME=$OS
+fi
 
 # Function to install a package if it's not installed
 install_package() {
-    if [ "$OS" = "Linux" ]; then
-        echo "🔄 Installing $1..."
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        echo "🔄 Installing $1 with dnf..."
+        sudo dnf install -y "$1"
+    elif [ "$OS_NAME" = "Linux" ]; then
+        echo "🔄 Installing $1 with apt..."
         sudo apt install -y "$1"
-    elif [ "$OS" = "Darwin" ]; then
-        echo "🔄 Installing $1..."
+    elif [ "$OS_NAME" = "Darwin" ]; then
+        echo "🔄 Installing $1 with brew..."
         brew install "$1"
     fi
 }
@@ -25,11 +34,14 @@ echo "🚀 Starting setup..."
 if ! command_exists node || ! command_exists npm; then
     echo "📦 Node.js and npm are not installed. Installing now..."
     
-    if [ "$OS" = "Linux" ]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
+        install_package nodejs
+    elif [ "$OS_NAME" = "Linux" ]; then
         sudo apt update -y
         curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
         install_package nodejs
-    elif [ "$OS" = "Darwin" ]; then
+    elif [ "$OS_NAME" = "Darwin" ]; then
         brew update
         brew install node
     fi
@@ -38,10 +50,13 @@ if ! command_exists node || ! command_exists npm; then
 else
     echo "🔍 Node.js and npm are already installed. Checking for updates..."
 
-    if [ "$OS" = "Linux" ]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
         sudo npm install -g n
         sudo n stable
-    elif [ "$OS" = "Darwin" ]; then
+    elif [ "$OS_NAME" = "Linux" ]; then
+        sudo npm install -g n
+        sudo n stable
+    elif [ "$OS_NAME" = "Darwin" ]; then
         brew upgrade node
     fi
     
@@ -62,10 +77,12 @@ fi
 # Check if pip is installed
 if ! command_exists pip; then
     echo "📦 pip is not installed. Installing pip now..."
-    if [ "$OS" = "Linux" ]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        install_package python3-pip
+    elif [ "$OS_NAME" = "Linux" ]; then
         sudo apt update -y
         install_package python3-pip
-    elif [ "$OS" = "Darwin" ]; then
+    elif [ "$OS_NAME" = "Darwin" ]; then
         brew install python3
     fi
     echo "✅ pip has been installed."

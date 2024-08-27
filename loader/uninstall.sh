@@ -7,16 +7,26 @@ command_exists() {
 
 # Detect the operating system
 OS="$(uname -s)"
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS_NAME=$ID
+else
+    OS_NAME=$OS
+fi
 
 # Function to remove a package if it's installed
 remove_package() {
-    if [ "$OS" = "Linux" ]; then
-        echo "🗑️ Removing $1..."
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        echo "🗑️ Removing $1 with dnf..."
+        sudo dnf remove -y "$1"
+        sudo dnf autoremove -y
+    elif [ "$OS_NAME" = "Linux" ]; then
+        echo "🗑️ Removing $1 with apt..."
         sudo apt-get remove --purge -y "$1"
         sudo apt-get autoremove -y
         sudo apt-get autoclean -y
-    elif [ "$OS" = "Darwin" ]; then
-        echo "🗑️ Removing $1..."
+    elif [ "$OS_NAME" = "Darwin" ]; then
+        echo "🗑️ Removing $1 with brew..."
         brew uninstall "$1"
     fi
 }
@@ -35,10 +45,12 @@ fi
 # Remove npm and Node.js if installed
 if command_exists npm || command_exists node; then
     echo "🗑️ Removing Node.js and npm..."
-    if [ "$OS" = "Linux" ]; then
+    if [[ "$OS_NAME" =~ ^(ol|centos|rhel)$ ]]; then
+        remove_package nodejs
+    elif [ "$OS_NAME" = "Linux" ]; then
         remove_package nodejs
         sudo apt-get remove --purge -y npm
-    elif [ "$OS" = "Darwin" ]; then
+    elif [ "$OS_NAME" = "Darwin" ]; then
         brew uninstall node
     fi
     echo "✅ Node.js and npm have been removed."
@@ -53,7 +65,7 @@ sudo rm -rf ~/.npm
 sudo rm -rf ~/.nvm
 
 # Optionally remove NodeSource setup script (Linux only)
-if [ "$OS" = "Linux" ]; then
+if [ "$OS_NAME" = "Linux" ]; then
     echo "🗑️ Removing NodeSource setup script if present..."
     sudo rm -f /etc/apt/sources.list.d/nodesource.list
 fi
