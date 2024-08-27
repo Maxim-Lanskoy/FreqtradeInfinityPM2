@@ -19,7 +19,7 @@ install_package() {
     if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
         echo "🔄 Installing $1 with dnf..."
         sudo dnf install -y "$1"
-    elif [ "$OS_NAME" = "ubuntu" ] || [ "$OS_NAME" = "debian" ]; then
+    elif [ "$OS_NAME" = "Linux" ]; then
         echo "🔄 Installing $1 with apt..."
         sudo apt install -y "$1"
     elif [ "$OS_NAME" = "Darwin" ]; then
@@ -28,10 +28,17 @@ install_package() {
     fi
 }
 
-# Install EPEL release on RHEL/CentOS/Fedora
+# Install EPEL release and development tools on RHEL/CentOS/Fedora
 if [[ "$OS_NAME" =~ ^(ol|centos|rhel|fedora)$ ]]; then
     echo "📦 Installing EPEL release..."
     install_package epel-release
+
+    echo "📦 Installing Development Tools..."
+    sudo dnf groupinstall -y "Development Tools"
+
+    echo "📦 Installing g++ and Python development tools..."
+    install_package g++
+    install_package python3.11-devel  # Ensure the package name is correct
 fi
 
 # Function to set Python 3.11 as the default version
