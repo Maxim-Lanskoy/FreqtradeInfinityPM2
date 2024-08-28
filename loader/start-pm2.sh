@@ -1,7 +1,13 @@
 #!/bin/bash
 
 # Load the main environment variables from the .env file located one level up
-export $(grep -v '^#' ../.env | xargs)
+set -o allexport
+while IFS='=' read -r key value; do
+    if [[ $key != '#'* ]]; then
+        export "$key=$value"
+    fi
+done < ../.env
+set +o allexport
 
 # Extract the list of exchanges from the .env file
 EXCHANGES=$(grep '^EXCHANGES=' ../.env | cut -d '=' -f 2 | tr -d ' ')
@@ -17,7 +23,13 @@ do
     EXCHANGE_LOWER=$(echo "$EXCHANGE" | tr '[:upper:]' '[:lower:]')
 
     # Load the environment variables for the specific exchange (now using the lowercase filename)
-    export $(grep -v '^#' ../.env.$EXCHANGE_LOWER | xargs)
+    set -o allexport
+    while IFS='=' read -r key value; do
+        if [[ $key != '#'* ]]; then
+            export "$key=$value"
+        fi
+    done < ../.env.$EXCHANGE_LOWER
+    set +o allexport
 
     # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
     envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE_LOWER.json
@@ -26,7 +38,7 @@ do
     sed "s/secrets-config.json/secrets-config-$EXCHANGE_LOWER.json/g" user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE_LOWER.json
 
     # Start Freqtrade with environment variables and using the exchange-specific config files
-    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" -- trade --config user_data/nostalgia-general-$EXCHANGE_LOWER.json --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///user_data/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
+    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade --config user_data/nostalgia-general-$EXCHANGE_LOWER.json --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///user_data/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
 
     echo "✅ Started Freqtrade for $EXCHANGE."
 done
