@@ -115,6 +115,17 @@ else
     echo "🔍 gettext (including envsubst) is not installed, skipping..."
 fi
 
+# Remove python-dotenv if installed
+if command_exists pip; then
+    if pip show python-dotenv > /dev/null 2>&1; then
+        echo "🗑️ Removing python-dotenv..."
+        pip uninstall -y python-dotenv
+        echo "✅ python-dotenv has been removed."
+    else
+        echo "🔍 python-dotenv is not installed, skipping..."
+    fi
+fi
+
 # Remove Python if it was installed by the script
 if [ "$PYTHON_INSTALLED_BY_SCRIPT" = "true" ]; then
     if command_exists python3.11; then
