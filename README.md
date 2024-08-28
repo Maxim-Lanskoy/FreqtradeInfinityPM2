@@ -46,24 +46,35 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
    ```
    This works for Debian, Ubuntu, Oracle Limux or macOS. This step may take a while!
 
-4. **Activate Virtual Environment** 🌐
+3. **Fill Exchange Related .env Files with Data** 💻
+   ```bash
+   sudo nano .env.binance
+   sudo nano .env.kucoin
+   sudo nano .env.gateio
+   sudo nano .env.mexc
+   ```
+   For each exchange you plan to use, you need to fill in the respective .env file with your API keys and other necessary information.
+
+5. **Activate Virtual Environment** 🌐
    ```bash
    source .venv/bin/activate
    ```
 
-5. **Start Your Bots** 🚀
+6. **Start Your Bots** 🚀
 
 
    Start the Freqtrade bots for each exchange using the `start-pm2.sh` script:
    ```bash
-   ./start-pm2.sh
+   cd loader/
+   ./start-pm2.sh && pm2 stop all
    ```
 
-6. **Update Bots and Configurations** 🔄
+7. **Update Bots and Configurations** 🔄
 
 
    Run the `updater.sh` script to check for updates and apply them (`chmod` command only needed once):
    ```bash
+   cd loader/ # If not already in loader directory
    ./updater.sh
    ```
    This script updates strategies, blacklists, and other configuration files and restarts bots if necessary.
