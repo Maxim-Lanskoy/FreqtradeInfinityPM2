@@ -13,20 +13,12 @@ from urllib.request import urlopen
 from datetime import datetime as dt
 from dotenv import load_dotenv
 
-# Load environment variables from ../.env
-env_path = Path('..') / '.env'
-load_dotenv(dotenv_path=env_path)
+# Load main environment variables from ../.env
+env_path_main = Path('..') / '.env'
+load_dotenv(dotenv_path=env_path_main)
 
-# Retrieve the exchanges list from the .env file
+# Retrieve the exchanges list from the main .env file
 exchanges = os.getenv('EXCHANGES').split(",")
-
-# Retrieve the telegram API key and chat ID from the environment variables
-telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
-telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
-
-if not telegram_api_key or not telegram_chat_id:
-    print("❌ Error: 'TELEGRAM_API_KEY' or 'TELEGRAM_CHAT_ID' is not set in the .env file.")
-    sys.exit(1)
 
 # Paths to various files
 path_local_blacklist_base = 'user_data/'
@@ -57,6 +49,15 @@ update_xC = True
 messagetext = 'Performed updates:\n'
 
 print("\n🚀 Starting updater...\n")
+
+####################################
+# FUNCTION TO LOAD EXCHANGE-SPECIFIC ENVIRONMENT VARIABLES
+####################################
+
+def load_exchange_env(exchange):
+    env_path = Path('..') / f'.env.{exchange.lower()}'
+    load_dotenv(dotenv_path=env_path)
+    print(f"✅ Loaded environment variables from .env.{exchange.lower()}")
 
 ####################################
 # STRATEGY UPDATER
@@ -173,6 +174,7 @@ def update_blacklist(exchange):
 print("🔄 Checking for blacklist updates...")
 for exchange in exchanges:
     print(f'📋 Updating blacklist for {exchange}')
+    load_exchange_env(exchange)  # Load environment for the specific exchange
     update_blacklist(exchange)
 
 ####################################
