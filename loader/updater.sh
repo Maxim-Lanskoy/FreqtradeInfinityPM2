@@ -291,55 +291,55 @@ else:
 # NOTIFICATION VIA TELEGRAM AND RESTART LOGIC
 ####################################
 
+# Perform a single wait before iterating through exchanges
+print(f'💥 Restart required. Scheduling restart for all exchanges...')
+minute = int(str(dt.now())[15:16])
+
+# Decide on wait time based on the current minute
+if minute in [0, 5]:
+    print(f'🕐 Waiting 150 seconds...\n')
+    time.sleep(150)
+elif minute in [1, 6]:
+    print(f'🕐 Waiting 90 seconds...\n')
+    time.sleep(90)
+elif minute in [2, 7]:
+    print(f'🕐 Waiting 30 seconds...\n')
+    time.sleep(30)
+elif minute in [3, 8]:
+    print(f'🕐 No waiting time\n')
+elif minute in [4, 9]:
+    print(f'🕐 Waiting 210 seconds...\n')
+    time.sleep(210)
+else:
+    print(f'❌ Unexpected scheduling issue\n')
+
+# Iterate through each exchange for restarts and notifications
 for exchange in exchanges:
-    # Load the exchange-specific environment variables at the start
+    # Reload environment variables for the specific exchange
     load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
 
     # Retrieve the Telegram API key and chat ID for the current exchange
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
     telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
 
+    # Debug: Print Telegram API Key and Chat ID for each exchange
+    print(f"🔍 Debug for {exchange}:")
+    print(f"    - Telegram API Key: {telegram_api_key}")
+    print(f"    - Telegram Chat ID: {telegram_chat_id}")
+
     if not telegram_api_key or not telegram_chat_id:
         print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env file for {exchange}.")
         continue
 
-    if restart_required:
-        print(f'\n💥 Restart required. Scheduling restart for {exchange}...')
-        minute = int(str(dt.now())[15:16])
+    # Restart the specific exchange's Freqtrade process using pm2
+    subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
 
-        # Decide on wait time based on the current minute
-        if minute in [0, 5]:
-            print(f'🕐 Waiting 150 seconds for {exchange}...\n')
-            time.sleep(150)
-        elif minute in [1, 6]:
-            print(f'🕐 Waiting 90 seconds for {exchange}...\n')
-            time.sleep(90)
-        elif minute in [2, 7]:
-            print(f'🕐 Waiting 30 seconds for {exchange}...\n')
-            time.sleep(30)
-        elif minute in [3, 8]:
-            print(f'🕐 No waiting time for {exchange}\n')
-        elif minute in [4, 9]:
-            print(f'🕐 Waiting 210 seconds for {exchange}...\n')
-            time.sleep(210)
-        else:
-            print(f'❌ Unexpected scheduling issue for {exchange}\n')
-
-        # Reload the environment variables to ensure we have the correct values before restarting
-        load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
-
-        # Restart the specific exchange's Freqtrade process using pm2
-        subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
-
-        print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
-        url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
-        response = requests.get(url)
-        if response.ok:
-            print(f"✅ Notification sent successfully for {exchange}.")
-        else:
-            print(f"❌ Failed to send notification for {exchange}. Response: {response.text}")
+    print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
+    url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
+    response = requests.get(url)
+    if response.ok:
+        print(f"✅ Notification sent successfully for {exchange}.")
     else:
-        print(f'✅ No restart required for {exchange}.')
-        restart_required = False
+        print(f"❌ Failed to send notification for {exchange}. Response: {response.text}")
 
 print("\n🎉 Updater finished successfully!")
