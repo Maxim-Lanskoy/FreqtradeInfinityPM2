@@ -109,7 +109,6 @@ do
     --config "$USER_DATA_DIR/blacklist-$EXCHANGE_LOWER.json" \
     --config "$USER_DATA_DIR/settings-config.json" \
     --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \
-    --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" \
     --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
 
     echo "✅ Started Freqtrade for $EXCHANGE."
