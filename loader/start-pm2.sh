@@ -52,6 +52,14 @@ do
         echo "✅ FREQTRADE__TRADING_MODE_TYPE is set to '$FREQTRADE__TRADING_MODE_TYPE' after loading .env.$EXCHANGE_LOWER"
     fi
 
+    # **Check if Telegram environment variables are set**
+    if [ -z "$FREQTRADE__TELEGRAM__TOKEN" ] || [ -z "$FREQTRADE__TELEGRAM__CHAT_ID" ]; then
+        echo "❌ ERROR: FREQTRADE__TELEGRAM__TOKEN or FREQTRADE__TELEGRAM__CHAT_ID is not set in .env.$EXCHANGE_LOWER!"
+        exit 1
+    else
+        echo "✅ Telegram environment variables are set correctly."
+    fi
+
     # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
     if [ -n "$FREQTRADE__EXCHANGE__PASSWORD" ]; then
         # Include password in the config
