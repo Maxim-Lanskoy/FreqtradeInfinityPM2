@@ -288,6 +288,77 @@ else:
     print(f'ℹ️ Updates for Freqtrade are disabled.')
 
 ####################################
+# REGENERATE EXCHANGE FILES
+####################################
+
+def generate_files_for_exchange(exchange, user_data_dir):
+    """
+    Generate configuration files for a given exchange.
+    """
+    exchange_lower = exchange.lower()
+    
+    print(f"🔄 Generating files for exchange {exchange}")
+
+    # Load environment variables for this exchange
+    load_dotenv(dotenv_path=Path(f'../.env.{exchange_lower}'))
+    
+    required_vars = [
+        "FREQTRADE__TELEGRAM__CHAT_ID",
+        "FREQTRADE__TELEGRAM__TOKEN",
+        "FREQTRADE__EXCHANGE__NAME",
+        "FREQTRADE__EXCHANGE__KEY",
+        "FREQTRADE__EXCHANGE__SECRET",
+        "FREQTRADE__API_SERVER__ENABLED",
+        "FREQTRADE__STRATEGY_FILE_NAME",
+        "FREQTRADE__TRADING_MODE_TYPE"
+    ]
+    
+    for var in required_vars:
+        if not os.getenv(var):
+            print(f"❌ ERROR: {var} is not set!")
+            sys.exit(1)
+        else:
+            print(f"✅ {var} is set to '{os.getenv(var)}'")
+
+    # Generate secrets-config-{exchange_lower}.json
+    secrets_config_template = "secrets-config-with-password.json" if os.getenv('FREQTRADE__EXCHANGE__PASSWORD') else "secrets-config.json"
+    secrets_config_path = Path(user_data_dir) / f"secrets-config-{exchange_lower}.json"
+    envsubst_cmd = f'envsubst < {user_data_dir}/{secrets_config_template} > {user_data_dir}/secrets-config-{exchange_lower}.tmp.json'
+    subprocess.run(envsubst_cmd, shell=True)
+
+    sed_cmd = f'sed -e \'s/"false"/false/g\' -e \'s/"true"/true/g\' "{user_data_dir}/secrets-config-{exchange_lower}.tmp.json" > "{secrets_config_path}"'
+    subprocess.run(sed_cmd, shell=True)
+
+    remove_trailing_commas_cmd = f'sed -i \'$!N;/,\n[[:space:]]*}}/s/,//\' "{secrets_config_path}"'
+    subprocess.run(remove_trailing_commas_cmd, shell=True)
+
+    Path(f"{user_data_dir}/secrets-config-{exchange_lower}.tmp.json").unlink()
+
+    # Generate nostalgia-general-{exchange_lower}.json
+    nostalgia_general_path = Path(user_data_dir) / f"nostalgia-general-{exchange_lower}.json"
+    envsubst_cmd = f'envsubst < {user_data_dir}/nostalgia-general.json > {user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json'
+    subprocess.run(envsubst_cmd, shell=True)
+
+    sed_cmd = f'sed -e \'s/"false"/false/g\' -e \'s/"true"/true/g\' "{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json" > "{nostalgia_general_path}"'
+    subprocess.run(sed_cmd, shell=True)
+
+    remove_trailing_commas_cmd = f'sed -i \'$!N;/,\n[[:space:]]*}}/s/,//\' "{nostalgia_general_path}"'
+    subprocess.run(remove_trailing_commas_cmd, shell=True)
+
+    Path(f"{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json").unlink()
+
+    print(f"✅ Generated files for exchange {exchange}")
+
+print("🔄 Generating updated configuration files for each exchange...")
+
+user_data_dir = './user_data'  # Define your user data directory path
+
+for exchange in exchanges:
+    generate_files_for_exchange(exchange, user_data_dir)
+
+print("🎉 All files have been generated successfully!")
+
+####################################
 # NOTIFICATION VIA TELEGRAM AND RESTART LOGIC
 ####################################
 
