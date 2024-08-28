@@ -13,9 +13,9 @@ from urllib.request import urlopen
 from datetime import datetime as dt
 from dotenv import load_dotenv
 
-# Load main environment variables from ../.env
-env_path_main = Path('..') / '.env'
-load_dotenv(dotenv_path=env_path_main)
+# Load environment variables from ../.env for general settings
+env_path = Path('..') / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # Retrieve the exchanges list from the main .env file
 exchanges = os.getenv('EXCHANGES').split(",")
@@ -51,15 +51,6 @@ messagetext = 'Performed updates:\n'
 print("\n🚀 Starting updater...\n")
 
 ####################################
-# FUNCTION TO LOAD EXCHANGE-SPECIFIC ENVIRONMENT VARIABLES
-####################################
-
-def load_exchange_env(exchange):
-    env_path = Path('..') / f'.env.{exchange.lower()}'
-    load_dotenv(dotenv_path=env_path)
-    print(f"✅ Loaded environment variables from .env.{exchange.lower()}")
-
-####################################
 # STRATEGY UPDATER
 ####################################
 
@@ -71,11 +62,9 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         return
 
     try:
-        # Attempt to download the strategy from the given URL
         remote_strat = urlopen(remote_url).read().decode('utf-8')
         remote_strat_version_match = re.search('return "v(.+?)"', remote_strat)
 
-        # Check if version pattern was found
         if remote_strat_version_match:
             remote_strat_version = remote_strat_version_match.group(1)
             print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
@@ -88,12 +77,10 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         return
 
     try:
-        # Attempt to read the local strategy file
         with open(local_path, 'r') as local_strat:
             local_strat = local_strat.read()
             local_strat_version_match = re.search('return "v(.+?)"', local_strat)
 
-            # Check if version pattern was found in the local file
             if local_strat_version_match:
                 local_strat_version = local_strat_version_match.group(1)
                 print(f'📄 Loaded local {strategy_name} version {local_strat_version}.')
@@ -108,7 +95,6 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         print(f'❌ Error: {e}')
         return
 
-    # Compare remote and local versions
     if remote_strat_version == local_strat_version:
         print(f'✅ {strategy_name} is already up to date.\n')
     else:
@@ -117,13 +103,15 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         try:
             with open(local_path, 'w') as f:
                 f.write(remote_strat)
-                new_strat_version = remote_strat_version
-                print(f'✅ Updated {strategy_name} to version {new_strat_version}.\n')
+                new_strat_version_match = re.search('return "v(.+?)"', remote_strat)
+                if new_strat_version_match:
+                    new_strat_version = new_strat_version_match.group(1)
+                    print(f'✅ Updated {strategy_name} to version {new_strat_version}.\n')
+                    messagetext += f'🔹 {strategy_name} updated to v{new_strat_version} from v{local_strat_version}\n'
+                else:
+                    print(f'❌ Could not determine the new version after update for {strategy_name}.')
         except Exception as e:
-            print(f'❌ Error updating {strategy_name}: {e}')
-            new_strat_version = f'Unknown version of {strategy_name}'
-        
-        messagetext += f'🔹 {strategy_name} updated to v{new_strat_version} from v{local_strat_version}\n'
+            print(f'❌ Error: {e}')
 
 # Update strategies
 print("🔄 Checking for strategy updates...")
@@ -271,10 +259,8 @@ if update_ft:
             old_ft_version = matches.group(1) if matches else ""
             print(f'📄 Current Freqtrade version: {old_ft_version}')
 
-            # Stop pm2 services based on exchange names
-            for exchange in exchanges:
-                pm2_name = f"Freqtrade-{exchange}"
-                subprocess.run(f'pm2 stop {pm2_name}', shell=True)
+            # Stop pm2 service for the current exchange
+            subprocess.run(f'pm2 stop Freqtrade-{exchange}', shell=True)
             time.sleep(10)
 
             # Update Freqtrade (assuming a virtualenv setup)
@@ -302,55 +288,58 @@ else:
     print(f'ℹ️ Updates for Freqtrade are disabled.')
 
 ####################################
-# NOTIFICATION VIA TELEGRAM AND RESTART PM2 PROCESS
+# NOTIFICATION VIA TELEGRAM AND RESTART LOGIC
 ####################################
 
-if restart_required:
-    print(f'\n💥 Restart required. Scheduling restart...')
-    minute = int(str(dt.now())[15:16])
+for exchange in exchanges:
+    # Load the exchange-specific environment variables at the start
+    load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
 
-    if minute in [0, 5]:
-        print(f'🕐 Waiting 150 seconds...\n')
-        time.sleep(150)
-    elif minute in [1, 6]:
-        print(f'🕐 Waiting 90 seconds...\n')
-        time.sleep(90)
-    elif minute in [2, 7]:
-        print(f'🕐 Waiting 30 seconds...\n')
-        time.sleep(30)
-    elif minute in [3, 8]:
-        print(f'🕐 No waiting time\n')
-        time.sleep(0)
-    elif minute in [4, 9]:
-        print(f'🕐 Waiting 210 seconds...\n')
-        time.sleep(210)
-    else:
-        print(f'❌ Unexpected scheduling issue\n')
+    # Retrieve the Telegram API key and chat ID for the current exchange
+    telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
+    telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
 
-    # Iterate through exchanges to restart each specific process and send notification
-    for exchange in exchanges:
-        load_exchange_env(exchange)  # Load exchange-specific environment variables
-        telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
-        telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
+    if not telegram_api_key or not telegram_chat_id:
+        print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env file for {exchange}.")
+        continue
 
-        if not telegram_api_key or not telegram_chat_id:
-            print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env.{exchange.lower()} file.")
-            continue
+    if restart_required:
+        print(f'\n💥 Restart required. Scheduling restart for {exchange}...')
+        minute = int(str(dt.now())[15:16])
 
-        # Restart the pm2 process for the specific exchange
-        pm2_process_name = f"Freqtrade-{exchange.capitalize()}"
-        subprocess.run(f'pm2 restart {pm2_process_name}', shell=True)
+        # Decide on wait time based on the current minute
+        if minute in [0, 5]:
+            print(f'🕐 Waiting 150 seconds for {exchange}...\n')
+            time.sleep(150)
+        elif minute in [1, 6]:
+            print(f'🕐 Waiting 90 seconds for {exchange}...\n')
+            time.sleep(90)
+        elif minute in [2, 7]:
+            print(f'🕐 Waiting 30 seconds for {exchange}...\n')
+            time.sleep(30)
+        elif minute in [3, 8]:
+            print(f'🕐 No waiting time for {exchange}\n')
+        elif minute in [4, 9]:
+            print(f'🕐 Waiting 210 seconds for {exchange}...\n')
+            time.sleep(210)
+        else:
+            print(f'❌ Unexpected scheduling issue for {exchange}\n')
 
-        # Send the Telegram notification for the specific exchange
+        # Reload the environment variables to ensure we have the correct values before restarting
+        load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
+
+        # Restart the specific exchange's Freqtrade process using pm2
+        subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
+
+        print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
         url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
         response = requests.get(url)
         if response.ok:
             print(f"✅ Notification sent successfully for {exchange}.")
         else:
             print(f"❌ Failed to send notification for {exchange}. Response: {response.text}")
-
-else:
-    print(f'✅ No restart required.')
-    restart_required = False
+    else:
+        print(f'✅ No restart required for {exchange}.')
+        restart_required = False
 
 print("\n🎉 Updater finished successfully!")
