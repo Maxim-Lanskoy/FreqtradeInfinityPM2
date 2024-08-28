@@ -71,18 +71,36 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         return
 
     try:
+        # Attempt to download the strategy from the given URL
         remote_strat = urlopen(remote_url).read().decode('utf-8')
-        remote_strat_version = re.search('return "v(.+?)"', remote_strat).group(1)
-        print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
+        remote_strat_version_match = re.search('return "v(.+?)"', remote_strat)
+
+        # Check if version pattern was found
+        if remote_strat_version_match:
+            remote_strat_version = remote_strat_version_match.group(1)
+            print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
+        else:
+            print(f'❌ Error: Could not find the version in the downloaded content for {strategy_name}. Check the file content or URL.')
+            return
+
     except Exception as e:
-        print(f'❌ Error downloading {strategy_name} from Github: {e}\n')
+        print(f'❌ Error downloading {strategy_name} from Github: {e}.')
         return
 
     try:
+        # Attempt to read the local strategy file
         with open(local_path, 'r') as local_strat:
             local_strat = local_strat.read()
-            local_strat_version = re.search('return "v(.+?)"', local_strat).group(1)
-            print(f'📄 Loaded local {strategy_name} version {local_strat_version}.')
+            local_strat_version_match = re.search('return "v(.+?)"', local_strat)
+
+            # Check if version pattern was found in the local file
+            if local_strat_version_match:
+                local_strat_version = local_strat_version_match.group(1)
+                print(f'📄 Loaded local {strategy_name} version {local_strat_version}.')
+            else:
+                print(f'❌ Error: Could not find the version in the local file for {strategy_name}.')
+                return
+
     except FileNotFoundError:
         print(f'❌ Local {strategy_name} file not found. Please check the path.\n')
         return
@@ -90,6 +108,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         print(f'❌ Error: {e}')
         return
 
+    # Compare remote and local versions
     if remote_strat_version == local_strat_version:
         print(f'✅ {strategy_name} is already up to date.\n')
     else:
@@ -98,10 +117,10 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         try:
             with open(local_path, 'w') as f:
                 f.write(remote_strat)
-                new_strat_version = re.search('return "v(.+?)"', remote_strat).group(1)
+                new_strat_version = remote_strat_version
                 print(f'✅ Updated {strategy_name} to version {new_strat_version}.\n')
-        except AttributeError:
-            print(f'❌ Could not determine the version of {strategy_name}.')
+        except Exception as e:
+            print(f'❌ Error updating {strategy_name}: {e}')
             new_strat_version = f'Unknown version of {strategy_name}'
         
         messagetext += f'🔹 {strategy_name} updated to v{new_strat_version} from v{local_strat_version}\n'
