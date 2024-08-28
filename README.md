@@ -19,6 +19,7 @@ Read the [exchange specific notes](docs/exchanges.md) to learn about configurati
 - [x] [Gate.io](https://www.gate.io/)
 - [x] [KuCoin](https://www.kucoin.com/)
 - [x] [MEXC](https://www.mexc.com)
+- [x] [ByBit](https://www.bybit.com)
 - [ ] [Potentially many others](https://github.com/ccxt/ccxt/) _(cannot guarantee they will work)_
 
 ## Quick Start 🚀
@@ -52,6 +53,7 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
    sudo nano .env.kucoin
    sudo nano .env.gateio
    sudo nano .env.mexc
+   sudo nano .env.bybit
    ```
    For each exchange you plan to use, you need to fill in the respective .env file with your API keys and other necessary information.
 
