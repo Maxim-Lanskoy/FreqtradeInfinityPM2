@@ -90,8 +90,16 @@ do
     jq empty "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in secrets-config-$EXCHANGE_LOWER.json"; exit 1; }
     jq empty "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in nostalgia-general-$EXCHANGE_LOWER.json"; exit 1; }
 
-    # Start Freqtrade with environment variables and using the exchange-specific config files
-    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
+    # **Updated PM2 Start Command**:
+    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade \
+    --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" \
+    --config "$USER_DATA_DIR/trading_mode-spot.json" \
+    --config "$USER_DATA_DIR/pairlist-volume-binance-usdt.json" \
+    --config "$USER_DATA_DIR/blacklist-binance.json" \
+    --config "$USER_DATA_DIR/settings-config.json" \
+    --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \
+    --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" \
+    --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
 
     echo "✅ Started Freqtrade for $EXCHANGE."
 done
