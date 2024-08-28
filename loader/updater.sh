@@ -69,7 +69,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
             remote_strat_version = remote_strat_version_match.group(1)
             print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
         else:
-            print(f'❌ Error: Could not find the version in the downloaded content for {strategy_name}. Check the file content or URL.')
+            print(f'❌ Error: Could not find the version in the downloaded content for {strategy_name}.')
             return
 
     except Exception as e:
@@ -283,7 +283,7 @@ if update_ft:
             with open('last_update.txt', 'w') as f:
                 f.write(f"last_checked_date={datetoday}\n")
     else:
-        print(f'✅ Freqtrade updates already checked today. Skipping until tomorrow.')
+        print(f'✅ Freqtrade updates already checked today. Skipping until tomorrow.\n')
 else:
     print(f'ℹ️ Updates for Freqtrade are disabled.')
 
