@@ -291,7 +291,6 @@ else:
 # NOTIFICATION VIA TELEGRAM AND RESTART LOGIC
 ####################################
 
-# Perform a single wait before iterating through exchanges
 print(f'💥 Restart required. Scheduling restart for all exchanges...')
 minute = int(str(dt.now())[15:16])
 
@@ -315,9 +314,13 @@ else:
 
 # Iterate through each exchange for restarts and notifications
 for exchange in exchanges:
+    # Clear the environment variables to avoid carryover
+    os.environ.pop('FREQTRADE__TELEGRAM__TOKEN', None)
+    os.environ.pop('FREQTRADE__TELEGRAM__CHAT_ID', None)
+
     # Reload environment variables for the specific exchange
     load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
-    
+
     # Retrieve the Telegram API key and chat ID for the current exchange
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
     telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
@@ -335,7 +338,7 @@ for exchange in exchanges:
     subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
 
     print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
-    
+
     # Reload environment variables again before sending the notification
     load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
