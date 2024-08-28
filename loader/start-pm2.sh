@@ -16,24 +16,17 @@ load_env_file() {
                 
                 # Export the variable
                 export "$key"="$value"
-                echo "Loaded $key=$value"
             fi
         done < "$env_file"
+        echo "✅ Loaded environment variables from $env_file"
     else
         echo "❌ ERROR: Environment file $env_file not found!"
+        exit 1
     fi
 }
 
 # Load the main environment variables from the .env file located one level up
 load_env_file "../.env"
-
-# Check if FREQTRADE__TRADING_MODE_TYPE is set
-if [ -z "$FREQTRADE__TRADING_MODE_TYPE" ]; then
-    echo "❌ ERROR: FREQTRADE__TRADING_MODE_TYPE is not set!"
-    exit 1
-else
-    echo "✅ FREQTRADE__TRADING_MODE_TYPE is set to '$FREQTRADE__TRADING_MODE_TYPE'"
-fi
 
 # Extract the list of exchanges from the .env file
 EXCHANGES=$(grep '^EXCHANGES=' ../.env | cut -d '=' -f 2 | tr -d ' ')
@@ -51,12 +44,12 @@ do
     # Load the environment variables for the specific exchange (now using the lowercase filename)
     load_env_file "../.env.$EXCHANGE_LOWER"
 
-    # Check if trading mode config file is correctly generated
-    echo "Generating trading mode config for ${FREQTRADE__TRADING_MODE_TYPE}..."
-    envsubst < user_data/trading_mode-template.json > user_data/trading_mode-${FREQTRADE__TRADING_MODE_TYPE}.json
-    if [ ! -f "user_data/trading_mode-${FREQTRADE__TRADING_MODE_TYPE}.json" ]; then
-        echo "❌ ERROR: trading_mode-${FREQTRADE__TRADING_MODE_TYPE}.json not created!"
+    # Check if FREQTRADE__TRADING_MODE_TYPE is set after loading exchange-specific env file
+    if [ -z "$FREQTRADE__TRADING_MODE_TYPE" ]; then
+        echo "❌ ERROR: FREQTRADE__TRADING_MODE_TYPE is not set in .env.$EXCHANGE_LOWER!"
         exit 1
+    else
+        echo "✅ FREQTRADE__TRADING_MODE_TYPE is set to '$FREQTRADE__TRADING_MODE_TYPE' after loading .env.$EXCHANGE_LOWER"
     fi
 
     # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
