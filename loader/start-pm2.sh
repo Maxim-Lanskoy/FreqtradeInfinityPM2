@@ -109,6 +109,7 @@ do
 # Load environment variables for this exchange
 source "../.env.$EXCHANGE_LOWER"
 
+# Directly use the variables in the command
 freqtrade trade \\
     --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" \\
     --config "$USER_DATA_DIR/trading_mode-$MODE_LOWER.json" \\
@@ -116,8 +117,8 @@ freqtrade trade \\
     --config "$USER_DATA_DIR/blacklist-$EXCHANGE_LOWER.json" \\
     --config "$USER_DATA_DIR/settings-config.json" \\
     --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \\
-    --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-\${FREQTRADE__EXCHANGE__NAME}-\${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite" \\
-    --strategy "\${FREQTRADE__STRATEGY_FILE_NAME}"
+    --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite" \\
+    --strategy "${FREQTRADE__STRATEGY_FILE_NAME}"
 EOL
 
     # Make the start script executable
