@@ -13,17 +13,20 @@ for EXCHANGE in "${EXCHANGE_ARRAY[@]}"
 do
     echo "🔄 Starting Freqtrade for $EXCHANGE..."
 
-    # Load the environment variables for the specific exchange
-    export $(grep -v '^#' ../.env.$EXCHANGE | xargs)
+    # Convert the exchange name to lowercase for file access
+    EXCHANGE_LOWER=$(echo "$EXCHANGE" | tr '[:upper:]' '[:lower:]')
 
-    # Generate the secrets-config-$EXCHANGE.json by replacing placeholders in the template
-    envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE.json
+    # Load the environment variables for the specific exchange (now using the lowercase filename)
+    export $(grep -v '^#' ../.env.$EXCHANGE_LOWER | xargs)
 
-    # Generate the nostalgia-general-$EXCHANGE.json by replacing placeholders in the template
-    sed "s/secrets-config.json/secrets-config-$EXCHANGE.json/g" user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE.json
+    # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
+    envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE_LOWER.json
+
+    # Generate the nostalgia-general-$EXCHANGE_LOWER.json by replacing placeholders in the template
+    sed "s/secrets-config.json/secrets-config-$EXCHANGE_LOWER.json/g" user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE_LOWER.json
 
     # Start Freqtrade with environment variables and using the exchange-specific config files
-    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" -- trade --config user_data/nostalgia-general-$EXCHANGE.json --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///user_data/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
+    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" -- trade --config user_data/nostalgia-general-$EXCHANGE_LOWER.json --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///user_data/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
 
     echo "✅ Started Freqtrade for $EXCHANGE."
 done
