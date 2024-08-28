@@ -283,7 +283,7 @@ else:
     print(f'ℹ️ Updates for Freqtrade are disabled.')
 
 ####################################
-# NOTIFICATION VIA TELEGRAM
+# NOTIFICATION VIA TELEGRAM AND RESTART PM2 PROCESS
 ####################################
 
 if restart_required:
@@ -308,14 +308,9 @@ if restart_required:
     else:
         print(f'❌ Unexpected scheduling issue\n')
 
-    # Restart pm2 services based on exchange names
+    # Iterate through exchanges to restart each specific process and send notification
     for exchange in exchanges:
-        pm2_name = f"Freqtrade-{exchange}"
-        subprocess.run(f'pm2 restart {pm2_name}', shell=True)
-
-    # Iterate through each exchange to send notifications
-    for exchange in exchanges:
-        load_exchange_env(exchange)  # Load environment for the specific exchange
+        load_exchange_env(exchange)  # Load exchange-specific environment variables
         telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
         telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
 
@@ -323,7 +318,11 @@ if restart_required:
             print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env.{exchange.lower()} file.")
             continue
 
-        print(f"📤 Sending update notification to {exchange}...")
+        # Restart the pm2 process for the specific exchange
+        pm2_process_name = f"Freqtrade-{exchange.capitalize()}"
+        subprocess.run(f'pm2 restart {pm2_process_name}', shell=True)
+
+        # Send the Telegram notification for the specific exchange
         url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
         response = requests.get(url)
         if response.ok:
