@@ -325,7 +325,11 @@ if restart_required:
 
         print(f"📤 Sending update notification to {exchange}...")
         url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
-        print(requests.get(url).json())
+        response = requests.get(url)
+        if response.ok:
+            print(f"✅ Notification sent successfully for {exchange}.")
+        else:
+            print(f"❌ Failed to send notification for {exchange}. Response: {response.text}")
 
 else:
     print(f'✅ No restart required.')
