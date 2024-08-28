@@ -57,6 +57,12 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
    ```
    For each exchange you plan to use, you need to fill in the respective .env file with your API keys and other necessary information.
 
+   After that, list needed exchanges in main `.env` file:
+   ```bash
+   EXCHANGES=Binance,Kucoin,GateIO,MEXC,ByBit
+   ```
+
+
 5. **Activate Virtual Environment** 🌐
    ```bash
    source .venv/bin/activate
