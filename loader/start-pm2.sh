@@ -39,7 +39,7 @@ IFS=',' read -r -a EXCHANGE_ARRAY <<< "$EXCHANGES"
 
 for EXCHANGE in "${EXCHANGE_ARRAY[@]}"
 do
-    echo "🔄 Starting Freqtrade for $EXCHANGE..."
+    echo "🔄 Preparing start script for Freqtrade for $EXCHANGE..."
 
     # Convert the exchange name to lowercase for file access
     EXCHANGE_LOWER=$(echo "$EXCHANGE" | tr '[:upper:]' '[:lower:]')
@@ -101,15 +101,30 @@ do
     jq empty "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in secrets-config-$EXCHANGE_LOWER.json"; exit 1; }
     jq empty "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in nostalgia-general-$EXCHANGE_LOWER.json"; exit 1; }
 
-    # Start Freqtrade with environment variables and using the exchange-specific config files
-    pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade \
-    --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" \
-    --config "$USER_DATA_DIR/trading_mode-$MODE_LOWER.json" \
-    --config "$USER_DATA_DIR/pairlist-volume-$EXCHANGE_LOWER-usdt.json" \
-    --config "$USER_DATA_DIR/blacklist-$EXCHANGE_LOWER.json" \
-    --config "$USER_DATA_DIR/settings-config.json" \
-    --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \
-    --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
+    # Create an intermediate start script for this exchange
+    START_SCRIPT="start-$EXCHANGE_LOWER.sh"
+    cat <<EOL > $START_SCRIPT
+#!/bin/bash
 
-    echo "✅ Started Freqtrade for $EXCHANGE."
+# Load environment variables for this exchange
+source "../.env.$EXCHANGE_LOWER"
+
+freqtrade trade \\
+    --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" \\
+    --config "$USER_DATA_DIR/trading_mode-$MODE_LOWER.json" \\
+    --config "$USER_DATA_DIR/pairlist-volume-$EXCHANGE_LOWER-usdt.json" \\
+    --config "$USER_DATA_DIR/blacklist-$EXCHANGE_LOWER.json" \\
+    --config "$USER_DATA_DIR/settings-config.json" \\
+    --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \\
+    --db-url "sqlite:///$USER_DATA_DIR/Nostalgy-\${FREQTRADE__EXCHANGE__NAME}-\${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite" \\
+    --strategy "\${FREQTRADE__STRATEGY_FILE_NAME}"
+EOL
+
+    # Make the start script executable
+    chmod +x $START_SCRIPT
+
+    # Start the exchange bot using pm2 and the new start script
+    pm2 start $START_SCRIPT --name "Freqtrade-$EXCHANGE" --interpreter bash
+
+    echo "✅ Started Freqtrade for $EXCHANGE using $START_SCRIPT."
 done
