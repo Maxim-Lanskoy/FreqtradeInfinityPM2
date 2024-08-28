@@ -47,6 +47,9 @@ do
     # Load the environment variables for the specific exchange (now using the lowercase filename)
     load_env_file "../.env.$EXCHANGE_LOWER"
 
+    # Convert the trading mode type to lowercase
+    MODE_LOWER=$(echo "$FREQTRADE__TRADING_MODE_TYPE" | tr '[:upper:]' '[:lower:]')
+
     # Check required environment variables are set
     REQUIRED_VARS=("FREQTRADE__TELEGRAM__CHAT_ID" "FREQTRADE__TELEGRAM__TOKEN" "FREQTRADE__EXCHANGE__NAME" "FREQTRADE__EXCHANGE__KEY" "FREQTRADE__EXCHANGE__SECRET" "FREQTRADE__API_SERVER__ENABLED" "FREQTRADE__STRATEGY_FILE_NAME" "FREQTRADE__TRADING_MODE_TYPE")
     
@@ -70,6 +73,10 @@ do
 
     # Replace boolean strings 'true' and 'false' with actual booleans in JSON
     sed -e 's/"false"/false/g' -e 's/"true"/true/g' "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.tmp.json" > "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json"
+
+    # Remove trailing commas to fix JSON syntax
+    sed -i '$!N;/,\n[[:space:]]*}/s/,//' "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json"
+
     rm "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.tmp.json"
 
     # Generate the nostalgia-general-$EXCHANGE_LOWER.json by replacing placeholders in the template
@@ -77,6 +84,10 @@ do
 
     # Replace boolean strings 'true' and 'false' with actual booleans in JSON
     sed -e 's/"false"/false/g' -e 's/"true"/true/g' "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.tmp.json" > "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json"
+
+    # Remove trailing commas to fix JSON syntax
+    sed -i '$!N;/,\n[[:space:]]*}/s/,//' "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json"
+
     rm "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.tmp.json"
 
     # Output generated JSON for debugging
@@ -90,12 +101,12 @@ do
     jq empty "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in secrets-config-$EXCHANGE_LOWER.json"; exit 1; }
     jq empty "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" || { echo "Invalid JSON in nostalgia-general-$EXCHANGE_LOWER.json"; exit 1; }
 
-    # **Updated PM2 Start Command**:
+    # Start Freqtrade with environment variables and using the exchange-specific config files
     pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade \
     --config "$USER_DATA_DIR/nostalgia-general-$EXCHANGE_LOWER.json" \
-    --config "$USER_DATA_DIR/trading_mode-spot.json" \
-    --config "$USER_DATA_DIR/pairlist-volume-binance-usdt.json" \
-    --config "$USER_DATA_DIR/blacklist-binance.json" \
+    --config "$USER_DATA_DIR/trading_mode-$MODE_LOWER.json" \
+    --config "$USER_DATA_DIR/pairlist-volume-$EXCHANGE_LOWER-usdt.json" \
+    --config "$USER_DATA_DIR/blacklist-$EXCHANGE_LOWER.json" \
     --config "$USER_DATA_DIR/settings-config.json" \
     --config "$USER_DATA_DIR/secrets-config-$EXCHANGE_LOWER.json" \
     --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" \
