@@ -317,7 +317,7 @@ else:
 for exchange in exchanges:
     # Reload environment variables for the specific exchange
     load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
-
+    
     # Retrieve the Telegram API key and chat ID for the current exchange
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
     telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
@@ -335,8 +335,15 @@ for exchange in exchanges:
     subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
 
     print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
+    
+    # Reload environment variables again before sending the notification
+    load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
+    telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
+    telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
+
     url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
     response = requests.get(url)
+    
     if response.ok:
         print(f"✅ Notification sent successfully for {exchange}.")
     else:
