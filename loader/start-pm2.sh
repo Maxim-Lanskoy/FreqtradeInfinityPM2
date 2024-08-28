@@ -44,21 +44,17 @@ do
     # Load the environment variables for the specific exchange (now using the lowercase filename)
     load_env_file "../.env.$EXCHANGE_LOWER"
 
-    # Check if FREQTRADE__TRADING_MODE_TYPE is set after loading exchange-specific env file
-    if [ -z "$FREQTRADE__TRADING_MODE_TYPE" ]; then
-        echo "❌ ERROR: FREQTRADE__TRADING_MODE_TYPE is not set in .env.$EXCHANGE_LOWER!"
-        exit 1
-    else
-        echo "✅ FREQTRADE__TRADING_MODE_TYPE is set to '$FREQTRADE__TRADING_MODE_TYPE' after loading .env.$EXCHANGE_LOWER"
-    fi
-
-    # **Check if Telegram environment variables are set**
-    if [ -z "$FREQTRADE__TELEGRAM__TOKEN" ] || [ -z "$FREQTRADE__TELEGRAM__CHAT_ID" ]; then
-        echo "❌ ERROR: FREQTRADE__TELEGRAM__TOKEN or FREQTRADE__TELEGRAM__CHAT_ID is not set in .env.$EXCHANGE_LOWER!"
-        exit 1
-    else
-        echo "✅ Telegram environment variables are set correctly."
-    fi
+    # Check required environment variables are set
+    REQUIRED_VARS=("FREQTRADE__TELEGRAM__CHAT_ID" "FREQTRADE__TELEGRAM__TOKEN" "FREQTRADE__EXCHANGE__NAME" "FREQTRADE__EXCHANGE__KEY" "FREQTRADE__EXCHANGE__SECRET" "FREQTRADE__API_SERVER__ENABLED" "FREQTRADE__STRATEGY_FILE_NAME" "FREQTRADE__TRADING_MODE_TYPE")
+    
+    for VAR in "${REQUIRED_VARS[@]}"; do
+        if [ -z "${!VAR}" ]; then
+            echo "❌ ERROR: $VAR is not set!"
+            exit 1
+        else
+            echo "✅ $VAR is set to '${!VAR}'"
+        fi
+    done
 
     # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
     if [ -n "$FREQTRADE__EXCHANGE__PASSWORD" ]; then
