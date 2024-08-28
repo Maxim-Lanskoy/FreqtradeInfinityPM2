@@ -6,6 +6,7 @@ while IFS='=' read -r key value; do
     if [[ ! -z "$key" && "$key" != \#* ]]; then
         key=$(echo $key | xargs)
         value=$(echo $value | xargs)
+        echo "Loading $key=$value"
         export "$key=$value"
     fi
 done < ../.env
@@ -38,6 +39,7 @@ do
         if [[ ! -z "$key" && "$key" != \#* ]]; then
             key=$(echo $key | xargs)
             value=$(echo $value | xargs)
+            echo "Loading $key=$value for $EXCHANGE"
             export "$key=$value"
         fi
     done < ../.env.$EXCHANGE_LOWER
