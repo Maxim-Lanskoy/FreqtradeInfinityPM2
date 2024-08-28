@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.request import urlopen
 from datetime import datetime as dt
 from dotenv import load_dotenv
+import shutil
 
 # Load environment variables from ../.env for general settings
 env_path = Path('..') / '.env'
@@ -69,7 +70,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
             remote_strat_version = remote_strat_version_match.group(1)
             print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
         else:
-            print(f'❌ Error: Could not find the version in the downloaded content for {strategy_name}.')
+            print(f'❌ Error: Could not find the version in the downloaded content for {strategy_name}.\n')
             return
 
     except Exception as e:
@@ -291,6 +292,36 @@ else:
 # REGENERATE EXCHANGE FILES
 ####################################
 
+def load_env_file(env_file_path):
+    """
+    Load environment variables from a given .env file path, clearing previous ones.
+    """
+    for key in list(os.environ.keys()):
+        if key.startswith('FREQTRADE__'):
+            del os.environ[key]  # Remove any existing environment variables
+
+    if env_file_path.exists():
+        print(f"Loading environment variables from {env_file_path}")
+        load_dotenv(dotenv_path=env_file_path, override=True)
+        print(f"✅ Loaded environment variables from {env_file_path}")
+    else:
+        print(f"❌ ERROR: Environment file {env_file_path} not found!")
+        sys.exit(1)
+
+def fix_json_syntax(json_file_path):
+    try:
+        with open(json_file_path, 'r') as file:
+            json_content = file.read()
+        
+        # Remove trailing commas before closing curly braces or brackets
+        json_content = re.sub(r',\s*}', '}', json_content)
+        json_content = re.sub(r',\s*]', ']', json_content)
+
+        with open(json_file_path, 'w') as file:
+            file.write(json_content)
+    except Exception as e:
+        print(f"❌ Error fixing JSON syntax in {json_file_path}: {e}")
+
 def generate_files_for_exchange(exchange, user_data_dir):
     """
     Generate configuration files for a given exchange.
@@ -300,7 +331,7 @@ def generate_files_for_exchange(exchange, user_data_dir):
     print(f"🔄 Generating files for exchange {exchange}")
 
     # Load environment variables for this exchange
-    load_dotenv(dotenv_path=Path(f'../.env.{exchange_lower}'))
+    load_env_file(Path(f'../.env.{exchange_lower}'))
     
     required_vars = [
         "FREQTRADE__TELEGRAM__CHAT_ID",
@@ -322,30 +353,18 @@ def generate_files_for_exchange(exchange, user_data_dir):
 
     # Generate secrets-config-{exchange_lower}.json
     secrets_config_template = "secrets-config-with-password.json" if os.getenv('FREQTRADE__EXCHANGE__PASSWORD') else "secrets-config.json"
-    secrets_config_path = Path(user_data_dir) / f"secrets-config-{exchange_lower}.json"
     envsubst_cmd = f'envsubst < {user_data_dir}/{secrets_config_template} > {user_data_dir}/secrets-config-{exchange_lower}.tmp.json'
     subprocess.run(envsubst_cmd, shell=True)
 
-    sed_cmd = f'sed -e \'s/"false"/false/g\' -e \'s/"true"/true/g\' "{user_data_dir}/secrets-config-{exchange_lower}.tmp.json" > "{secrets_config_path}"'
-    subprocess.run(sed_cmd, shell=True)
-
-    remove_trailing_commas_cmd = f'sed -i \'$!N;/,\n[[:space:]]*}}/s/,//\' "{secrets_config_path}"'
-    subprocess.run(remove_trailing_commas_cmd, shell=True)
-
-    Path(f"{user_data_dir}/secrets-config-{exchange_lower}.tmp.json").unlink()
+    fix_json_syntax(f"{user_data_dir}/secrets-config-{exchange_lower}.tmp.json")
+    shutil.move(f"{user_data_dir}/secrets-config-{exchange_lower}.tmp.json", f"{user_data_dir}/secrets-config-{exchange_lower}.json")
 
     # Generate nostalgia-general-{exchange_lower}.json
-    nostalgia_general_path = Path(user_data_dir) / f"nostalgia-general-{exchange_lower}.json"
     envsubst_cmd = f'envsubst < {user_data_dir}/nostalgia-general.json > {user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json'
     subprocess.run(envsubst_cmd, shell=True)
 
-    sed_cmd = f'sed -e \'s/"false"/false/g\' -e \'s/"true"/true/g\' "{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json" > "{nostalgia_general_path}"'
-    subprocess.run(sed_cmd, shell=True)
-
-    remove_trailing_commas_cmd = f'sed -i \'$!N;/,\n[[:space:]]*}}/s/,//\' "{nostalgia_general_path}"'
-    subprocess.run(remove_trailing_commas_cmd, shell=True)
-
-    Path(f"{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json").unlink()
+    fix_json_syntax(f"{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json")
+    shutil.move(f"{user_data_dir}/nostalgia-general-{exchange_lower}.tmp.json", f"{user_data_dir}/nostalgia-general-{exchange_lower}.json")
 
     print(f"✅ Generated files for exchange {exchange}")
 
@@ -390,7 +409,7 @@ for exchange in exchanges:
     os.environ.pop('FREQTRADE__TELEGRAM__CHAT_ID', None)
 
     # Reload environment variables for the specific exchange
-    load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
+    load_env_file(Path(f'../.env.{exchange.lower()}'))
 
     # Retrieve the Telegram API key and chat ID for the current exchange
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
@@ -411,7 +430,7 @@ for exchange in exchanges:
     print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
 
     # Reload environment variables again before sending the notification
-    load_dotenv(dotenv_path=Path(f'../.env.{exchange.lower()}'))
+    load_env_file(Path(f'../.env.{exchange.lower()}'))
     telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
     telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
 
