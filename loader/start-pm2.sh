@@ -53,7 +53,13 @@ do
     fi
 
     # Generate the secrets-config-$EXCHANGE_LOWER.json by replacing placeholders in the template
-    envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE_LOWER.json
+    if [ -n "$FREQTRADE__EXCHANGE__PASSWORD" ]; then
+        # Include password in the config
+        envsubst < user_data/secrets-config-with-password.json > user_data/secrets-config-$EXCHANGE_LOWER.json
+    else
+        # Exclude password in the config
+        envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE_LOWER.json
+    fi
 
     # Generate the nostalgia-general-$EXCHANGE_LOWER.json by replacing placeholders in the template
     envsubst < user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE_LOWER.json
