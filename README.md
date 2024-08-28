@@ -60,7 +60,17 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
    source .venv/bin/activate
    ```
 
-6. **Start Your Bots** 🚀
+6. **(Optional) Oracle Linux Fix** ⚗️
+
+   If running on Oracle Linux system, tweak pm2 service config:
+   ```bash
+   sudo nano /etc/systemd/system/pm2-opc.service
+   ```
+   And comment out (`#`) next line:
+   `PIDFile=/home/opc/.pm2/pm2.pid`
+
+
+8. **Start Your Bots** 🚀
 
 
    Start the Freqtrade bots for each exchange using the `start-pm2.sh` script:
@@ -69,7 +79,7 @@ Follow these steps to quickly set up and start using the Freqtrade management sc
    ./start-pm2.sh && pm2 stop all
    ```
 
-7. **Update Bots and Configurations** 🔄
+9. **Update Bots and Configurations** 🔄
 
 
    Run the `updater.sh` script to check for updates and apply them (`chmod` command only needed once):
