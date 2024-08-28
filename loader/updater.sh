@@ -174,7 +174,6 @@ def update_blacklist(exchange):
 print("🔄 Checking for blacklist updates...")
 for exchange in exchanges:
     print(f'📋 Updating blacklist for {exchange}')
-    load_exchange_env(exchange)  # Load environment for the specific exchange
     update_blacklist(exchange)
 
 ####################################
@@ -253,8 +252,10 @@ if update_ft:
             old_ft_version = matches.group(1) if matches else ""
             print(f'📄 Current Freqtrade version: {old_ft_version}')
 
-            # Stop pm2 service
-            subprocess.run('pm2 stop Freqtrade', shell=True)
+            # Stop pm2 services based on exchange names
+            for exchange in exchanges:
+                pm2_name = f"Freqtrade-{exchange}"
+                subprocess.run(f'pm2 stop {pm2_name}', shell=True)
             time.sleep(10)
 
             # Update Freqtrade (assuming a virtualenv setup)
@@ -307,12 +308,24 @@ if restart_required:
     else:
         print(f'❌ Unexpected scheduling issue\n')
 
-    # Restart pm2 service only once
-    subprocess.run('pm2 restart Freqtrade', shell=True)
+    # Restart pm2 services based on exchange names
+    for exchange in exchanges:
+        pm2_name = f"Freqtrade-{exchange}"
+        subprocess.run(f'pm2 restart {pm2_name}', shell=True)
 
-    print(messagetext)
-    url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
-    print(requests.get(url).json())
+    # Iterate through each exchange to send notifications
+    for exchange in exchanges:
+        load_exchange_env(exchange)  # Load environment for the specific exchange
+        telegram_api_key = os.getenv('FREQTRADE__TELEGRAM__TOKEN')
+        telegram_chat_id = os.getenv('FREQTRADE__TELEGRAM__CHAT_ID')
+
+        if not telegram_api_key or not telegram_chat_id:
+            print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env.{exchange.lower()} file.")
+            continue
+
+        print(f"📤 Sending update notification to {exchange}...")
+        url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
+        print(requests.get(url).json())
 
 else:
     print(f'✅ No restart required.')
