@@ -1,16 +1,31 @@
 #!/bin/bash
 
-# Load the main environment variables from the .env file located one level up
-set -o allexport
-while IFS='=' read -r key value; do
-    if [[ ! -z "$key" && "$key" != \#* ]]; then
-        key=$(echo $key | xargs)
-        value=$(echo $value | xargs)
-        echo "Loading $key=$value"
-        export "$key=$value"
+# Function to load environment variables from a file
+load_env_file() {
+    local env_file="$1"
+    echo "Loading environment variables from $env_file"
+
+    if [[ -f "$env_file" ]]; then
+        # Read and export each line in the environment file
+        while IFS='=' read -r key value; do
+            # Skip empty lines and comments
+            if [[ -n "$key" && "$key" != \#* ]]; then
+                # Trim spaces around the key and value
+                key=$(echo "$key" | xargs)
+                value=$(echo "$value" | xargs)
+                
+                # Export the variable
+                export "$key"="$value"
+                echo "Loaded $key=$value"
+            fi
+        done < "$env_file"
+    else
+        echo "❌ ERROR: Environment file $env_file not found!"
     fi
-done < ../.env
-set +o allexport
+}
+
+# Load the main environment variables from the .env file located one level up
+load_env_file "../.env"
 
 # Check if FREQTRADE__TRADING_MODE_TYPE is set
 if [ -z "$FREQTRADE__TRADING_MODE_TYPE" ]; then
@@ -34,16 +49,7 @@ do
     EXCHANGE_LOWER=$(echo "$EXCHANGE" | tr '[:upper:]' '[:lower:]')
 
     # Load the environment variables for the specific exchange (now using the lowercase filename)
-    set -o allexport
-    while IFS='=' read -r key value; do
-        if [[ ! -z "$key" && "$key" != \#* ]]; then
-            key=$(echo $key | xargs)
-            value=$(echo $value | xargs)
-            echo "Loading $key=$value for $EXCHANGE"
-            export "$key=$value"
-        fi
-    done < ../.env.$EXCHANGE_LOWER
-    set +o allexport
+    load_env_file "../.env.$EXCHANGE_LOWER"
 
     # Check if trading mode config file is correctly generated
     echo "Generating trading mode config for ${FREQTRADE__TRADING_MODE_TYPE}..."
