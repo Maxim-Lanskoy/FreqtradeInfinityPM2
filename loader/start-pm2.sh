@@ -56,7 +56,7 @@ do
     envsubst < user_data/secrets-config.json > user_data/secrets-config-$EXCHANGE_LOWER.json
 
     # Generate the nostalgia-general-$EXCHANGE_LOWER.json by replacing placeholders in the template
-    sed "s/secrets-config.json/secrets-config-$EXCHANGE_LOWER.json/g" user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE_LOWER.json
+    envsubst < user_data/nostalgia-general.json > user_data/nostalgia-general-$EXCHANGE_LOWER.json
 
     # Start Freqtrade with environment variables and using the exchange-specific config files
     pm2 start freqtrade --name "Freqtrade-$EXCHANGE" --interpreter python3 -- trade --config user_data/nostalgia-general-$EXCHANGE_LOWER.json --strategy "${FREQTRADE__STRATEGY_FILE_NAME}" --db-url "sqlite:///user_data/Nostalgy-${FREQTRADE__EXCHANGE__NAME}-${FREQTRADE__TRADING_MODE_TYPE}-DB.sqlite"
