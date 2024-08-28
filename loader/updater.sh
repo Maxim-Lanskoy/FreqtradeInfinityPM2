@@ -75,7 +75,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
         remote_strat_version = re.search('return "v(.+?)"', remote_strat).group(1)
         print(f'📥 Downloaded remote {strategy_name} version {remote_strat_version} from Github.')
     except Exception as e:
-        print(f'❌ Error downloading {strategy_name} from Github: {e}')
+        print(f'❌ Error downloading {strategy_name} from Github: {e}\n')
         return
 
     try:
@@ -110,7 +110,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
 print("🔄 Checking for strategy updates...")
 update_strategy_file(update_x4, 'https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX4.py', path_strategy4, 'NFIX4')
 update_strategy_file(update_x5, 'https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/experimental/NostalgiaForInfinityX5.py', path_strategy5, 'NFIX5')
-update_strategy_file(update_xC, 'https://raw.githubusercontent.com/Maxim-Lanskoy/FreqtradeInfinityPM2/loader/user_data/strategies/NostalgiaForCustom.py', path_strategy_c, 'NFI Custom')
+update_strategy_file(update_xC, 'https://raw.githubusercontent.com/Maxim-Lanskoy/FreqtradeInfinityPM2/loader/loader/user_data/strategies/NostalgiaForCustom.py', path_strategy_c, 'NFI Custom')
 
 ####################################
 # BLACKLIST UPDATER
