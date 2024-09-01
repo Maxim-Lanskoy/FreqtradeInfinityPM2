@@ -260,9 +260,17 @@ if update_ft:
             old_ft_version = matches.group(1) if matches else ""
             print(f'📄 Current Freqtrade version: {old_ft_version}')
 
-            # Stop pm2 service for the current exchange
-            subprocess.run(f'pm2 stop Freqtrade-{exchange}', shell=True)
-            time.sleep(10)
+            # Stop all Freqtrade bots
+            processes = []
+            for exchange in exchanges:
+                process = subprocess.Popen(f'pm2 stop Freqtrade-{exchange}', shell=True)
+                processes.append(process)
+
+            # Wait for all stop processes to complete
+            for process in processes:
+                process.wait()
+
+            time.sleep(10)  # Wait to ensure all bots have stopped
 
             # Update Freqtrade (assuming a virtualenv setup)
             subprocess.run('pip install --upgrade freqtrade', shell=True)
@@ -382,9 +390,9 @@ print("🎉 All files have been generated successfully!")
 ####################################
 
 print(f'💥 Restart required. Scheduling restart for all exchanges...')
-minute = int(str(dt.now())[15:16])
 
-# Decide on wait time based on the current minute
+# Introduce a wait time before restarting if necessary
+minute = int(str(dt.now())[15:16])
 if minute in [0, 5]:
     print(f'🕐 Waiting 150 seconds...\n')
     time.sleep(150)
@@ -402,7 +410,17 @@ elif minute in [4, 9]:
 else:
     print(f'❌ Unexpected scheduling issue\n')
 
-# Iterate through each exchange for restarts and notifications
+# Restart all Freqtrade bots
+processes = []
+for exchange in exchanges:
+    process = subprocess.Popen(f'pm2 restart Freqtrade-{exchange}', shell=True)
+    processes.append(process)
+
+# Wait for all restart processes to complete
+for process in processes:
+    process.wait()
+
+# Send notifications
 for exchange in exchanges:
     # Clear the environment variables to avoid carryover
     os.environ.pop('FREQTRADE__TELEGRAM__TOKEN', None)
@@ -423,9 +441,6 @@ for exchange in exchanges:
     if not telegram_api_key or not telegram_chat_id:
         print(f"❌ Error: 'FREQTRADE__TELEGRAM__TOKEN' or 'FREQTRADE__TELEGRAM__CHAT_ID' is not set in the .env file for {exchange}.")
         continue
-
-    # Restart the specific exchange's Freqtrade process using pm2
-    subprocess.run(f'pm2 restart Freqtrade-{exchange}', shell=True)
 
     print(f"🔄 Restarted Freqtrade for {exchange}. Sending notification...")
 
