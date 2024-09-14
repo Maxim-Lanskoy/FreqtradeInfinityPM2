@@ -13,6 +13,9 @@ from datetime import datetime
 class NostalgiaForCustom(IStrategy):
     INTERFACE_VERSION = 2
 
+    def version(self) -> str:
+    return "v0.0.1"
+
     # Optional order type mapping.
     order_types = {
         'buy': 'limit',

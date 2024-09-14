@@ -66,7 +66,7 @@ class NostalgiaForInfinityX5(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v15.0.34"
+    return "v15.1.1"
 
   stoploss = -0.99
 
@@ -409,6 +409,7 @@ class NostalgiaForInfinityX5(IStrategy):
     "long_entry_condition_1_enable": True,
     "long_entry_condition_2_enable": True,
     "long_entry_condition_3_enable": True,
+    "long_entry_condition_4_enable": True,
     "long_entry_condition_41_enable": True,
     "long_entry_condition_42_enable": True,
     "long_entry_condition_43_enable": True,
@@ -629,6 +630,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_0_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_0_3"
         elif 0.01 <= profit_init_ratio < 0.02:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -644,6 +647,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_1_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_1_3"
         elif 0.02 <= profit_init_ratio < 0.03:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -659,6 +664,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_2_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_2_3"
         elif 0.03 <= profit_init_ratio < 0.04:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -674,6 +681,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_3_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_3_3"
         elif 0.04 <= profit_init_ratio < 0.05:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -689,6 +698,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_4_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_4_3"
         elif 0.05 <= profit_init_ratio < 0.06:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -704,6 +715,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_5_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_5_3"
         elif 0.06 <= profit_init_ratio < 0.07:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -719,6 +732,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_6_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_6_3"
         elif 0.07 <= profit_init_ratio < 0.08:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -734,6 +749,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_7_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_7_3"
         elif 0.08 <= profit_init_ratio < 0.09:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -749,6 +766,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_8_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_8_3"
         elif 0.09 <= profit_init_ratio < 0.10:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -764,6 +783,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_9_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_9_3"
         elif 0.10 <= profit_init_ratio < 0.11:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -779,6 +800,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_10_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_10_3"
         elif 0.11 <= profit_init_ratio < 0.12:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -794,6 +817,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_11_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_11_3"
         elif 0.12 <= profit_init_ratio:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -809,6 +834,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] > 0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_12_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] < -40.0):
+            return True, f"exit_profit_{mode_name}_t_12_3"
       else:
         if 0.001 <= profit_init_ratio < 0.01:
           if (
@@ -825,6 +852,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_0_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_0_3"
         elif 0.01 <= profit_init_ratio < 0.02:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -840,6 +869,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_1_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_1_3"
         elif 0.02 <= profit_init_ratio < 0.03:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -855,6 +886,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_2_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_2_3"
         elif 0.03 <= profit_init_ratio < 0.04:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -870,6 +903,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_3_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_3_3"
         elif 0.04 <= profit_init_ratio < 0.05:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -885,6 +920,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_4_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_4_3"
         elif 0.05 <= profit_init_ratio < 0.06:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -900,6 +937,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_5_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_5_3"
         elif 0.06 <= profit_init_ratio < 0.07:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -915,6 +954,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_6_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_6_3"
         elif 0.07 <= profit_init_ratio < 0.08:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -930,6 +971,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_7_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_7_3"
         elif 0.08 <= profit_init_ratio < 0.09:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -945,6 +988,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_8_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_8_3"
         elif 0.09 <= profit_init_ratio < 0.10:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -960,6 +1005,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_9_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_9_3"
         elif 0.10 <= profit_init_ratio < 0.11:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -975,6 +1022,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_10_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_10_3"
         elif 0.11 <= profit_init_ratio < 0.12:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -990,6 +1039,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_11_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_11_3"
         elif 0.12 <= profit_init_ratio:
           if (
             profit_init_ratio < (previous_profit - 0.03)
@@ -1005,6 +1056,8 @@ class NostalgiaForInfinityX5(IStrategy):
             and (last_candle["CMF_20_4h"] < -0.0)
           ):
             return True, f"exit_profit_{mode_name}_t_12_2"
+          elif profit_init_ratio < (previous_profit - 0.05) and (last_candle["ROC_9_4h"] > 40.0):
+            return True, f"exit_profit_{mode_name}_t_12_3"
     else:
       return False, None
 
@@ -1259,269 +1312,269 @@ class NostalgiaForInfinityX5(IStrategy):
       if sell and (signal_name is not None):
         return f"{signal_name} ( {enter_tag})"
 
-    # # Long grind mode
-    # if all(c in self.long_grind_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.long_exit_grind(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Long grind mode
+    if all(c in self.long_grind_mode_tags for c in enter_tags):
+      sell, signal_name = self.long_exit_grind(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short normal mode
-    # if any(c in self.short_normal_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_normal(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short normal mode
+    if any(c in self.short_normal_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_normal(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short Pump mode
-    # if any(c in self.short_pump_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_pump(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short Pump mode
+    if any(c in self.short_pump_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_pump(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short Quick mode
-    # if any(c in self.short_quick_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_quick(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short Quick mode
+    if any(c in self.short_quick_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_quick(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short Rebuy mode
-    # if all(c in self.short_rebuy_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_rebuy(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short Rebuy mode
+    if all(c in self.short_rebuy_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_rebuy(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short high profit mode
-    # if any(c in self.short_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_high_profit(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short high profit mode
+    if any(c in self.short_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_high_profit(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Short rapid mode
-    # if any(c in self.short_rapid_mode_tags for c in enter_tags):
-    #   sell, signal_name = self.short_exit_rapid(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Short rapid mode
+    if any(c in self.short_rapid_mode_tags for c in enter_tags):
+      sell, signal_name = self.short_exit_rapid(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Trades not opened by X4
-    # if not trade.is_short and (
-    #   not any(
-    #     c
-    #     in (
-    #       self.long_normal_mode_tags
-    #       + self.long_pump_mode_tags
-    #       + self.long_quick_mode_tags
-    #       + self.long_rebuy_mode_tags
-    #       + self.long_mode_tags
-    #       + self.long_rapid_mode_tags
-    #       + self.long_grind_mode_tags
-    #     )
-    #     for c in enter_tags
-    #   )
-    # ):
-    #   # use normal mode for such trades
-    #   sell, signal_name = self.long_exit_normal(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Trades not opened by X5
+    if not trade.is_short and (
+      not any(
+        c
+        in (
+          self.long_normal_mode_tags
+          + self.long_pump_mode_tags
+          + self.long_quick_mode_tags
+          + self.long_rebuy_mode_tags
+          + self.long_mode_tags
+          + self.long_rapid_mode_tags
+          + self.long_grind_mode_tags
+        )
+        for c in enter_tags
+      )
+    ):
+      # use normal mode for such trades
+      sell, signal_name = self.long_exit_normal(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
-    # # Trades not opened by X4
-    # if trade.is_short and (
-    #   not any(
-    #     c
-    #     in (
-    #       self.short_normal_mode_tags
-    #       + self.short_pump_mode_tags
-    #       + self.short_quick_mode_tags
-    #       + self.short_rebuy_mode_tags
-    #       + self.short_mode_tags
-    #       + self.short_rapid_mode_tags
-    #       + self.short_grind_mode_tags
-    #     )
-    #     for c in enter_tags
-    #   )
-    # ):
-    #   # use normal mode for such trades
-    #   sell, signal_name = self.short_exit_normal(
-    #     pair,
-    #     current_rate,
-    #     profit_stake,
-    #     profit_ratio,
-    #     profit_current_stake_ratio,
-    #     profit_init_ratio,
-    #     max_profit,
-    #     max_loss,
-    #     filled_entries,
-    #     filled_exits,
-    #     last_candle,
-    #     previous_candle_1,
-    #     previous_candle_2,
-    #     previous_candle_3,
-    #     previous_candle_4,
-    #     previous_candle_5,
-    #     trade,
-    #     current_time,
-    #     enter_tags,
-    #   )
-    #   if sell and (signal_name is not None):
-    #     return f"{signal_name} ( {enter_tag})"
+    # Trades not opened by X5
+    if trade.is_short and (
+      not any(
+        c
+        in (
+          self.short_normal_mode_tags
+          + self.short_pump_mode_tags
+          + self.short_quick_mode_tags
+          + self.short_rebuy_mode_tags
+          + self.short_mode_tags
+          + self.short_rapid_mode_tags
+          + self.short_grind_mode_tags
+        )
+        for c in enter_tags
+      )
+    ):
+      # use normal mode for such trades
+      sell, signal_name = self.short_exit_normal(
+        pair,
+        current_rate,
+        profit_stake,
+        profit_ratio,
+        profit_current_stake_ratio,
+        profit_init_ratio,
+        max_profit,
+        max_loss,
+        filled_entries,
+        filled_exits,
+        last_candle,
+        previous_candle_1,
+        previous_candle_2,
+        previous_candle_3,
+        previous_candle_4,
+        previous_candle_5,
+        trade,
+        current_time,
+        enter_tags,
+      )
+      if sell and (signal_name is not None):
+        return f"{signal_name} ( {enter_tag})"
 
     return None
 
@@ -1817,6 +1870,14 @@ class NostalgiaForInfinityX5(IStrategy):
     # RSI
     informative_1d["RSI_3"] = pta.rsi(informative_1d["close"], length=3)
     informative_1d["RSI_14"] = pta.rsi(informative_1d["close"], length=14)
+    informative_1d["RSI_3_change_pct"] = (
+      (informative_1d["RSI_3"] - informative_1d["RSI_3"].shift(1)) / (informative_1d["RSI_3"].shift(1))
+    ) * 100.0
+    informative_1d["RSI_14_change_pct"] = (
+      (informative_1d["RSI_14"] - informative_1d["RSI_14"].shift(1)) / (informative_1d["RSI_14"].shift(1))
+    ) * 100.0
+    informative_1d["RSI_3_diff"] = informative_1d["RSI_3"] - informative_1d["RSI_3"].shift(1)
+    informative_1d["RSI_14_diff"] = informative_1d["RSI_14"] - informative_1d["RSI_14"].shift(1)
     # BB 20 - STD2
     bbands_20_2 = pta.bbands(informative_1d["close"], length=20)
     informative_1d["BBL_20_2.0"] = bbands_20_2["BBL_20_2.0"] if isinstance(bbands_20_2, pd.DataFrame) else np.nan
@@ -1824,14 +1885,42 @@ class NostalgiaForInfinityX5(IStrategy):
     informative_1d["BBU_20_2.0"] = bbands_20_2["BBU_20_2.0"] if isinstance(bbands_20_2, pd.DataFrame) else np.nan
     informative_1d["BBB_20_2.0"] = bbands_20_2["BBB_20_2.0"] if isinstance(bbands_20_2, pd.DataFrame) else np.nan
     informative_1d["BBP_20_2.0"] = bbands_20_2["BBP_20_2.0"] if isinstance(bbands_20_2, pd.DataFrame) else np.nan
-    # CTI
-    informative_1d["CTI_20"] = pta.cti(informative_1d["close"], length=20)
+    # MFI
+    informative_1d["MFI_14"] = pta.mfi(
+      informative_1d["high"], informative_1d["low"], informative_1d["close"], informative_1d["volume"], length=14
+    )
     # Williams %R
     informative_1d["WILLR_14"] = pta.willr(
       informative_1d["high"], informative_1d["low"], informative_1d["close"], length=14
     )
+    # AROON
+    aroon_14 = pta.aroon(informative_1d["high"], informative_1d["low"], length=14)
+    informative_1d["AROONU_14"] = aroon_14["AROONU_14"] if isinstance(aroon_14, pd.DataFrame) else np.nan
+    informative_1d["AROOND_14"] = aroon_14["AROOND_14"] if isinstance(aroon_14, pd.DataFrame) else np.nan
+    # Stochastic RSI
+    stochrsi = pta.stochrsi(informative_1d["close"])
+    informative_1d["STOCHRSIk_14_14_3_3"] = (
+      stochrsi["STOCHRSIk_14_14_3_3"] if isinstance(stochrsi, pd.DataFrame) else np.nan
+    )
+    informative_1d["STOCHRSId_14_14_3_3"] = (
+      stochrsi["STOCHRSId_14_14_3_3"] if isinstance(stochrsi, pd.DataFrame) else np.nan
+    )
+    # ROC
+    informative_1d["ROC_2"] = pta.roc(informative_1d["close"], length=2)
+    informative_1d["ROC_9"] = pta.roc(informative_1d["close"], length=9)
     # Candle change
     informative_1d["change_pct"] = (informative_1d["close"] - informative_1d["open"]) / informative_1d["open"] * 100.0
+    # Wicks
+    informative_1d["top_wick_pct"] = (
+      (informative_1d["high"] - np.maximum(informative_1d["open"], informative_1d["close"]))
+      / np.maximum(informative_1d["open"], informative_1d["close"])
+      * 100.0
+    )
+    informative_1d["bot_wick_pct"] = abs(
+      (informative_1d["low"] - np.minimum(informative_1d["open"], informative_1d["close"]))
+      / np.minimum(informative_1d["open"], informative_1d["close"])
+      * 100.0
+    )
 
     # Performance logging
     # -----------------------------------------------------------------------------------------
@@ -1921,8 +2010,6 @@ class NostalgiaForInfinityX5(IStrategy):
     informative_4h["CMF_20"] = pta.cmf(
       informative_4h["high"], informative_4h["low"], informative_4h["close"], informative_4h["volume"], length=20
     )
-    # CTI
-    informative_4h["CTI_20"] = pta.cti(informative_4h["close"], length=20)
     # Williams %R
     informative_4h["WILLR_14"] = pta.willr(
       informative_4h["high"], informative_4h["low"], informative_4h["close"], length=14
@@ -1949,6 +2036,22 @@ class NostalgiaForInfinityX5(IStrategy):
       kst["KST_10_15_20_30_10_10_10_15"] if isinstance(kst, pd.DataFrame) else np.nan
     )
     informative_4h["KSTs_9"] = kst["KSTs_9"] if isinstance(kst, pd.DataFrame) else np.nan
+    # UO
+    informative_4h["UO_7_14_28"] = pta.uo(informative_4h["high"], informative_4h["low"], informative_4h["close"])
+    # ROC
+    informative_4h["ROC_2"] = pta.roc(informative_4h["close"], length=2)
+    informative_4h["ROC_9"] = pta.roc(informative_4h["close"], length=9)
+    # CCI
+    informative_4h["CCI_20"] = pta.cci(
+      informative_4h["high"], informative_4h["low"], informative_4h["close"], length=20
+    )
+    informative_4h["CCI_20"] = (
+      (informative_4h["CCI_20"]).astype(np.float64).replace(to_replace=[np.nan, None], value=(0.0))
+    )
+    informative_4h["CCI_20_change_pct"] = (
+      (informative_4h["CCI_20"] - informative_4h["CCI_20"].shift(1)) / abs(informative_4h["CCI_20"].shift(1))
+    ) * 100.0
+
     # Candle change
     informative_4h["change_pct"] = (informative_4h["close"] - informative_4h["open"]) / informative_4h["open"] * 100.0
 
@@ -2020,6 +2123,8 @@ class NostalgiaForInfinityX5(IStrategy):
     informative_1h["RSI_14_change_pct"] = (
       (informative_1h["RSI_14"] - informative_1h["RSI_14"].shift(1)) / (informative_1h["RSI_14"].shift(1))
     ) * 100.0
+    informative_1h["RSI_3_diff"] = informative_1h["RSI_3"] - informative_1h["RSI_3"].shift(1)
+    informative_1h["RSI_14_diff"] = informative_1h["RSI_14"] - informative_1h["RSI_14"].shift(1)
     # EMA
     informative_1h["EMA_12"] = pta.ema(informative_1h["close"], length=12)
     informative_1h["EMA_200"] = pta.ema(informative_1h["close"], length=200, fillna=0.0)
@@ -2038,9 +2143,6 @@ class NostalgiaForInfinityX5(IStrategy):
     informative_1h["CMF_20"] = pta.cmf(
       informative_1h["high"], informative_1h["low"], informative_1h["close"], informative_1h["volume"], length=20
     )
-    # CTI
-    informative_1h["CTI_20"] = pta.cti(informative_1h["close"], length=20)
-    informative_1h["CTI_40"] = pta.cti(informative_1h["close"], length=40)
     # Williams %R
     informative_1h["WILLR_14"] = pta.willr(
       informative_1h["high"], informative_1h["low"], informative_1h["close"], length=14
@@ -2066,10 +2168,32 @@ class NostalgiaForInfinityX5(IStrategy):
       kst["KST_10_15_20_30_10_10_10_15"] if isinstance(kst, pd.DataFrame) else np.nan
     )
     informative_1h["KSTs_9"] = kst["KSTs_9"] if isinstance(kst, pd.DataFrame) else np.nan
+    # UO
+    informative_1h["UO_7_14_28"] = pta.uo(informative_1h["high"], informative_1h["low"], informative_1h["close"])
+    informative_1h["UO_7_14_28"] = (
+      (informative_1h["UO_7_14_28"]).astype(np.float64).replace(to_replace=[np.nan, None], value=(50.0))
+    )
+    informative_1h["UO_7_14_28_change_pct"] = (
+      (informative_1h["UO_7_14_28"] - informative_1h["UO_7_14_28"].shift(1))
+      / abs(informative_1h["UO_7_14_28"].shift(1))
+    ) * 100.0
     # OBV
     informative_1h["OBV"] = pta.obv(informative_1h["close"], informative_1h["volume"])
     informative_1h["OBV_change_pct"] = (
       (informative_1h["OBV"] - informative_1h["OBV"].shift(1)) / abs(informative_1h["OBV"].shift(1))
+    ) * 100.0
+    # ROC
+    informative_1h["ROC_2"] = pta.roc(informative_1h["close"], length=2)
+    informative_1h["ROC_9"] = pta.roc(informative_1h["close"], length=9)
+    # CCI
+    informative_1h["CCI_20"] = pta.cci(
+      informative_1h["high"], informative_1h["low"], informative_1h["close"], length=20
+    )
+    informative_1h["CCI_20"] = (
+      (informative_1h["CCI_20"]).astype(np.float64).replace(to_replace=[np.nan, None], value=(0.0))
+    )
+    informative_1h["CCI_20_change_pct"] = (
+      (informative_1h["CCI_20"] - informative_1h["CCI_20"].shift(1)) / abs(informative_1h["CCI_20"].shift(1))
     ) * 100.0
     # Candle change
     informative_1h["change_pct"] = (informative_1h["close"] - informative_1h["open"]) / informative_1h["open"] * 100.0
@@ -2160,13 +2284,24 @@ class NostalgiaForInfinityX5(IStrategy):
     # UO
     informative_15m["UO_7_14_28"] = pta.uo(informative_15m["high"], informative_15m["low"], informative_15m["close"])
     informative_15m["UO_7_14_28_change_pct"] = (
-      (informative_15m["UO_7_14_28"] - informative_15m["UO_7_14_28"].shift(1))
-      / abs(informative_15m["UO_7_14_28"].shift(1))
+      informative_15m["UO_7_14_28"] - informative_15m["UO_7_14_28"].shift(1)
     ) * 100.0
     # OBV
     informative_15m["OBV"] = pta.obv(informative_15m["close"], informative_15m["volume"])
     informative_15m["OBV_change_pct"] = (
       (informative_15m["OBV"] - informative_15m["OBV"].shift(1)) / abs(informative_15m["OBV"].shift(1))
+    ) * 100.0
+    # ROC
+    informative_15m["ROC_9"] = pta.roc(informative_15m["close"], length=9)
+    # CCI
+    informative_15m["CCI_20"] = pta.cci(
+      informative_15m["high"], informative_15m["low"], informative_15m["close"], length=20
+    )
+    informative_15m["CCI_20"] = (
+      (informative_15m["CCI_20"]).astype(np.float64).replace(to_replace=[np.nan, None], value=(0.0))
+    )
+    informative_15m["CCI_20_change_pct"] = (
+      (informative_15m["CCI_20"] - informative_15m["CCI_20"].shift(1)) / abs(informative_15m["CCI_20"].shift(1))
     ) * 100.0
     # Candle change
     informative_15m["change_pct"] = (
@@ -2296,10 +2431,15 @@ class NostalgiaForInfinityX5(IStrategy):
     # OBV
     df["OBV"] = pta.obv(df["close"], df["volume"])
     df["OBV_change_pct"] = ((df["OBV"] - df["OBV"].shift(1)) / abs(df["OBV"].shift(1))) * 100.0
+    # ROC
+    df["ROC_2"] = pta.roc(df["close"], length=2)
+    df["ROC_9"] = pta.roc(df["close"], length=9)
     # Candle change
     df["change_pct"] = (df["close"] - df["open"]) / df["open"] * 100.0
     # Close max
     df["close_max_48"] = df["close"].rolling(48).max()
+    # Number of empty candles
+    df["num_empty_288"] = (df["volume"] <= 0).rolling(window=288, min_periods=288).sum()
 
     # -----------------------------------------------------------------------------------------
 
@@ -2537,6 +2677,7 @@ class NostalgiaForInfinityX5(IStrategy):
     # df["WILLR_480_1h"] = df["WILLR_480_1h"].astype(np.float64).replace(to_replace=[np.nan, None], value=(-50.0))
     # df["WILLR_480_4h"] = df["WILLR_480_4h"].astype(np.float64).replace(to_replace=[np.nan, None], value=(-50.0))
     # df["RSI_14_1d"] = df["RSI_14_1d"].astype(np.float64).replace(to_replace=[np.nan, None], value=(50.0))
+    df["RSI_14_1h"] = df["RSI_14_1h"].astype(np.float64).replace(to_replace=[np.nan, None], value=(50.0))
 
     # Global protections Long
     df["protections_long_global"] = True
@@ -2636,16 +2777,15 @@ class NostalgiaForInfinityX5(IStrategy):
       if exit_reason == "stop_loss":
         return False
       if self.exit_profit_only:
-        if self.exit_profit_only:
-          profit = 0.0
-          if trade.realized_profit != 0.0:
-            profit = ((rate - trade.open_rate) / trade.open_rate) * trade.stake_amount * (1 - trade.fee_close)
-            profit = profit + trade.realized_profit
-            profit = profit / trade.stake_amount
-          else:
-            profit = trade.calc_profit_ratio(rate)
-          if profit < self.exit_profit_offset:
-            return False
+        profit = 0.0
+        if trade.realized_profit != 0.0:
+          profit = ((rate - trade.open_rate) / trade.open_rate) * trade.stake_amount * (1 - trade.fee_close)
+          profit = profit + trade.realized_profit
+          profit = profit / trade.stake_amount
+        else:
+          profit = trade.calc_profit_ratio(rate)
+        if profit < self.exit_profit_offset:
+          return False
 
     self._remove_profit_target(pair)
     return True
@@ -2874,6 +3014,8 @@ class NostalgiaForInfinityX5(IStrategy):
     short_entry_conditions = []
 
     df.loc[:, "enter_tag"] = ""
+    df.loc[:, "enter_long"] = ""
+    df.loc[:, "enter_short"] = ""
 
     is_backtest = self.dp.runmode.value in ["backtest", "hyperopt", "plot"]
     # the number of free slots
@@ -2893,7 +3035,7 @@ class NostalgiaForInfinityX5(IStrategy):
             num_open_long_grind_mode += 1
     # if BTC/ETH stake
     is_btc_stake = self.config["stake_currency"] in self.btc_stakes
-    allowed_empty_candles = 144 if is_btc_stake else 60
+    allowed_empty_candles_288 = 144 if is_btc_stake else 60
 
     #
     #  /$$       /$$$$$$ /$$   /$$ /$$$$$$        /$$$$$$$$/$$   /$$/$$$$$$$$/$$$$$$$$/$$$$$$$
@@ -2918,89 +3060,342 @@ class NostalgiaForInfinityX5(IStrategy):
         # Condition #1 - Normal mode (Long).
         if index == 1:
           # Protections
-          long_entry_logic.append(df["protections_long_global"] == True)
-          long_entry_logic.append(df["global_protections_long_pump"] == True)
-          long_entry_logic.append(df["global_protections_long_dump"] == True)
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
 
-          long_entry_logic.append(df["RSI_3"] > 2.0)
-          long_entry_logic.append(df["RSI_3"] < 40.0)
-          long_entry_logic.append(df["RSI_3_15m"] < 70.0)
-          long_entry_logic.append(df["RSI_3_1h"] > 2.0)
-          long_entry_logic.append(df["RSI_3_1h"] < 70.0)
-          long_entry_logic.append(df["RSI_3_4h"] > 2.0)
-          long_entry_logic.append(df["RSI_3_4h"] < 70.0)
+          long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
+          long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
+          long_entry_logic.append(df["RSI_3_1d"] <= 80.0)
+          long_entry_logic.append(df["RSI_14_1h"] < 80.0)
+          long_entry_logic.append(df["RSI_14_4h"] < 80.0)
+          long_entry_logic.append(df["RSI_14_1d"] < 90.0)
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 1h still not low enough
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["UO_7_14_28_1h"] < 25.0))
+          # 15m & 1h down move, 1h still not low enough
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 10.0) | (df["MFI_14_1h"] < 50.0))
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["UO_7_14_28_1h"] < 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["MFI_14_4h"] < 50.0))
+          # 15m & 4h down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 15m down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0) | (df["MFI_14_1d"] > 10.0)
+          )
+          # 15m down move, 15m still not low enough, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m down move, 15m still not low enoug, 1h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["AROONU_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 60.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0)
+          )
+          # 1h & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1h down move, 1h still not low enough, 1d strong downtrend
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 25.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h down move, 1h still not low enough, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 25.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 1h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 25.0)
+          )
+          # 1h down move, 1h not low enough, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 4h & 1d down move, 1d strong downtrend
+          long_entry_logic.append((df["RSI_3_4h"] > 10.0) | (df["RSI_3_1d"] > 10.0) | (df["ROC_9_1d"] > -50.0))
+          long_entry_logic.append(
+            (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h downtrend, 4h down move, 1d downtrend
+          long_entry_logic.append((df["ROC_9_1h"] > -15.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] > -50.0))
 
           # Logic
           long_entry_logic.append(df["EMA_26"] > df["EMA_12"])
           long_entry_logic.append((df["EMA_26"] - df["EMA_12"]) > (df["open"] * 0.030))
           long_entry_logic.append((df["EMA_26"].shift() - df["EMA_12"].shift()) > (df["open"] / 100.0))
           long_entry_logic.append(df["close"] < (df["BBL_20_2.0"] * 0.999))
-          long_entry_logic.append(df["RSI_14"] > 20.0)
 
         # Condition #2 - Normal mode (Long).
         if index == 2:
           # Protections
-          long_entry_logic.append(df["protections_long_global"] == True)
-          long_entry_logic.append(df["global_protections_long_pump"] == True)
-          long_entry_logic.append(df["global_protections_long_dump"] == True)
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
 
-          long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
-          long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
-          long_entry_logic.append(df["RSI_3_1d"] <= 80.0)
-          long_entry_logic.append(df["RSI_14_1h"] < 80.0)
-          long_entry_logic.append(df["RSI_14_4h"] < 80.0)
-          long_entry_logic.append(df["RSI_14_1d"] < 90.0)
-          long_entry_logic.append(df["OBV_change_pct"] > -5.0)
-          long_entry_logic.append(df["OBV_change_pct_15m"] > -10.0)
-          long_entry_logic.append(df["OBV_change_pct_1h"] > -40.0)
-          long_entry_logic.append((df["RSI_3"] > 4.0) | (df["change_pct"] > -4.0))
-          long_entry_logic.append((df["RSI_3_15m"] > 6.0) | (df["change_pct_15m"] > -6.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 12.0) | (df["change_pct_1h"] > -8.0))
-          long_entry_logic.append((df["RSI_3_4h"] > 12.0) | (df["change_pct_4h"] > -10.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 4.0) | (df["RSI_14_1h"] > 25.0))
+          # 5m strong down move
+          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["ROC_9"] > -50.0))
+          # 5m down move, 1h still high, 4h down move
           long_entry_logic.append(
-            (df["BBB_20_2.0_4h"] < 50.0)
-            | (df["MFI_14_4h"] < 30.0)
-            | (df["RSI_14_4h"] < 30.0)
-            | (df["change_pct_4h"] > -8.0)
+            (df["RSI_3"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["RSI_3_4h"] > 10.0)
           )
+          # 15m downmove, 4h overbought
+          long_entry_logic.append((df["RSI_3_change_pct_15m"] > -40.0) | (df["RSI_14_4h"] < 75.0))
+          # 5m & 15m & 1h down move
+          long_entry_logic.append((df["RSI_3"] > 5.0) | (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 15.0))
+          # 5m down move, 4h high
+          long_entry_logic.append((df["RSI_3"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 75.0))
+          # 5m down move, 15m still high, 1h high
           long_entry_logic.append(
-            (df["RSI_3_15m"] > 10.0)
-            | (df["RSI_14_15m"] < 30.0)
-            | (df["MFI_14_15m"] < 30.0)
+            (df["RSI_3"] > 10.0) | (df["AROONU_14_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append((df["RSI_3_15m"] > 2.0) | (df["RSI_3_1h"] > 15.0) | (df["MFI_14_4h"] < 50.0))
+          # 15m & 1h down move, 4h down
+          long_entry_logic.append((df["RSI_3_15m"] > 2.0) | (df["RSI_3_1h"] > 10.0) | (df["ROC_9_4h"] > -10.0))
+          # 15m down move, 1h high
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0))
+          # 15m down move, 15m still not low enough, 1h & 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0)
             | (df["AROONU_14_15m"] < 25.0)
-            | (df["change_pct_15m"] > -4.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] < 25.0)
+            | (df["MFI_14_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0)
+          )
+          # 15m down move, 1h high
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0))
+          # 15m down move, 1h still high, 4h overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 20.0) | (df["RSI_14_1h"] < 40.0) | (df["RSI_14_4h"] < 80.0))
+          # 15m down move, 1h high
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0))
+          # 15m down move, 1h moving down, 1h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["CCI_20_change_pct_1h"] > 0.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
+          # 15m down move, 1h low, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["ROC_9_1h"] > -20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 1h & 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0) | (df["RSI_3_4h"] < 90.0)
+          )
+          # 15m down move, 1h high, 1d low
+          long_entry_logic.append(
+            (df["RSI_3_change_pct_15m"] > -40.0) | (df["ROC_9_1h"] < 10.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m down move, 4h high, 1d low
+          long_entry_logic.append(
+            (df["ROC_9_15m"] > -5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m down move, 4h high, 1d low
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["ROC_9_4h"] < 20.0) | (df["ROC_9_1d"] > -50.0))
+          # 15m down move, 1h still high, 1d high
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["RSI_14_1h"] < 40.0) | (df["ROC_9_1d"] < 50.0))
+          # 15m & 1h down move, 1d overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 20.0) | (df["ROC_9_1h"] > -20.0) | (df["ROC_9_1d"] < 40.0))
+          # 15m down move, 1h high, 4h downtrend
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 20.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0) | (df["ROC_9_4h"] > -10.0)
+          )
+          # 15m & 1h & 4h down move
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["CMF_20_1h"] > -0.4) | (df["RSI_3_4h"] > 10.0))
+          # 14m down move, 4h downtrend, 1d overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["ROC_9_4h"] > -15.0) | (df["ROC_9_1d"] < 100.0))
+          # 15m strong downtrend, 1h downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["MFI_14_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0))
+          # 15m down move, 4h overbought & high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["ROC_9_4h"] < 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["UO_7_14_28_4h"] < 50.0)
+          )
+          # 15m down move, 15m not low enough, 1h overbought
+          long_entry_logic.append(
+            (df["RSI_14_change_pct_15m"] > -40.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 10.0) | (df["RSI_14_1h"] < 70.0)
+          )
+          # 15m still not low enough, 4h & 1d going down
+          long_entry_logic.append((df["AROONU_14_15m"] < 25.0) | (df["RSI_3_4h"] > 20.0) | (df["RSI_3_1d"] > 30.0))
+          # 15m still not low enough, 4h overbought
+          long_entry_logic.append(
+            (df["AROONU_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0) | (df["ROC_9_4h"] < 40.0)
+          )
+          # 15m still not low enough, 1h overbought
+          long_entry_logic.append((df["AROONU_14_15m"] < 25.0) | (df["RSI_14_1h"] < 90.0))
+          # 1h strong down move
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_1h"] > -85.0))
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1h down move, 1d strong downtrend
+          long_entry_logic.append((df["RSI_3_1h"] > 10.0) | (df["RSI_3_1d"] > 5.0))
+          # 1h down move, 1h still not low enough, 4h still not low
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough, 1d still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0)
+            | (df["RSI_3_change_pct_4h"] > -50.0)
+            | (df["AROONU_14_4h"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1d"] < 40.0)
+          )
+          # 1h down move, 4h still not low enough, 1d overbought
+          long_entry_logic.append((df["RSI_3_1h"] > 10.0) | (df["AROONU_14_4h"] < 25.0) | (df["ROC_9_1d"] < 120.0))
+          # 1h down move, 4h overbought
+          long_entry_logic.append((df["RSI_3_1h"] > 15.0) | (df["RSI_14_4h"] < 75.0))
+          # 1h P&D, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 30.0) | (df["RSI_3_1h"].shift(12) < 80.0) | (df["ROC_9_1d"] > -20.0)
+          )
+          # 4h P&D
+          long_entry_logic.append((df["RSI_3_4h"] > 30.0) | (df["RSI_3_4h"].shift(48) < 95.0))
+          # 4h strong downtrend
+          long_entry_logic.append((df["RSI_3_4h"] > 5.0) | (df["ROC_9_4h"] > -40.0))
+          # 1h stil high, 1d overbought
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1d"] < 95.0) | (df["ROC_9_1d"] < 100.0)
+          )
+          # 1h & 4h still high, 1d strong down move
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["UO_7_14_28_4h"] < 45.0) | (df["RSI_3_1d"] > 10.0)
+          )
+          # 5m down, 1h down move, 4h high
+          long_entry_logic.append(
+            (df["ROC_9"] > -5.0) | (df["RSI_3_change_pct_1h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 4h pumped and going down
+          long_entry_logic.append((df["ROC_9_15m"] > -10.0) | (df["ROC_2_4h"] > -5.0) | (df["ROC_9_4h"] < 20.0))
+          # 14m down move, 4h high
+          long_entry_logic.append(
+            (df["ROC_9_15m"] > -10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_4h"] < 35.0)
+          )
+          # 1h downtrend, 4h overbought
+          long_entry_logic.append(
+            (df["ROC_2_1h"] > -5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 95.0) | (df["ROC_9_4h"] < 70.0)
+          )
+          # 1h downtrend, 4h overbought
+          long_entry_logic.append((df["ROC_2_1h"] > -5.0) | (df["ROC_9_1h"] > -5.0) | (df["ROC_9_4h"] < 35.0))
+          # 1h down, 1d strong downtrend
+          long_entry_logic.append((df["ROC_9_1h"] > -10.0) | (df["ROC_9_1d"] > -50.0))
+          # 1h & 4h & 1d downtrend
+          long_entry_logic.append((df["ROC_9_1h"] > -10.0) | (df["ROC_9_4h"] > -20.0) | (df["ROC_9_1d"] > -40.0))
+          # 1h down, 1d overbought
+          long_entry_logic.append((df["ROC_9_1h"] > -10.0) | (df["ROC_9_1d"] < 80.0))
+          # 4h P&D
+          long_entry_logic.append((df["ROC_2_4h"] > -20.0) | (df["ROC_9_4h"] < 80.0))
+          # 4h overbought, 1h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["ROC_9_4h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1d P&D
+          long_entry_logic.append((df["ROC_2_1d"] > -20.0) | (df["ROC_9_1d"] < 50.0))
+          # 1d strong downtrend
+          long_entry_logic.append((df["ROC_2_1d"] > -20.0) | (df["ROC_9_1d"] > -50.0))
+          # 1h red, previous 1h green, 1h overbought
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -5.0) | (df["change_pct_1h"].shift(12) < 5.0) | (df["RSI_14_1h"].shift(12) < 80.0)
+          )
+          # 1h red, previous 1h green, 1h overbought
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -2.0) | (df["change_pct_1h"].shift(12) < 10.0) | (df["RSI_14_1h"].shift(12) < 80.0)
           )
           long_entry_logic.append(
-            (df["RSI_3_1h"] > 25.0)
-            | (df["RSI_14_1h"] < 30.0)
-            | (df["MFI_14_1h"] < 30.0)
-            | (df["AROONU_14_1h"] < 25.0)
-            | (df["AROOND_14_1h"] == 100.0)
-            | (df["change_pct_1h"] > -4.0)
+            (df["change_pct_1h"] > -5.0) | (df["change_pct_1h"].shift(12) < 5.0) | (df["ROC_9_1d"] > -50.0)
           )
+          # 1h red, 4h green, 1h overbought
           long_entry_logic.append(
-            (df["RSI_3_1h"] > 25.0)
-            | (df["RSI_14_1h"] < 30.0)
-            | (df["MFI_14_1h"] < 30.0)
-            | (df["AROONU_14_1h"] < 25.0)
-            | (df["change_pct_1h"] > -8.0)
+            (df["change_pct_1h"] > -5.0) | (df["change_pct_4h"] < 10.0) | (df["RSI_14_1h"].shift(12) < 70.0)
           )
-          long_entry_logic.append((df["RSI_3_4h"] < 70.0) | (df["change_pct_4h"] < 20.0))
-          long_entry_logic.append((df["RSI_3_1d"] < 70.0) | (df["change_pct_1d"] < 30.0))
+          # 4h red, previous 4h green, 4h still high
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0)
+            | (df["change_pct_4h"].shift(48) < 5.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -8.0) | (df["change_pct_4h"].shift(48) < 8.0) | (df["RSI_14_4h"].shift(48) < 80.0)
+          )
+          # 4h red, previous 4h green, 15m down move
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -8.0) | (df["change_pct_4h"].shift(48) < 8.0) | (df["RSI_3_15m"] > 5.0)
+          )
+          # 1d P&D, 1d overbought
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -10.0) | (df["change_pct_1d"].shift(288) < 10.0) | (df["ROC_9_1d"] < 100.0)
+          )
+          # 1d P&D, 5m & 1h down move
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -10.0)
+            | (df["change_pct_1d"].shift(288) < 10.0)
+            | (df["RSI_3_15m"] > 10.0)
+            | (df["change_pct_1h"] > -5.0)
+          )
+          # 1d P&D, 15m & 1h still not low enough
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -20.0)
+            | (df["change_pct_1d"].shift(288) < 20.0)
+            | (df["AROONU_14_15m"] < 50.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
 
           # Logic
-          long_entry_logic.append(df["RSI_14"] > 5.0)
-          long_entry_logic.append(df["WILLR_14"] < -90.0)
           long_entry_logic.append(df["AROONU_14"] < 25.0)
-          long_entry_logic.append(df["close"] < (df["EMA_20"] * 0.942))
+          long_entry_logic.append(df["STOCHRSIk_14_14_3_3"] < 20.0)
+          long_entry_logic.append(df["close"] < (df["EMA_20"] * 0.944))
 
         # Condition #3 - Normal mode (Long).
         if index == 3:
           # Protections
-          long_entry_logic.append(df["protections_long_global"] == True)
-          long_entry_logic.append(df["global_protections_long_pump"] == True)
-          long_entry_logic.append(df["global_protections_long_dump"] == True)
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
 
           long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
           long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
@@ -3008,97 +3403,587 @@ class NostalgiaForInfinityX5(IStrategy):
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
           long_entry_logic.append(df["RSI_14_1d"] < 90.0)
-          long_entry_logic.append(df["OBV_change_pct"] > -30.0)
-          long_entry_logic.append(df["OBV_change_pct_15m"] > -100.0)
-          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["change_pct"] > -5.0))
-          long_entry_logic.append((df["RSI_3"] > 4.0) | (df["change_pct"] > -10.0))
-          long_entry_logic.append((df["RSI_3"] > 4.0) | (df["OBV_change_pct"] > -10.0))
-          long_entry_logic.append((df["RSI_3_15m"] > 4.0) | (df["RSI_3_change_pct_15m"] > -40.0))
-          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["RSI_14_change_pct_15m"] > -40.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 4.0) | (df["RSI_14_change_pct_1h"] > -40.0))
-          long_entry_logic.append((df["RSI_3_4h"] > 10.0) | (df["MFI_14_4h"] < 50.0))
-          long_entry_logic.append((df["RSI_3_4h"] > 6.0) | (df["RSI_3_change_pct_4h"] > -60.0))
-          long_entry_logic.append((df["MFI_14"] > 10.0) | (df["change_pct"] > -5.0))
+          # 5m strong down move
+          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["ROC_9"] > -50.0))
+          # 5m down move, 4h still high
+          long_entry_logic.append((df["RSI_3"] > 10.0) | (df["MFI_14"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0))
+          # 5m & 1h down move, 1h still high
           long_entry_logic.append(
-            (df["RSI_3"] > 10.0) | (df["RSI_3_change_pct"] > -50.0) | (df["MFI_14"] > 4.0) | (df["RSI_3_1h"] > 10.0)
+            (df["RSI_3"] > 10.0) | (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0)
           )
-          long_entry_logic.append((df["RSI_3_1h"] < 70.0) | (df["change_pct_1h"] < 10.0))
-          long_entry_logic.append((df["RSI_3_4h"] < 70.0) | (df["change_pct_4h"] < 20.0))
-          long_entry_logic.append((df["RSI_3_1d"] < 70.0) | (df["change_pct_1d"] < 30.0))
-          long_entry_logic.append((df["RSI_14_1d"].shift(288) < 70.0) | (df["change_pct_1d"] > -10.0))
+          # 5m down move, 4h downtrend, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3"] > 5.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 5m & 4h strong down move, 4h still not low enough
+          long_entry_logic.append((df["RSI_3"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0))
+          # 5m down move, 1h high, 1d overbought
+          long_entry_logic.append((df["RSI_3"] > 10.0) | (df["ROC_9_1h"] < 15.0) | (df["ROC_9_1d"] < 40.0))
+          # 5m down move, 1h & 4h high
+          long_entry_logic.append(
+            (df["RSI_3"] > 10.0) | (df["UO_7_14_28_1h"] < 60.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 5m down move, 1h high, 4h downtrend
+          long_entry_logic.append(
+            (df["RSI_3"] > 2.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0) | (df["ROC_9_4h"] > -10.0)
+          )
+          # 5m & 1h down move, 4h down
+          long_entry_logic.append((df["RSI_3"] > 10.0) | (df["RSI_3_1h"] > 15.0) | (df["CMF_20_4h"] > -0.2))
+          # 5m down move, 1h high
+          long_entry_logic.append((df["RSI_14_change_pct"] > -40.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0))
+          # 5m down move, 1h high
+          long_entry_logic.append((df["RSI_14_change_pct"] > -40.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0))
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 15m still not low enough, 1h & 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0)
+            | (df["AROONU_14_15m"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] < 25.0)
+            | (df["MFI_14_4h"] < 50.0)
+          )
+          # 5m & 1h down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
+          # 15m & 4h down move, 1h still not low
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0)
+          )
+          # 15m & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 15m & 1h & 4h down move
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_change_pct_1h"] > -60.0) | (df["RSI_3_change_pct_4h"] > -40.0)
+          )
+          # 15m down move, 1d downtrend, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["ROC_9_1d"] > -25.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m & 1d down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1d"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m & 4h down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_4h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
+          # 15m down move, 15m still not low enough, 4h down move
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["AROONU_14_15m"] < 50.0) | (df["RSI_3_4h"] > 15.0))
+          # 15m down move, 1h still high, 1d strong downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 20.0) | (df["AROONU_14_1h"] < 25.0) | (df["MFI_14_1d"] > 10.0))
+          # 15m down move, 1h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m & 4h down move, 1d downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["RSI_3_4h"] > 15.0) | (df["ROC_9_1d"] > -70.0))
+          # 15m down move, 15m not low enough, 1h overbought
+          long_entry_logic.append(
+            (df["RSI_14_change_pct_15m"] > -40.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 10.0) | (df["RSI_14_1h"] < 70.0)
+          )
+          # 15m strong down move, 1h still high
+          long_entry_logic.append((df["ROC_9_15m"] > -15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0))
+          # 15m downtrend, 1h & 4h still high
+          long_entry_logic.append(
+            (df["ROC_9_15m"] > -10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m & 1h & 4h down move
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["CCI_20_change_pct_4h"] > 0.0)
+          )
+          # 15m strong down move
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["MFI_14_15m"] > 15.0) | (df["AROONU_14_15m"] < 25.0))
+          # 14m down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 20.0) | (df["AROONU_14_15m"] < 50.0) | (df["UO_7_14_28_4h"] < 50.0)
+          )
+          # 15m down move, 1h stil high, 1d overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["AROONU_14_1h"] < 25.0) | (df["ROC_9_1d"] < 80.0))
+          # 15m down move, 1h high, 1d overbought
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_change_pct_4h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+          )
+          # 1h down move, 4h still not low enough, 1d overbought
+          long_entry_logic.append((df["RSI_3_1h"] > 10.0) | (df["AROONU_14_4h"] < 25.0) | (df["ROC_9_1d"] < 120.0))
+          # 1h down move, 1h still not low enough, 4h still not low
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 1h down move, 4h still high
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["RSI_14_4h"] < 40.0))
+          # 1h down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_change_pct_1h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 4h & 1d down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_4h"] > 10.0) | (df["ROC_2_1d"] > -20.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
+          # 15m still high, 1h down move, 4h high
+          long_entry_logic.append(
+            (df["AROONU_14_15m"] < 50.0) | (df["RSI_3_change_pct_1h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m still high, 1h & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["AROONU_14_15m"] < 50.0)
+            | (df["RSI_3_1h"] > 15.0)
+            | (df["RSI_3_4h"] > 20.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] < 20.0)
+          )
+          # 15m & 1h still high, 4h overbought
+          long_entry_logic.append((df["AROONU_14_15m"] < 50.0) | (df["AROONU_14_1h"] < 50.0) | (df["ROC_9_4h"] < 40.0))
+          # 15m still high, 1h down move, 1d downtrend
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] < 70.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h & 4h still high, 1d strong down move
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["UO_7_14_28_4h"] < 45.0) | (df["RSI_3_1d"] > 10.0)
+          )
+          # 1h still high, 4h & 1d downtrend
+          long_entry_logic.append((df["AROONU_14_1h"] < 25.0) | (df["ROC_9_4h"] > -20.0) | (df["ROC_9_1d"] > -50.0))
+          # 4h moving down, 1d P&D
+          long_entry_logic.append(
+            (df["ROC_9_4h"] > -30.0) | (df["RSI_3_change_pct_1d"] > -50.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1d strong downtrend, 4h still high
+          long_entry_logic.append(
+            (df["ROC_2_1d"] > -20.0) | (df["ROC_9_1d"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1d P&D, 1d overbought
+          long_entry_logic.append(
+            (df["ROC_2_1d"] > -10.0) | (df["ROC_9_1d"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 95.0)
+          )
+          # 1h red, previous 1h green, 1h overbought
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -1.0) | (df["change_pct_1h"].shift(12) < 5.0) | (df["RSI_14_1h"].shift(12) < 80.0)
+          )
+          # 1h red, 1h stil high, 4h downtrend
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["ROC_9_4h"] > -25.0)
+          )
+          # 4h red, 15m down move, 4h still high
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0) | (df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0) | (df["change_pct_4h"].shift(48) < 5.0) | (df["ROC_9_4h"].shift(48) < 25.0)
+          )
+          # 4h red, 4h still not low enough, 1h downtrend, 1h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0)
+            | (df["AROONU_14_4h"] < 25.0)
+            | (df["ROC_9_1h"] > -20.0)
+            | (df["ROC_9_1d"] < 40.0)
+          )
+          # 4h red, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -40.0)
+          )
+          # 1d P&D, 1d overbought
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -10.0) | (df["change_pct_1d"].shift(288) < 10.0) | (df["ROC_9_1d"] < 100.0)
+          )
+          # 1d P&D, 4h still high
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -15.0) | (df["change_pct_1d"].shift(288) < 15.0) | (df["AROONU_14_4h"] < 50.0)
+          )
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 5.0) | (df["CCI_20_change_pct_4h"] > 0.0)
+          )
 
           # Logic
           long_entry_logic.append(df["RSI_20"] < df["RSI_20"].shift(1))
           long_entry_logic.append(df["RSI_4"] < 46.0)
           long_entry_logic.append(df["AROONU_14"] < 25.0)
-          long_entry_logic.append(df["close"] < (df["EMA_3"] * 0.976))
-          long_entry_logic.append(df["close"] < df["SMA_16"] * 0.950)
+          long_entry_logic.append(df["close"] < df["SMA_16"] * 0.942)
 
-        # Condition #41 - Quick mode (Long).
-        if index == 41:
-          long_entry_logic.append(df["RSI_3"] >= 2.0)
-          long_entry_logic.append(df["RSI_3"] <= 60.0)
-          long_entry_logic.append(df["RSI_3_15m"] >= 6.0)
-          long_entry_logic.append(df["RSI_3_1h"] >= 10.0)
-          long_entry_logic.append(df["RSI_3_4h"] >= 10.0)
-          long_entry_logic.append(df["RSI_14_1d"] < 70.0)
-          long_entry_logic.append(df["CTI_20_1h"] < 0.75)
-          long_entry_logic.append(df["CTI_20_4h"] < 0.5)
-          long_entry_logic.append(df["WILLR_14_1h"] > -90.0)
-          long_entry_logic.append(df["WILLR_14_4h"] > -85.0)
-
-          # Logic
-          long_entry_logic.append(df["RSI_14"] < 36.0)
-          long_entry_logic.append(df["AROONU_14"] < 25.0)
-          long_entry_logic.append(df["AROOND_14"] > 75.0)
-          long_entry_logic.append(df["EMA_9"] < (df["EMA_26"] * 0.970))
-
-        # Condition #42 - Quick mode (Long).
-        if index == 42:
+        # Condition #4 - Normal mode (Long).
+        if index == 4:
           # Protections
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
           long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
           long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
           long_entry_logic.append(df["RSI_3_1d"] <= 80.0)
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
           long_entry_logic.append(df["RSI_14_1d"] < 90.0)
-          long_entry_logic.append(df["STOCHRSIk_14_14_3_3_15m"] < 70.0)
+          # 15m & 1h down move, 4h still high
           long_entry_logic.append(
-            (df["RSI_3_4h"] > 16.0) | (df["RSI_14_change_pct_4h"] > -20.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 50.0)
-          )
-          long_entry_logic.append((df["RSI_3_1h"] > 4.0) | (df["RSI_3_4h"] > 10.0) | (df["RSI_14_diff_4h"] > -4.0))
-          long_entry_logic.append((df["RSI_3_4h"] > 16.0) | (df["RSI_14_diff_4h"] > -10.0))
-          long_entry_logic.append((df["RSI_3_4h"] > 6.0) | (df["RSI_14_change_pct_4h"] > -40.0))
-          long_entry_logic.append((df["RSI_3_15m"] > 4.0) | (df["RSI_3_1h"] > 12.0) | (df["RSI_3_1d"] > 12.0))
-          long_entry_logic.append(
-            (df["RSI_3_15m"] > 20.0)
-            | (df["UO_7_14_28_15m"] < 35.0)
-            | (df["RSI_14_change_pct_4h"] > -6.0)
+            (df["RSI_3_15m"] > 5.0)
+            | (df["MFI_14_15m"] > 10.0)
+            | (df["RSI_3_1h"] > 20.0)
             | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
           )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["MFI_14_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 14m & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["UO_7_14_28_1h"] < 45.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 1h strong down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_14_change_pct_1h"] > -40.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 1h strong down move, 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 25.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 25.0) | (df["AROONU_14_4h"] < 50.0))
+          # 15m down move, 1h strong downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["MFI_14_1h"] > 5.0))
+          # 15m downtrend, 4h down move, 4h stil high
+          long_entry_logic.append(
+            (df["ROC_9_15m"] > -20.0) | (df["RSI_3_4h"] > 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+
+          # Logic
+          long_entry_logic.append(df["AROONU_14"] < 25.0)
+          long_entry_logic.append(df["AROONU_14_15m"] < 25.0)
+          long_entry_logic.append(df["close"] < (df["EMA_9"] * 0.942))
+          long_entry_logic.append(df["close"] < (df["EMA_20"] * 0.960))
+
+        # Condition #41 - Quick mode (Long).
+        if index == 41:
+          # Protections
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          # 5m & 15m down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3"] > 5.0) | (df["RSI_3_change_pct_15m"] > -50.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 5m & 15m & 1h down move
+          long_entry_logic.append((df["RSI_3"] > 5.0) | (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0))
+          # 5m strong down move
+          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["ROC_9"] > -50.0))
+          # 15m & 1h strong down move & downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["MFI_14_1h"] > 5.0))
+          # 15m strong down move, 4h high
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0))
+          # 15m & 1h down move
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["CCI_20_change_pct_1h"] > 0.0)
+          )
+          # 15m & 1h down move, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_change_pct_1h"] > -50.0) | (df["MFI_14_4h"] < 50.0)
+          )
+          # 15m strong down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["MFI_14_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
+          )
+          # 15m & 1h down move, 1h not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 20.0)
+          )
+          # 15m down move, 1h strong down move
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_14_change_pct_1h"] > -70.0))
+          # 15m down move, 4h & 1d downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["ROC_9_4h"] > -30.0) | (df["ROC_9_1d"] > -50.0))
+          # 15m down move, 1h strong down move, 4h stil high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 1h downtrend, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["ROC_9_1h"] > -20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 15m down move, 1h down move, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["RSI_3_change_pct_1h"] > -30.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0)
+          )
+          # 1m down move, 1h still dropping, 4h overbought
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["CCI_20_change_pct_1h"] > 0.0) | (df["RSI_14_4h"] < 80.0)
+          )
+          # 15m down move, 1h high
+          long_entry_logic.append((df["RSI_3_change_pct_15m"] > -70.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0))
+          # 1h strong down move, 4h high
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0))
+          # 1h down move, 4h downtrend, 4h not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["CMF_20_4h"] > -0.25) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1h down move, 4h high, 1d overbought
+          long_entry_logic.append((df["RSI_3_1h"] > 10.0) | (df["RSI_14_4h"] < 60.0) | (df["ROC_9_1d"] < 50.0))
+          # 1h down move, 4h strong down move
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["RSI_14_change_pct_4h"] > -40.0))
+          # 1h & 4h down move, 4h still going down
+          long_entry_logic.append((df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 5.0) | (df["CCI_20_change_pct_4h"] > 0.0))
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1h down move, 4h down move, 4h P&D
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_change_pct_4h"] > -70.0) | (df["RSI_14_4h"].shift(48) < 70.0)
+          )
+          # 1h & 4h down move, 4h still not low enough, 1d still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0)
+            | (df["RSI_3_change_pct_4h"] > -50.0)
+            | (df["AROONU_14_4h"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1d"] < 40.0)
+          )
+          # 1h down move, 1h still high, 1d going down
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["ROC_2_1d"] > -50.0)
+          )
+          # 4h downtrend, 4h still high, 1d strong downtrend
+          long_entry_logic.append(
+            (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0) | (df["ROC_9_1d"] > -60.0)
+          )
+          # 15m down move, 1h strong down move, 1d overbought
+          long_entry_logic.append(
+            (df["MFI_14_15m"] > 20.0) | (df["RSI_3_change_pct_1h"] > -80.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h not low enough, 4h high, 1d strong downtrend
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0) | (df["ROC_9_1d"] > -60.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_change_pct_1h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m strong down move, 1h still high
+          long_entry_logic.append((df["ROC_9_15m"] > -15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0))
+          # 15m downtrend, 4h down move, 4h stil high
+          long_entry_logic.append(
+            (df["ROC_9_15m"] > -15.0) | (df["RSI_3_4h"] > 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 1h downtrend, 4h overbought
+          long_entry_logic.append((df["ROC_2_1h"] > -5.0) | (df["RSI_14_4h"] < 80.0) | (df["ROC_9_4h"] < 25.0))
+          # 1h P&D, 4h still high
+          long_entry_logic.append(
+            (df["ROC_2_1h"] > -10.0) | (df["ROC_9_1h"] < 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 1h downtrend, 4h down move, 1d downtrend
+          long_entry_logic.append((df["ROC_9_1h"] > -40.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] > -50.0))
+          long_entry_logic.append((df["ROC_9_4h"] < 200.0) | (df["RSI_14_4h"] < 80.0))
+          # 4h down move, 1d P&D
+          long_entry_logic.append((df["ROC_9_4h"] > -20.0) | (df["ROC_2_1d"] > -20.0) | (df["ROC_9_1d"] < 50.0))
+          # 1h P&D, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -2.0) | (df["change_pct_1h"].shift(12) < 2.0) | (df["RSI_14_4h"] < 80.0)
+          )
+          # 1h P&D, 1d overbought
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -5.0) | (df["change_pct_1h"].shift(12) < 5.0) | (df["ROC_9_1d"] < 100.0)
+          )
+          # 1h & 4h red, 1h not low enough
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -10.0) | (df["change_pct_4h"] > -10.0) | (df["MFI_14_1h"] < 50.0)
+          )
+          # 1h red, 1h still not low enough, 1d down move
+          long_entry_logic.append((df["change_pct_1h"] > -15.0) | (df["MFI_14_1h"] < 50.0) | (df["RSI_3_1d"] > 10.0))
+          # 4h red, previous 4h green, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0) | (df["change_pct_4h"].shift(48) < 5.0) | (df["RSI_14_4h"].shift(48) < 80.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0) | (df["change_pct_4h"].shift(48) < 10.0) | (df["ROC_9_4h"].shift(48) < 50.0)
+          )
+          # 1d P&D, 1d overbought
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -10.0) | (df["change_pct_1d"].shift(288) < 10.0) | (df["ROC_9_1d"] < 100.0)
+          )
+          # 1d P&D, 4h still high
+          long_entry_logic.append(
+            (df["change_pct_1d"] > -15.0) | (df["change_pct_1d"].shift(288) < 15.0) | (df["AROONU_14_4h"] < 50.0)
+          )
+
+          # Logic
+          long_entry_logic.append(df["RSI_14"] < 36.0)
+          long_entry_logic.append(df["AROONU_14"] < 25.0)
+          long_entry_logic.append(df["AROOND_14"] > 75.0)
+          long_entry_logic.append(df["EMA_9"] < (df["EMA_26"] * 0.960))
+
+        # Condition #42 - Quick mode (Long).
+        if index == 42:
+          # Protections
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
+          long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
+          long_entry_logic.append(df["RSI_3_1d"] <= 80.0)
+          long_entry_logic.append(df["RSI_14_1h"] < 80.0)
+          long_entry_logic.append(df["RSI_14_4h"] < 80.0)
+          long_entry_logic.append(df["RSI_14_1d"] < 90.0)
+          # 15m high, 4h still high, 1h downtrend
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] < 70.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0) | (df["ROC_9_1h"] > -15.0)
+          )
+          # 15m high, 4h strong down move, 1d strong downtrend
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] < 70.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 15m high, 4h down move, 1d still high
+          long_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] < 70.0) | (df["RSI_3_4h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1d"] < 50.0)
+          )
+          # 15m & 1h & 4h down move
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 10.0))
+          # 15m & 1h strong down move & downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["MFI_14_1h"] > 5.0))
+          # 15m down move, 1h down move
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0)
+            | (df["CCI_20_change_pct_15m"] > 0.0)
+            | (df["RSI_3_1h"] > 10.0)
+            | (df["CCI_20_change_pct_1h"] > 0.0)
+          )
+          # 15m & 1h down move, 4h red, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0)
+            | (df["RSI_3_1h"] > 10.0)
+            | (df["change_pct_4h"] > -5.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0)
+          )
+          # 15m & 1h down move, 4h high
           long_entry_logic.append(
             (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
           )
-          long_entry_logic.append((df["RSI_3_15m"] > 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 25.0) | (df["RSI_3_4h"] > 25.0) | (df["MFI_14_4h"] > 10.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 2.0) | (df["RSI_3_4h"] > 4.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 4.0) | (df["MFI_14_1h"] > 10.0))
-          long_entry_logic.append((df["RSI_3_1h"] > 6.0) | (df["MFI_14_1h"] < 40.0))
+          # 15m & 1h down move, 1d overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 10.0) | (df["ROC_9_1d"] < 100.0))
+          # 15m & 4h down move, 1d downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["RSI_3_4h"] > 15.0) | (df["ROC_9_1d"] > -50.0))
+          # 15m & 1h down move, 4h high
+          long_entry_logic.append((df["RSI_3_15m"] > 25.0) | (df["RSI_3_1h"] > 25.0) | (df["MFI_14_4h"] < 70.0))
+          # 15m & 1h down move, 4h still high
           long_entry_logic.append(
-            (df["RSI_3_15m"] > 6.0) | (df["CMF_20_15m"] > -0.1) | (df["RSI_3_1h"] > 10.0) | (df["CMF_20_1h"] > -0.2)
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
           )
+          # 15m down move, 1h downtrend, 4h still high
           long_entry_logic.append(
-            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 25.0)
+            (df["RSI_3_15m"] > 20.0) | (df["ROC_9_1h"] > -20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
           )
+          # 1h & 4h down move, 4h not low enough
           long_entry_logic.append(
-            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
           )
-          long_entry_logic.append((df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 20.0) | (df["RSI_3_1d"] > 30.0))
-          long_entry_logic.append((df["RSI_3_1d"] > 16.0) | (df["change_pct_1d"] > -40.0))
+          # 1h & 4h down move, 4h still high
           long_entry_logic.append(
-            (df["change_pct_4h"] > -8.0)
-            | (df["change_pct_4h"].shift(48) < 8.0)
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 10.0) | (df["RSI_3_change_pct_4h"] > -75.0)
+          )
+          # 1h down move, 4h strong down move
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 5.0) | (df["RSI_14_change_pct_4h"] > -50.0)
+          )
+          # 1h down move, 1h & 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["AROONU_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 40.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h & 4h down move, 15m high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 40.0)
+          )
+          # 1h down move, 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 15.0)
+            | (df["RSI_3_4h"] > 20.0)
+            | (df["CCI_20_4h"] < -100.0)
+            | (df["AROONU_14_4h"] < 25.0)
+          )
+          # 1h & 4h down move, 1d downtrend
+          long_entry_logic.append((df["RSI_3_1h"] > 15.0) | (df["RSI_3_4h"] > 20.0) | (df["ROC_9_1d"] > -50.0))
+          # 1h down move, 4h low, 1h not low enough
+          long_entry_logic.append((df["RSI_3_1h"] > 20.0) | (df["MFI_14_4h"] > 5.0) | (df["UO_7_14_28_1h"] < 30.0))
+          # 1h & 4h strong down move
+          long_entry_logic.append(
+            (df["MFI_14_1h"] > 10.0) | (df["RSI_3_4h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -70.0)
+          )
+          # 1h downtrend, 4h down move, 1h overbought
+          long_entry_logic.append((df["ROC_9_1h"] > -30.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] < 40.0))
+          # 1h downtrend, 4h down move, 1h downtrend
+          long_entry_logic.append((df["ROC_9_1h"] > -30.0) | (df["RSI_3_4h"] > 10.0) | (df["ROC_9_1d"] > -50.0))
+          # 4h moving down, 1d P&D
+          long_entry_logic.append(
+            (df["ROC_9_4h"] > -30.0) | (df["RSI_3_change_pct_1d"] > -50.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h & 4h red, 1h not low enough
+          long_entry_logic.append(
+            (df["change_pct_1h"] > -10.0) | (df["change_pct_4h"] > -10.0) | (df["MFI_14_1h"] < 50.0)
+          )
+          # 4h red, previous 4h green, 15m down move
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0) | (df["change_pct_4h"].shift(48) < 5.0) | (df["RSI_3_15m"] > 5.0)
+          )
+          # 4h red, previous 4h green, 4h still high
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0)
+            | (df["change_pct_4h"].shift(48) < 5.0)
             | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 4h red, previous 4h red, 1h still high
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0) | (df["change_pct_4h"].shift(48) < 10.0) | (df["AROONU_14_1h"] < 50.0)
+          )
+          # 4h red, 4h still moving down, 1d overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0) | (df["CCI_20_change_pct_4h"] > 0.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 4h red, 4h & 1d still high
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -15.0) | (df["AROONU_14_4h"] < 50.0) | (df["AROONU_14_1d"] < 50.0)
           )
 
           # Logic
@@ -3109,27 +3994,118 @@ class NostalgiaForInfinityX5(IStrategy):
           long_entry_logic.append(df["BBB_20_2.0_1h"] > 16.0)
           long_entry_logic.append(df["close_max_48"] >= (df["close"] * 1.10))
 
-        # Condition #43 - Rapid mode (Long).
+        # Condition #43 - Quick mode (Long).
         if index == 43:
           # Protections
-          long_entry_logic.append(df["protections_long_global"] == True)
-          long_entry_logic.append(df["global_protections_long_pump"] == True)
-          long_entry_logic.append(df["global_protections_long_dump"] == True)
+          long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
           long_entry_logic.append(df["RSI_14_1d"] < 90.0)
-          long_entry_logic.append(df["OBV_change_pct"] > -10.0)
-          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["change_pct"] > -5.0))
-          long_entry_logic.append((df["RSI_3"] > 4.0) | (df["change_pct"] > -10.0))
+          # 5m strong down move
+          long_entry_logic.append((df["RSI_3"] > 2.0) | (df["ROC_9"] > -50.0))
+          # 15m down move, 1h down move, 1h still not low enough
           long_entry_logic.append(
-            (df["BBB_20_2.0_4h"] < 50.0)
-            | (df["MFI_14_4h"] < 30.0)
-            | (df["RSI_14_4h"] < 30.0)
-            | (df["change_pct_4h"] > -8.0)
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_change_pct_1h"] > -60.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
           )
-          long_entry_logic.append((df["RSI_3_1h"] > 2.0) | (df["CMF_20_1h"] > -0.4))
-          long_entry_logic.append((df["RSI_3_15m"] > 4.0) | (df["CMF_20_15m"] > -0.3) | (df["change_pct_1h"] > -8.0))
+          # 15m down move, 1h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_change_pct_1h"] > -40.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 70.0)
+          )
+          # 5m down move, 1h down, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["CMF_20_1h"] > -0.2) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 15m down move, 1h still not low enough, 4h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["AROONU_14_1h"] < 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 90.0)
+          )
+          # 15m down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["OBV_change_pct_15m"] > -50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 5m & 1h strong down move, 1h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0)
+          )
+          # 5m & 1h strong downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 5.0) | (df["MFI_14_1h"] > 10.0))
+          # 15m & 1h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0)
+            | (df["RSI_3_1h"] > 20.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+            | (df["AROONU_14_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h still high, 4h downtrend
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 10.0) | (df["UO_7_14_28_4h"] < 40.0) | (df["ROC_9_4h"] > -20.0)
+          )
+          # 15m & 1h down move, 1d strong downtrend
+          long_entry_logic.append((df["RSI_3_15m"] > 5.0) | (df["RSI_3_1h"] > 10.0) | (df["ROC_9_1d"] > -50.0))
+          # 15m & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 10.0) | (df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 45.0)
+          )
+          # 15m down move, 15m still not low enough, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m & 1h down move, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["RSI_3_1h"] > 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 15m down move, 15m still not low enoug, 1h high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 15.0) | (df["AROONU_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0)
+          )
+          # 15m down move, 1h downtrend, 4h overbought
+          long_entry_logic.append((df["RSI_3_15m"] > 15.0) | (df["ROC_9_1h"] > -5.0) | (df["ROC_9_4h"] < 35.0))
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 25.0)
+          )
+          # 1h & 4h down move, 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 5.0) | (df["RSI_3_change_pct_4h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 1h down move, 1h still not low enough, 4h still not low
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["RSI_14_4h"] < 50.0)
+          )
+          # 1h down move, 1h not low enough, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+          )
+          # 4h down move, 15m still not low enough, 1h still high
+          long_entry_logic.append(
+            (df["RSI_3_4h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 30.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 70.0)
+          )
+          # 4h down move, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["RSI_3_4h"] > 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 4h & 1d down move, 1d strong downtrend
+          long_entry_logic.append((df["RSI_3_4h"] > 10.0) | (df["RSI_3_1d"] > 10.0) | (df["ROC_9_1d"] > -60.0))
+          # 4h overbought, 1h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["ROC_9_4h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 30.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -5.0) | (df["change_pct_4h"].shift(48) < 5.0) | (df["RSI_14_4h"].shift(48) < 80.0)
+          )
+          # 4h red, 4h moving down, 4h still high, 1d downtrend
+          long_entry_logic.append(
+            (df["change_pct_4h"] > -10.0)
+            | (df["CCI_20_change_pct_4h"] > 0.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+            | (df["ROC_9_1d"] > -40.0)
+          )
 
           # Logic
           long_entry_logic.append(df["RSI_14"] < 40.0)
@@ -3147,7 +4123,9 @@ class NostalgiaForInfinityX5(IStrategy):
           long_entry_logic.append(num_open_long_grind_mode < self.grind_mode_max_slots)
           long_entry_logic.append(is_pair_long_grind_mode)
           long_entry_logic.append(df["RSI_3"] <= 40.0)
-          long_entry_logic.append(df["RSI_3_15m"] >= 20.0)
+          long_entry_logic.append(df["RSI_3_15m"] >= 10.0)
+          long_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+          long_entry_logic.append(df["RSI_3_4h"] >= 5.0)
           long_entry_logic.append(df["RSI_14_1h"] < 85.0)
           long_entry_logic.append(df["RSI_14_4h"] < 85.0)
           long_entry_logic.append(df["RSI_14_1d"] < 85.0)
@@ -3189,36 +4167,1081 @@ class NostalgiaForInfinityX5(IStrategy):
         short_entry_logic = []
         short_entry_logic.append(reduce(lambda x, y: x & y, item_short_buy_protection_list))
 
-        # Condition #500 - Normal mode (Short).
-        if short_index == 500:
-          # Protections
-          short_entry_logic.append(df["protections_short_global"] == True)
-          short_entry_logic.append(df["global_protections_short_pump"] == True)
-          short_entry_logic.append(df["global_protections_short_dump"] == True)
-          short_entry_logic.append(df["hl_pct_change_6_1h"] < 0.90)
-          short_entry_logic.append(df["hl_pct_change_12_1h"] < 1.00)
-          short_entry_logic.append(df["num_empty_288"] < allowed_empty_candles)
-
-          short_entry_logic.append(df["RSI_3_15m"] <= 96.0)
-          short_entry_logic.append(df["RSI_3_1h"] <= 96.0)
-
-          # Logic
-          short_entry_logic.append(df["EMA_12"] > df["EMA_26"])
-          short_entry_logic.append((df["EMA_12"] - df["EMA_26"]) > (df["open"] * 0.028))
-          short_entry_logic.append((df["EMA_12"] - df["EMA_26"]) > (df["open"] / 100.0))
-          short_entry_logic.append(df["close"] > (df["BBU_20_2.0"] * 1.012))
-          short_entry_logic.append(df["RSI_14"] > 64.0)
-
-        # Condition #501 - Rapid mode (Short).
+        # Condition #501 - Normal mode (Short).
         if short_index == 501:
           # Protections
-          # short_entry_logic.append(df["global_protections_long_pump"] == False)
-          # short_entry_logic.append(df["global_protections_long_dump"] == False)
-          # short_entry_logic.append(df["btc_pct_close_max_24_5m"] < 0.03)
-          # short_entry_logic.append(df["btc_pct_close_max_72_5m"] < 0.03)
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          short_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+          short_entry_logic.append(df["RSI_3_4h"] >= 20.0)
+          short_entry_logic.append(df["RSI_3_1d"] >= 20.0)
+          short_entry_logic.append(df["RSI_14_1h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_4h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_1d"] > 10.0)
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 1h still not low enough
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["UO_7_14_28_1h"] > 75.0))
+          # 15m & 1h down move, 1h still not low enough
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 90.0) | (df["MFI_14_1h"] > 50.0))
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["UO_7_14_28_1h"] > 60.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["MFI_14_4h"] > 50.0))
+          # 15m & 4h down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 15m down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0) | (df["MFI_14_1d"] < 90.0)
+          )
+          # 15m down move, 15m still not low enough, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_15m"] > 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m down move, 15m still not low enoug, 1h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["AROOND_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 40.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h down move, 1h still not low enough, 1d strong downtrend
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 75.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h down move, 1h still not low enough, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 75.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 1h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 75.0)
+          )
+          # 1h down move, 1h not low enough, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 85.0) | (df["AROOND_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 4h & 1d down move, 1d strong downtrend
+          short_entry_logic.append((df["RSI_3_4h"] < 90.0) | (df["RSI_3_1d"] < 90.0) | (df["ROC_9_1d"] < 50.0))
+          short_entry_logic.append(
+            (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h downtrend, 4h down move, 1d downtrend
+          short_entry_logic.append((df["ROC_9_1h"] < 15.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] < 50.0))
 
           # Logic
-          short_entry_logic.append(df["buy_short2"] > 0)
+          short_entry_logic.append(df["EMA_26"] < df["EMA_12"])
+          short_entry_logic.append((df["EMA_26"] - df["EMA_12"]) < (df["open"] * 1.030))
+          short_entry_logic.append((df["EMA_26"].shift() - df["EMA_12"].shift()) < (df["open"] / 100.0))
+          short_entry_logic.append(df["close"] > (df["BBU_20_2.0"] * 1.001))
+
+        # Condition #502 - Normal mode (Short).
+        if short_index == 502:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          # 5m strong down move
+          short_entry_logic.append((df["RSI_3"] < 98.0) | (df["ROC_9"] < 50.0))
+          # 5m down move, 1h still high, 4h down move
+          short_entry_logic.append(
+            (df["RSI_3"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["RSI_3_4h"] < 90.0)
+          )
+          # 15m downmove, 4h overbought
+          short_entry_logic.append((df["RSI_3_change_pct_15m"] < 40.0) | (df["RSI_14_4h"] > 25.0))
+          # 5m & 15m & 1h down move
+          short_entry_logic.append((df["RSI_3"] < 95.0) | (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 85.0))
+          # 5m down move, 4h high
+          short_entry_logic.append((df["RSI_3"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 25.0))
+          # 5m down move, 15m still high, 1h high
+          short_entry_logic.append(
+            (df["RSI_3"] < 90.0) | (df["AROOND_14_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append((df["RSI_3_15m"] < 98.0) | (df["RSI_3_1h"] < 85.0) | (df["MFI_14_4h"] > 50.0))
+          # 15m & 1h down move, 4h down
+          short_entry_logic.append((df["RSI_3_15m"] < 98.0) | (df["RSI_3_1h"] < 90.0) | (df["ROC_9_4h"] < 10.0))
+          # 15m down move, 1h high
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0))
+          # 15m down move, 15m still not low enough, 1h & 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0)
+            | (df["AROOND_14_15m"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] > 75.0)
+            | (df["MFI_14_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 15m down move, 1h high
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0))
+          # 15m down move, 1h still high, 4h overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 80.0) | (df["RSI_14_1h"] > 60.0) | (df["RSI_14_4h"] > 20.0))
+          # 15m down move, 1h high
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0))
+          # 15m down move, 1h low, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["ROC_9_1h"] < 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 1h & 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 75.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0) | (df["RSI_3_4h"] > 10.0)
+          )
+          # 15m down move, 1h high, 1d low
+          short_entry_logic.append(
+            (df["RSI_3_change_pct_15m"] < 40.0) | (df["ROC_9_1h"] > -10.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m down move, 4h high, 1d low
+          short_entry_logic.append(
+            (df["ROC_9_15m"] < 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m down move, 4h high, 1d low
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["ROC_9_4h"] > -20.0) | (df["ROC_9_1d"] < 50.0))
+          # 15m down move, 1h still high, 1d high
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["RSI_14_1h"] > 60.0) | (df["ROC_9_1d"] > -50.0))
+          # 15m & 1h down move, 1d overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 80.0) | (df["ROC_9_1h"] < 20.0) | (df["ROC_9_1d"] > -40.0))
+          # 15m down move, 1h high, 4h downtrend
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 80.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0) | (df["ROC_9_4h"] < 10.0)
+          )
+          # 15m & 1h & 4h down move
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["CMF_20_1h"] < 0.4) | (df["RSI_3_4h"] < 90.0))
+          # 14m down move, 4h downtrend, 1d overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["ROC_9_4h"] < 15.0) | (df["ROC_9_1d"] > -100.0))
+          # 15m strong downtrend, 1h downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["MFI_14_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0))
+          # 15m down move, 4h overbought & high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["ROC_9_4h"] > -15.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["UO_7_14_28_4h"] > 50.0)
+          )
+          # 15m down move, 15m not low enough, 1h overbought
+          short_entry_logic.append(
+            (df["RSI_14_change_pct_15m"] < 40.0) | (df["STOCHRSIk_14_14_3_3_15m"] > 90.0) | (df["RSI_14_1h"] > 30.0)
+          )
+          # 15m still not low enough, 4h & 1d going down
+          short_entry_logic.append((df["AROOND_14_15m"] < 25.0) | (df["RSI_3_4h"] < 80.0) | (df["RSI_3_1d"] < 70.0))
+          # 15m still not low enough, 4h overbought
+          short_entry_logic.append(
+            (df["AROOND_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0) | (df["ROC_9_4h"] > -40.0)
+          )
+          # 15m still not low enough, 1h overbought
+          short_entry_logic.append((df["AROOND_14_15m"] < 25.0) | (df["RSI_14_1h"] > 10.0))
+          # 1h strong down move
+          short_entry_logic.append((df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_1h"] < 85.0))
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h down move, 1d strong downtrend
+          short_entry_logic.append((df["RSI_3_1h"] < 90.0) | (df["RSI_3_1d"] < 95.0))
+          # 1h down move, 1h still not low enough, 4h still not low
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough, 1d still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0)
+            | (df["RSI_3_change_pct_4h"] < 50.0)
+            | (df["AROOND_14_4h"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1d"] > 60.0)
+          )
+          # 1h down move, 4h still not low enough, 1d overbought
+          short_entry_logic.append((df["RSI_3_1h"] < 90.0) | (df["AROOND_14_4h"] < 25.0) | (df["ROC_9_1d"] > -120.0))
+          # 1h down move, 4h overbought
+          short_entry_logic.append((df["RSI_3_1h"] < 85.0) | (df["RSI_14_4h"] > 25.0))
+          # 1h P&D, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 70.0) | (df["RSI_3_1h"].shift(12) > 20.0) | (df["ROC_9_1d"] < 20.0)
+          )
+          # 4h P&D
+          short_entry_logic.append((df["RSI_3_4h"] < 70.0) | (df["RSI_3_4h"].shift(48) > 5.0))
+          # 4h strong downtrend
+          short_entry_logic.append((df["RSI_3_4h"] < 95.0) | (df["ROC_9_4h"] < 40.0))
+          # 1h stil high, 1d overbought
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["STOCHRSIk_14_14_3_3_1d"] > 5.0) | (df["ROC_9_1d"] > -100.0)
+          )
+          # 1h & 4h still high, 1d strong down move
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["UO_7_14_28_4h"] > 55.0) | (df["RSI_3_1d"] < 90.0)
+          )
+          # 5m down, 1h down move, 4h high
+          short_entry_logic.append(
+            (df["ROC_9"] > -5.0) | (df["RSI_3_change_pct_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 4h pumped and going down
+          short_entry_logic.append((df["ROC_9_15m"] < 10.0) | (df["ROC_2_4h"] > -5.0) | (df["ROC_9_4h"] > -20.0))
+          # 14m down move, 4h high
+          short_entry_logic.append(
+            (df["ROC_9_15m"] < 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_4h"] > -35.0)
+          )
+          # 1h downtrend, 4h overbought
+          short_entry_logic.append(
+            (df["ROC_2_1h"] < 5.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 95.0) | (df["ROC_9_4h"] < 70.0)
+          )
+          # 1h downtrend, 4h overbought
+          short_entry_logic.append((df["ROC_2_1h"] < 5.0) | (df["ROC_9_1h"] < 5.0) | (df["ROC_9_4h"] > -35.0))
+          # 1h down, 1d strong downtrend
+          short_entry_logic.append((df["ROC_9_1h"] < 10.0) | (df["ROC_9_1d"] < 50.0))
+          # 1h & 4h & 1d downtrend
+          short_entry_logic.append((df["ROC_9_1h"] < 10.0) | (df["ROC_9_4h"] < 20.0) | (df["ROC_9_1d"] < 40.0))
+          # 1h down, 1d overbought
+          short_entry_logic.append((df["ROC_9_1h"] < 10.0) | (df["ROC_9_1d"] > -80.0))
+          # 4h P&D
+          short_entry_logic.append((df["ROC_2_4h"] < 20.0) | (df["ROC_9_4h"] > -80.0))
+          # 4h overbought, 1h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["ROC_9_4h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1d P&D
+          short_entry_logic.append((df["ROC_2_1d"] < 20.0) | (df["ROC_9_1d"] > -50.0))
+          # 1d strong downtrend
+          short_entry_logic.append((df["ROC_2_1d"] < 20.0) | (df["ROC_9_1d"] < 50.0))
+          # 1h red, previous 1h green, 1h overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 5.0) | (df["change_pct_1h"].shift(12) > -5.0) | (df["RSI_14_1h"].shift(12) < 80.0)
+          )
+          # 1h red, previous 1h green, 1h overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 2.0) | (df["change_pct_1h"].shift(12) > -10.0) | (df["RSI_14_1h"].shift(12) < 80.0)
+          )
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 5.0) | (df["change_pct_1h"].shift(12) > -5.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h red, 4h green, 1h overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 5.0) | (df["change_pct_4h"] > -10.0) | (df["RSI_14_1h"].shift(12) > 30.0)
+          )
+          # 4h red, previous 4h green, 4h still high
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0)
+            | (df["change_pct_4h"].shift(48) > -5.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 8.0) | (df["change_pct_4h"].shift(48) > -8.0) | (df["RSI_14_4h"].shift(48) > 20.0)
+          )
+          # 4h red, previous 4h green, 15m down move
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 8.0) | (df["change_pct_4h"].shift(48) > -8.0) | (df["RSI_3_15m"] < 95.0)
+          )
+          # 1d P&D, 1d overbought
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 10.0) | (df["change_pct_1d"].shift(288) > -10.0) | (df["ROC_9_1d"] > -100.0)
+          )
+          # 1d P&D, 5m & 1h down move
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 10.0)
+            | (df["change_pct_1d"].shift(288) > 10.0)
+            | (df["RSI_3_15m"] < 90.0)
+            | (df["change_pct_1h"] < 5.0)
+          )
+          # 1d P&D, 15m & 1h still not low enough
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 20.0)
+            | (df["change_pct_1d"].shift(288) > -20.0)
+            | (df["AROOND_14_15m"] < 50.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["AROOND_14"] < 25.0)
+          short_entry_logic.append(df["STOCHRSIk_14_14_3_3"] > 80.0)
+          short_entry_logic.append(df["close"] > (df["EMA_20"] * 1.056))
+
+        # Condition #503 - Normal mode (Short).
+        if short_index == 503:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          short_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+          short_entry_logic.append(df["RSI_3_4h"] >= 20.0)
+          short_entry_logic.append(df["RSI_3_1d"] >= 20.0)
+          short_entry_logic.append(df["RSI_14_1h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_4h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_1d"] > 10.0)
+          # 5m strong down move
+          short_entry_logic.append((df["RSI_3"] < 98.0) | (df["ROC_9"] < 50.0))
+          # 5m down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3"] < 90.0) | (df["MFI_14"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 5m & 1h down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3"] < 90.0) | (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0)
+          )
+          # 5m down move, 4h downtrend, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3"] < 95.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 5m & 4h strong down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 5m down move, 1h high, 1d overbought
+          short_entry_logic.append((df["RSI_3"] < 90.0) | (df["ROC_9_1h"] < 15.0) | (df["ROC_9_1d"] > -40.0))
+          # 5m down move, 1h & 4h high
+          short_entry_logic.append(
+            (df["RSI_3"] < 90.0) | (df["UO_7_14_28_1h"] > 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 5m down move, 1h high, 4h downtrend
+          short_entry_logic.append(
+            (df["RSI_3"] < 98.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0) | (df["ROC_9_4h"] < 10.0)
+          )
+          # 5m & 1h down move, 4h down
+          short_entry_logic.append((df["RSI_3"] < 90.0) | (df["RSI_3_1h"] < 85.0) | (df["CMF_20_4h"] > -0.2))
+          # 5m down move, 1h high
+          short_entry_logic.append((df["RSI_14_change_pct"] < 40.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0))
+          # 5m down move, 1h high
+          short_entry_logic.append((df["RSI_14_change_pct"] < 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0))
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 15m still not low enough, 1h & 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0)
+            | (df["AROOND_14_15m"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1h"] > 75.0)
+            | (df["MFI_14_4h"] > 50.0)
+          )
+          # 5m & 1h down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+          # 15m & 4h down move, 1h still not low
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_4h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0)
+          )
+          # 15m & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 15m & 1h & 4h down move
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_change_pct_1h"] > -60.0) | (df["RSI_3_change_pct_4h"] > -40.0)
+          )
+          # 15m down move, 1d downtrend, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["ROC_9_1d"] > -25.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m & 1d down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1d"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m & 4h down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_4h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+          # 15m down move, 15m still not low enough, 4h down move
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["AROOND_14_15m"] < 50.0) | (df["RSI_3_4h"] < 85.0))
+          # 15m down move, 1h still high, 1d strong downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 80.0) | (df["AROOND_14_1h"] < 25.0) | (df["MFI_14_1d"] < 90.0))
+          # 15m down move, 1h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m & 4h down move, 1d downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["RSI_3_4h"] < 85.0) | (df["ROC_9_1d"] > -70.0))
+          # 15m down move, 15m not low enough, 1h overbought
+          short_entry_logic.append(
+            (df["RSI_14_change_pct_15m"] > -40.0) | (df["STOCHRSIk_14_14_3_3_15m"] > 90.0) | (df["RSI_14_1h"] > 30.0)
+          )
+          # 15m strong down move, 1h still high
+          short_entry_logic.append((df["ROC_9_15m"] < 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0))
+          # 15m downtrend, 1h & 4h still high
+          short_entry_logic.append(
+            (df["ROC_9_15m"] < 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m & 1h & 4h down move
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["CCI_20_change_pct_4h"] < 0.0)
+          )
+          # 15m strong down move
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["MFI_14_15m"] < 85.0) | (df["AROOND_14_15m"] < 25.0))
+          # 14m down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 80.0) | (df["AROOND_14_15m"] < 50.0) | (df["UO_7_14_28_4h"] > 50.0)
+          )
+          # 15m down move, 1h stil high, 1d overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["AROOND_14_1h"] < 25.0) | (df["ROC_9_1d"] > -80.0))
+          # 15m down move, 1h high, 1d overbought
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_change_pct_4h"] < 65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+          )
+          # 1h down move, 4h still not low enough, 1d overbought
+          short_entry_logic.append((df["RSI_3_1h"] < 90.0) | (df["AROOND_14_4h"] < 25.0) | (df["ROC_9_1d"] > -120.0))
+          # 1h down move, 1h still not low enough, 4h still not low
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 1h down move, 4h still high
+          short_entry_logic.append((df["RSI_3_1h"] < 95.0) | (df["RSI_14_4h"] > 60.0))
+          # 1h down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_change_pct_1h"] > -65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 4h & 1d down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_4h"] < 90.0) | (df["ROC_2_1d"] < 20.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+          # 15m still high, 1h down move, 4h high
+          short_entry_logic.append(
+            (df["AROOND_14_15m"] < 50.0) | (df["RSI_3_change_pct_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m still high, 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["AROOND_14_15m"] < 50.0)
+            | (df["RSI_3_1h"] < 85.0)
+            | (df["RSI_3_4h"] < 80.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 80.0)
+          )
+          # 15m & 1h still high, 4h overbought
+          short_entry_logic.append(
+            (df["AROOND_14_15m"] < 50.0) | (df["AROOND_14_1h"] < 50.0) | (df["ROC_9_4h"] > -40.0)
+          )
+          # 15m still high, 1h down move, 1d downtrend
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] > 30.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h & 4h still high, 1d strong down move
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["UO_7_14_28_4h"] > 55.0) | (df["RSI_3_1d"] < 90.0)
+          )
+          # 1h still high, 4h & 1d downtrend
+          short_entry_logic.append((df["AROOND_14_1h"] < 25.0) | (df["ROC_9_4h"] < 20.0) | (df["ROC_9_1d"] < 50.0))
+          # 4h moving down, 1d P&D
+          short_entry_logic.append(
+            (df["ROC_9_4h"] < 30.0) | (df["RSI_3_change_pct_1d"] < 50.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1d strong downtrend, 4h still high
+          short_entry_logic.append(
+            (df["ROC_2_1d"] < 20.0) | (df["ROC_9_1d"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1d P&D, 1d overbought
+          short_entry_logic.append(
+            (df["ROC_2_1d"] < 10.0) | (df["ROC_9_1d"] > -50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 5.0)
+          )
+          # 1h red, previous 1h green, 1h overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 1.0) | (df["change_pct_1h"].shift(12) > -5.0) | (df["RSI_14_1h"].shift(12) < 80.0)
+          )
+          # 1h red, 1h stil high, 4h downtrend
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 5.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["ROC_9_4h"] > -25.0)
+          )
+          # 4h red, 15m down move, 4h still high
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0) | (df["RSI_3_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0) | (df["change_pct_4h"].shift(48) > -5.0) | (df["ROC_9_4h"].shift(48) > -25.0)
+          )
+          # 4h red, 4h still not low enough, 1h downtrend, 1h overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 10.0)
+            | (df["AROOND_14_4h"] < 25.0)
+            | (df["ROC_9_1h"] < 20.0)
+            | (df["ROC_9_1d"] > -40.0)
+          )
+          # 4h red, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 40.0)
+          )
+          # 1d P&D, 1d overbought
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 10.0) | (df["change_pct_1d"].shift(288) > -10.0) | (df["ROC_9_1d"] > -100.0)
+          )
+          # 1d P&D, 4h still high
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 15.0) | (df["change_pct_1d"].shift(288) > -15.0) | (df["AROOND_14_4h"] < 50.0)
+          )
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 95.0) | (df["CCI_20_change_pct_4h"] < 0.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["RSI_20"] > df["RSI_20"].shift(1))
+          short_entry_logic.append(df["RSI_4"] > 54.0)
+          short_entry_logic.append(df["AROOND_14"] < 25.0)
+          short_entry_logic.append(df["close"] > df["SMA_16"] * 1.058)
+
+        # Condition #504 - Normal mode (Short).
+        if short_index == 504:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          short_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+          short_entry_logic.append(df["RSI_3_4h"] >= 20.0)
+          short_entry_logic.append(df["RSI_3_1d"] >= 20.0)
+          short_entry_logic.append(df["RSI_14_1h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_4h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_1d"] > 10.0)
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0)
+            | (df["MFI_14_15m"] < 90.0)
+            | (df["RSI_3_1h"] < 80.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["MFI_14_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 14m & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["UO_7_14_28_1h"] < 45.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 1h strong down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_14_change_pct_1h"] < 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 1h strong down move, 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 75.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append((df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 75.0) | (df["AROOND_14_4h"] < 50.0))
+          # 15m down move, 1h strong downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["MFI_14_1h"] > 5.0))
+          # 15m downtrend, 4h down move, 4h stil high
+          short_entry_logic.append(
+            (df["ROC_9_15m"] > -20.0) | (df["RSI_3_4h"] < 75.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["AROOND_14"] < 25.0)
+          short_entry_logic.append(df["AROOND_14_15m"] < 25.0)
+          short_entry_logic.append(df["close"] > (df["EMA_9"] * 1.058))
+          short_entry_logic.append(df["close"] > (df["EMA_20"] * 1.040))
+
+        # Condition #541 - Quick mode (Short).
+        if short_index == 541:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          # 5m & 15m down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3"] < 95.0) | (df["RSI_3_change_pct_15m"] < 50.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 5m & 15m & 1h down move
+          short_entry_logic.append((df["RSI_3"] < 95.0) | (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0))
+          # 5m strong down move
+          short_entry_logic.append((df["RSI_3"] < 98.0) | (df["ROC_9"] < 50.0))
+          # 15m & 1h strong down move & downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["MFI_14_1h"] > 5.0))
+          # 15m strong down move, 4h high
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0))
+          # 15m & 1h down move
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["CCI_20_change_pct_1h"] > 0.0)
+          )
+          # 15m & 1h down move, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_change_pct_1h"] < 50.0) | (df["MFI_14_4h"] > 50.0)
+          )
+          # 15m strong down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["MFI_14_15m"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+          # 15m & 1h down move, 1h not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 80.0)
+          )
+          # 15m down move, 1h strong down move
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_14_change_pct_1h"] < 70.0))
+          # 15m down move, 4h & 1d downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["ROC_9_4h"] < 30.0) | (df["ROC_9_1d"] < 50.0))
+          # 15m down move, 1h strong down move, 4h stil high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 1h & 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 1h downtrend, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["ROC_9_1h"] < 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m & 1h down move, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m down move, 1h down move, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["RSI_3_change_pct_1h"] < 30.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0)
+          )
+          # 1m down move, 1h still dropping, 4h overbought
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["CCI_20_change_pct_1h"] < 0.0) | (df["RSI_14_4h"] > 20.0)
+          )
+          # 15m down move, 1h high
+          short_entry_logic.append((df["RSI_3_change_pct_15m"] < 70.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0))
+          # 1h strong down move, 4h high
+          short_entry_logic.append((df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0))
+          # 1h down move, 4h downtrend, 4h not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["CMF_20_4h"] > -0.25) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h down move, 4h high, 1d overbought
+          short_entry_logic.append((df["RSI_3_1h"] < 90.0) | (df["RSI_14_4h"] > 40.0) | (df["ROC_9_1d"] > -50.0))
+          # 1h down move, 4h strong down move
+          short_entry_logic.append((df["RSI_3_1h"] < 95.0) | (df["RSI_14_change_pct_4h"] < 40.0))
+          # 1h & 4h down move, 4h still going down
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 95.0) | (df["CCI_20_change_pct_4h"] < 0.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h down move, 4h down move, 4h P&D
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_change_pct_4h"] < 70.0) | (df["RSI_14_4h"].shift(48) > 30.0)
+          )
+          # 1h & 4h down move, 4h still not low enough, 1d still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0)
+            | (df["RSI_3_change_pct_4h"] < 50.0)
+            | (df["AROOND_14_4h"] < 25.0)
+            | (df["STOCHRSIk_14_14_3_3_1d"] > 60.0)
+          )
+          # 1h down move, 1h still high, 1d going down
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0) | (df["ROC_2_1d"] > -50.0)
+          )
+          # 4h downtrend, 4h still high, 1d strong downtrend
+          short_entry_logic.append(
+            (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0) | (df["ROC_9_1d"] < 60.0)
+          )
+          # 15m down move, 1h strong down move, 1d overbought
+          short_entry_logic.append(
+            (df["MFI_14_15m"] < 80.0) | (df["RSI_3_change_pct_1h"] < 80.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h not low enough, 4h high, 1d strong downtrend
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0) | (df["ROC_9_1d"] < 60.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_change_pct_1h"] < 65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m strong down move, 1h still high
+          short_entry_logic.append((df["ROC_9_15m"] < 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0))
+          # 15m downtrend, 4h down move, 4h stil high
+          short_entry_logic.append(
+            (df["ROC_9_15m"] < 15.0) | (df["RSI_3_4h"] < 75.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 1h downtrend, 4h overbought
+          short_entry_logic.append((df["ROC_2_1h"] < 5.0) | (df["RSI_14_4h"] > 20.0) | (df["ROC_9_4h"] > -25.0))
+          # 1h P&D, 4h still high
+          short_entry_logic.append(
+            (df["ROC_2_1h"] < 10.0) | (df["ROC_9_1h"] > -5.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 1h downtrend, 4h down move, 1d downtrend
+          short_entry_logic.append((df["ROC_9_1h"] < 40.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] < 50.0))
+          short_entry_logic.append((df["ROC_9_4h"] > -200.0) | (df["RSI_14_4h"] > 20.0))
+          # 4h down move, 1d P&D
+          short_entry_logic.append((df["ROC_9_4h"] < 20.0) | (df["ROC_2_1d"] < 20.0) | (df["ROC_9_1d"] > -50.0))
+          # 1h P&D, 4h overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 2.0) | (df["change_pct_1h"].shift(12) > 2.0) | (df["RSI_14_4h"] > 20.0)
+          )
+          # 1h P&D, 1d overbought
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 5.0) | (df["change_pct_1h"].shift(12) > -5.0) | (df["ROC_9_1d"] > -100.0)
+          )
+          # 1h & 4h red, 1h not low enough
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 10.0) | (df["change_pct_4h"] < 10.0) | (df["MFI_14_1h"] > 50.0)
+          )
+          # 1h red, 1h still not low enough, 1d down move
+          short_entry_logic.append((df["change_pct_1h"] < 15.0) | (df["MFI_14_1h"] > 50.0) | (df["RSI_3_1d"] < 90.0))
+          # 4h red, previous 4h green, 4h overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0) | (df["change_pct_4h"].shift(48) > -5.0) | (df["RSI_14_4h"].shift(48) > 20.0)
+          )
+          # 1d P&D, 1d overbought
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 10.0) | (df["change_pct_1d"].shift(288) > -10.0) | (df["ROC_9_1d"] > -100.0)
+          )
+          # 1d P&D, 4h still high
+          short_entry_logic.append(
+            (df["change_pct_1d"] < 15.0) | (df["change_pct_1d"].shift(288) > -15.0) | (df["AROOND_14_4h"] < 50.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["RSI_14"] > 64.0)
+          short_entry_logic.append(df["AROOND_14"] < 25.0)
+          short_entry_logic.append(df["AROONU_14"] > 75.0)
+          short_entry_logic.append(df["EMA_9"] > (df["EMA_26"] * 1.040))
+
+        # Condition #542 - Quick mode (Short).
+        if short_index == 542:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          short_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+          short_entry_logic.append(df["RSI_3_4h"] >= 20.0)
+          short_entry_logic.append(df["RSI_3_1d"] >= 20.0)
+          short_entry_logic.append(df["RSI_14_1h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_4h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_1d"] > 10.0)
+          # 15m high, 4h still high, 1h downtrend
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] > 30.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0) | (df["ROC_9_1h"] < 15.0)
+          )
+          # 15m high, 4h strong down move, 1d strong downtrend
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] > 30.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 15m high, 4h down move, 1d still high
+          short_entry_logic.append(
+            (df["STOCHRSIk_14_14_3_3_15m"] > 30.0) | (df["RSI_3_4h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1d"] < 50.0)
+          )
+          # 15m & 1h & 4h down move
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 90.0))
+          # 15m & 1h strong down move & downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["MFI_14_1h"] < 95.0))
+          # 15m down move, 1h down move
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0)
+            | (df["CCI_20_change_pct_15m"] < 0.0)
+            | (df["RSI_3_1h"] < 90.0)
+            | (df["CCI_20_change_pct_1h"] < 0.0)
+          )
+          # 15m & 1h down move, 4h red, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0)
+            | (df["RSI_3_1h"] < 90.0)
+            | (df["change_pct_4h"] < 5.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0)
+          )
+          # 15m & 1h down move, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 75.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m & 1h down move, 1d overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 90.0) | (df["RSI_3_1h"] < 90.0) | (df["ROC_9_1d"] > -100.0))
+          # 15m & 4h down move, 1d downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["RSI_3_4h"] < 85.0) | (df["ROC_9_1d"] < 50.0))
+          # 15m & 1h down move, 4h high
+          short_entry_logic.append((df["RSI_3_15m"] < 75.0) | (df["RSI_3_1h"] < 75.0) | (df["MFI_14_4h"] < 70.0))
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 15m down move, 1h downtrend, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 80.0) | (df["ROC_9_1h"] < 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 90.0) | (df["RSI_3_change_pct_4h"] > -75.0)
+          )
+          # 1h down move, 4h strong down move
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 95.0) | (df["RSI_14_change_pct_4h"] > -50.0)
+          )
+          # 1h down move, 1h & 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["AROOND_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 60.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 1h & 4h down move, 15m high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_15m"] < 40.0)
+          )
+          # 1h down move, 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 85.0) | (df["RSI_3_4h"] < 80.0) | (df["CCI_20_4h"] > 100.0) | (df["AROOND_14_4h"] < 25.0)
+          )
+          # 1h & 4h down move, 1d downtrend
+          short_entry_logic.append((df["RSI_3_1h"] < 85.0) | (df["RSI_3_4h"] < 80.0) | (df["ROC_9_1d"] < 50.0))
+          # 1h down move, 4h low, 1h not low enough
+          short_entry_logic.append((df["RSI_3_1h"] < 80.0) | (df["MFI_14_4h"] < 95.0) | (df["UO_7_14_28_1h"] > 70.0))
+          # 1h & 4h strong down move
+          short_entry_logic.append(
+            (df["MFI_14_1h"] < 90.0) | (df["RSI_3_4h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 70.0)
+          )
+          # 1h downtrend, 4h down move, 1h overbought
+          short_entry_logic.append((df["ROC_9_1h"] < 30.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] > -40.0))
+          # 1h downtrend, 4h down move, 1h downtrend
+          short_entry_logic.append((df["ROC_9_1h"] < 30.0) | (df["RSI_3_4h"] < 90.0) | (df["ROC_9_1d"] < 50.0))
+          # 4h moving down, 1d P&D
+          short_entry_logic.append(
+            (df["ROC_9_4h"] < 30.0) | (df["RSI_3_change_pct_1d"] < 50.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 1h & 4h red, 1h not low enough
+          short_entry_logic.append(
+            (df["change_pct_1h"] < 10.0) | (df["change_pct_4h"] < 10.0) | (df["MFI_14_1h"] > 50.0)
+          )
+          # 4h red, previous 4h green, 15m down move
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0) | (df["change_pct_4h"].shift(48) > -5.0) | (df["RSI_3_15m"] < 95.0)
+          )
+          # 4h red, previous 4h green, 4h still high
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0)
+            | (df["change_pct_4h"].shift(48) > -5.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 4h red, previous 4h red, 1h still high
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 10.0) | (df["change_pct_4h"].shift(48) > -10.0) | (df["AROOND_14_1h"] < 50.0)
+          )
+          # 4h red, 4h still moving down, 1d overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 10.0) | (df["CCI_20_change_pct_4h"] < 0.0) | (df["ROC_9_1d"] > -50.0)
+          )
+          # 4h red, 4h & 1d still high
+          short_entry_logic.append(
+            (df["change_pct_4h"] > -15.0) | (df["AROOND_14_4h"] < 50.0) | (df["AROOND_14_1d"] < 50.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["WILLR_14"] > -50.0)
+          short_entry_logic.append(df["STOCHRSIk_14_14_3_3"] > 80.0)
+          short_entry_logic.append(df["WILLR_84_1h"] > -30.0)
+          short_entry_logic.append(df["STOCHRSIk_14_14_3_3_1h"] > 80.0)
+          short_entry_logic.append(df["BBB_20_2.0_1h"] > 16.0)
+          short_entry_logic.append(df["close_max_48"] >= (df["close"] * 1.10))
+
+        # Condition #543 - Rapid mode (Short).
+        if short_index == 543:
+          # Protections
+          short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+
+          short_entry_logic.append(df["RSI_14_1h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_4h"] > 20.0)
+          short_entry_logic.append(df["RSI_14_1d"] > 10.0)
+          # 5m strong down move
+          short_entry_logic.append((df["RSI_3"] < 98.0) | (df["ROC_9"] < 50.0))
+          # 15m down move, 1h down move, 1h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_change_pct_1h"] < 60.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 50.0)
+          )
+          # 15m down move, 1h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_change_pct_1h"] < 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 30.0)
+          )
+          # 5m down move, 1h down, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["CMF_20_1h"] < 0.2) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 15m down move, 1h still not low enough, 4h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["AROOND_14_1h"] < 25.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 10.0)
+          )
+          # 15m down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["OBV_change_pct_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 5m & 1h strong down move, 1h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0)
+          )
+          # 5m & 1h strong downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 95.0) | (df["MFI_14_1h"] < 90.0))
+          # 15m & 1h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0)
+            | (df["RSI_3_1h"] < 80.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+            | (df["AROOND_14_4h"] < 50.0)
+          )
+          # 15m & 1h down move, 4h still high, 4h downtrend
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 90.0) | (df["UO_7_14_28_4h"] > 60.0) | (df["ROC_9_4h"] < 20.0)
+          )
+          # 15m & 1h down move, 1d strong downtrend
+          short_entry_logic.append((df["RSI_3_15m"] < 95.0) | (df["RSI_3_1h"] < 90.0) | (df["ROC_9_1d"] < 50.0))
+          # 15m & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 90.0) | (df["RSI_3_4h"] < 85.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 55.0)
+          )
+          # 15m down move, 15m still not low enough, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["STOCHRSIk_14_14_3_3_15m"] > 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m & 1h down move, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["RSI_3_1h"] < 75.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 15m down move, 15m still not low enoug, 1h high
+          short_entry_logic.append(
+            (df["RSI_3_15m"] < 85.0) | (df["AROOND_14_15m"] < 25.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 10.0)
+          )
+          # 15m down move, 1h downtrend, 4h overbought
+          short_entry_logic.append((df["RSI_3_15m"] < 85.0) | (df["ROC_9_1h"] < 5.0) | (df["ROC_9_4h"] > -35.0))
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_4h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 75.0)
+          )
+          # 1h & 4h down move, 4h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 1h & 4h down move, 4h still not low enough
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 95.0) | (df["RSI_3_change_pct_4h"] < 65.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+          )
+          # 1h down move, 1h still not low enough, 4h still not low
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 90.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["RSI_14_4h"] > 50.0)
+          )
+          # 1h down move, 1h not low enough, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_1h"] < 85.0) | (df["AROOND_14_1h"] < 50.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+          )
+          # 4h down move, 15m still not low enough, 1h still high
+          short_entry_logic.append(
+            (df["RSI_3_4h"] < 80.0) | (df["STOCHRSIk_14_14_3_3_15m"] > 70.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 30.0)
+          )
+          # 4h down move, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["RSI_3_4h"] < 75.0) | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 4h & 1d down move, 1d strong downtrend
+          short_entry_logic.append((df["RSI_3_4h"] < 90.0) | (df["RSI_3_1d"] < 90.0) | (df["ROC_9_1d"] < 60.0))
+          # 4h overbought, 1h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["ROC_9_4h"] > -50.0) | (df["STOCHRSIk_14_14_3_3_1h"] > 70.0) | (df["ROC_9_1d"] < 50.0)
+          )
+          # 4h red, previous 4h green, 4h overbought
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 5.0) | (df["change_pct_4h"].shift(48) > -5.0) | (df["RSI_14_4h"].shift(48) > 20.0)
+          )
+          # 4h red, 4h moving down, 4h still high, 1d downtrend
+          short_entry_logic.append(
+            (df["change_pct_4h"] < 10.0)
+            | (df["CCI_20_change_pct_4h"] < 0.0)
+            | (df["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+            | (df["ROC_9_1d"] < 40.0)
+          )
+
+          # Logic
+          short_entry_logic.append(df["RSI_14"] > 60.0)
+          short_entry_logic.append(df["MFI_14"] > 60.0)
+          short_entry_logic.append(df["AROOND_14"] < 25.0)
+          short_entry_logic.append(df["EMA_26"] < df["EMA_12"])
+          short_entry_logic.append((df["EMA_26"] - df["EMA_12"]) > (df["open"] * 0.024))
+          short_entry_logic.append((df["EMA_26"].shift() - df["EMA_12"].shift()) > (df["open"] / 100.0))
+          short_entry_logic.append(df["close"] < (df["EMA_20"] * 0.958))
+          short_entry_logic.append(df["close"] < (df["BBL_20_2.0"] * 0.992))
+
+        # # Condition #620 - Grind mode (Short).
+        # if short_index == 620:
+        #   # Protections
+        #   short_entry_logic.append(num_open_short_grind_mode < self.grind_mode_max_slots)
+        #   short_entry_logic.append(is_pair_short_grind_mode)
+        #   short_entry_logic.append(df["RSI_3"] <= 40.0)
+        #   short_entry_logic.append(df["RSI_3_15m"] >= 10.0)
+        #   short_entry_logic.append(df["RSI_3_1h"] >= 5.0)
+        #   short_entry_logic.append(df["RSI_3_4h"] >= 5.0)
+        #   short_entry_logic.append(df["RSI_14_1h"] < 85.0)
+        #   short_entry_logic.append(df["RSI_14_4h"] < 85.0)
+        #   short_entry_logic.append(df["RSI_14_1d"] < 85.0)
+        #   short_entry_logic.append(df["close_max_48"] >= (df["close"] * 1.10))
+
+        #   # Logic
+        #   short_entry_logic.append(df["STOCHRSIk_14_14_3_3"] > 80.0)
+        #   short_entry_logic.append(df["WILLR_14"] > -20.0)
+        #   short_entry_logic.append(df["AROOND_14"] < 25.0)
 
         # Short Entry Conditions Ends Here
 
@@ -3762,7 +5785,7 @@ class NostalgiaForInfinityX5(IStrategy):
 
     return False, None
 
-  # Long Exit Signals
+  # Long Exit Quick
   # ---------------------------------------------------------------------------------------------
   def long_exit_quick(
     self,
@@ -3887,10 +5910,13 @@ class NostalgiaForInfinityX5(IStrategy):
     if not sell:
       if (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_14"] > 78.0):
         sell, signal_name = True, f"exit_{self.long_quick_mode_name}_q_1"
+
       elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["MFI_14"] > 84.0):
         sell, signal_name = True, f"exit_{self.long_quick_mode_name}_q_2"
+
       elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["WILLR_14"] >= -0.1):
         sell, signal_name = True, f"exit_{self.long_quick_mode_name}_q_3"
+
       elif (
         (0.09 >= profit_init_ratio > 0.02)
         and (last_candle["RSI_14"] >= 72.0)
@@ -4145,7 +6171,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # / (trade.leverage if self.is_futures_mode else 1.0)
         )
         # temporary
-        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       ):
         sell, signal_name = True, f"exit_{self.long_rebuy_mode_name}_stoploss_doom"
 
@@ -4660,7 +6686,7 @@ class NostalgiaForInfinityX5(IStrategy):
           )
         )
         # temporary
-        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       ):
         sell, signal_name = True, f"exit_{self.long_rapid_mode_name}_stoploss_doom"
 
@@ -5035,6 +7061,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_0_2"
       elif (last_candle["WILLR_14"] >= -1.0) and (last_candle["RSI_14"] < 40.0):
         return True, f"exit_{mode_name}_w_0_3"
+      elif (
+        (last_candle["WILLR_14"] >= -1.0)
+        and (last_candle["RSI_14"] > 80.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_0_4"
     elif 0.02 > current_profit >= 0.01:
       if last_candle["WILLR_480"] > -0.2:
         return True, f"exit_{mode_name}_w_1_1"
@@ -5042,6 +7075,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_1_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 46.0):
         return True, f"exit_{mode_name}_w_1_3"
+      elif (
+        (last_candle["WILLR_14"] >= -2.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_1_4"
     elif 0.03 > current_profit >= 0.02:
       if last_candle["WILLR_480"] > -0.3:
         return True, f"exit_{mode_name}_w_2_1"
@@ -5049,6 +7089,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_2_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 48.0):
         return True, f"exit_{mode_name}_w_2_3"
+      elif (
+        (last_candle["WILLR_14"] >= -5.0)
+        and (last_candle["RSI_14"] > 75.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_2_4"
     elif 0.04 > current_profit >= 0.03:
       if last_candle["WILLR_480"] > -0.4:
         return True, f"exit_{mode_name}_w_3_1"
@@ -5056,6 +7103,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_3_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 50.0):
         return True, f"exit_{mode_name}_w_3_3"
+      elif (
+        (last_candle["WILLR_14"] >= -5.0)
+        and (last_candle["RSI_14"] > 75.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_3_4"
     elif 0.05 > current_profit >= 0.04:
       if last_candle["WILLR_480"] > -0.5:
         return True, f"exit_{mode_name}_w_4_1"
@@ -5063,6 +7117,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_4_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 52.0):
         return True, f"exit_{mode_name}_w_4_3"
+      elif (
+        (last_candle["WILLR_14"] >= -5.0)
+        and (last_candle["RSI_14"] > 75.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_4_4"
     elif 0.06 > current_profit >= 0.05:
       if last_candle["WILLR_480"] > -0.6:
         return True, f"exit_{mode_name}_w_5_1"
@@ -5070,6 +7131,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_5_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 54.0):
         return True, f"exit_{mode_name}_w_5_3"
+      elif (
+        (last_candle["WILLR_14"] >= -10.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_5_4"
     elif 0.07 > current_profit >= 0.06:
       if last_candle["WILLR_480"] > -0.7:
         return True, f"exit_{mode_name}_w_6_1"
@@ -5077,6 +7145,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_6_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 52.0):
         return True, f"exit_{mode_name}_w_6_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_6_4"
     elif 0.08 > current_profit >= 0.07:
       if last_candle["WILLR_480"] > -0.8:
         return True, f"exit_{mode_name}_w_7_1"
@@ -5084,6 +7159,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_7_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 50.0):
         return True, f"exit_{mode_name}_w_7_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_7_4"
     elif 0.09 > current_profit >= 0.08:
       if last_candle["WILLR_480"] > -0.9:
         return True, f"exit_{mode_name}_w_8_1"
@@ -5091,6 +7173,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_8_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 48.0):
         return True, f"exit_{mode_name}_w_8_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_8_4"
     elif 0.1 > current_profit >= 0.09:
       if last_candle["WILLR_480"] > -1.0:
         return True, f"exit_{mode_name}_w_9_1"
@@ -5098,6 +7187,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_9_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 46.0):
         return True, f"exit_{mode_name}_w_9_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_9_4"
     elif 0.12 > current_profit >= 0.1:
       if last_candle["WILLR_480"] > -1.1:
         return True, f"exit_{mode_name}_w_10_1"
@@ -5105,6 +7201,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_10_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 44.0):
         return True, f"exit_{mode_name}_w_10_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_10_4"
     elif 0.2 > current_profit >= 0.12:
       if last_candle["WILLR_480"] > -0.4:
         return True, f"exit_{mode_name}_w_11_1"
@@ -5112,6 +7215,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_11_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 42.0):
         return True, f"exit_{mode_name}_w_11_3"
+      elif (
+        (last_candle["WILLR_14"] >= -15.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_11_4"
     elif current_profit >= 0.2:
       if last_candle["WILLR_480"] > -0.2:
         return True, f"exit_{mode_name}_w_12_1"
@@ -5119,6 +7229,13 @@ class NostalgiaForInfinityX5(IStrategy):
         return True, f"exit_{mode_name}_w_12_2"
       elif (last_candle["WILLR_14"] >= -2.0) and (last_candle["RSI_14"] < 40.0):
         return True, f"exit_{mode_name}_w_12_3"
+      elif (
+        (last_candle["WILLR_14"] >= -1.0)
+        and (last_candle["RSI_14"] > 80.0)
+        and (last_candle["ROC_9_1h"] < -0.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_w_12_4"
 
     return False, None
 
@@ -5176,6 +7293,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_0_3"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_0_4"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_5"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_7"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 99.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_8"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3"] > 99.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_9"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_10"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_11"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_12"
+      elif (last_candle["RSI_3"] > 99.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_0_13"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_14"
+      elif (last_candle["RSI_3"] > 99.0) and (last_candle["RSI_14"] > 78.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_0_15"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_16"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_17"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] > 75.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_18"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_19"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_20"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_21"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_22"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_23"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_24"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_25"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_26"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_27"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_28"
     elif 0.02 > current_profit >= 0.01:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5212,6 +7512,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_1_3"
+      elif (
+        (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_1_4"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_7"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_8"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_9"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_10"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_11"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_12"
+      elif (last_candle["RSI_3"] > 80.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_1_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_14"
+      elif (last_candle["RSI_3"] > 95.0) and (last_candle["RSI_14"] > 75.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_1_15"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_16"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_17"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_18"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_19"
+      elif (
+        (last_candle["RSI_3"] > 50.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_20"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_21"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_22"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_23"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] > 75.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_24"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_25"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_26"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_27"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_28"
     elif 0.03 > current_profit >= 0.02:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5248,6 +7731,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_2_3"
+      elif (
+        (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_2_4"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_7"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_8"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_9"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_10"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_11"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_12"
+      elif (last_candle["RSI_3"] > 80.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_2_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_14"
+      elif (last_candle["RSI_3"] > 92.0) and (last_candle["RSI_14"] > 70.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_2_15"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_16"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_17"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_18"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_19"
+      elif (
+        (last_candle["RSI_3"] > 48.0)
+        and (last_candle["RSI_14"] < 42.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_20"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_21"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_22"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_23"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_24"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_25"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_26"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_27"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_28"
     elif 0.04 > current_profit >= 0.03:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5284,6 +7950,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_3_3"
+      elif (
+        (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_3_4"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_7"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_8"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_9"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_10"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_11"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_12"
+      elif (last_candle["RSI_3"] > 80.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_3_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_14"
+      elif (last_candle["RSI_3"] > 90.0) and (last_candle["RSI_14"] > 65.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_3_15"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_16"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_17"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_18"
+      elif (
+        (last_candle["RSI_3"] > 88.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_19"
+      elif (
+        (last_candle["RSI_3"] > 46.0)
+        and (last_candle["RSI_14"] < 44.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_20"
+      elif (
+        (last_candle["RSI_3"] > 60.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_21"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_22"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_23"
+      elif (
+        (last_candle["RSI_3"] > 88.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_24"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_25"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_26"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_27"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_28"
     elif 0.05 > current_profit >= 0.04:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5320,6 +8169,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_4_3"
+      elif (
+        (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_4_4"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_7"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_8"
+      elif (
+        (last_candle["WILLR_14"] > -7.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_9"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_10"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_11"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_12"
+      elif (last_candle["RSI_3"] > 80.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_4_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_14"
+      elif (last_candle["RSI_3"] > 88.0) and (last_candle["RSI_14"] > 60.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_4_15"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_16"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_17"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_18"
+      elif (
+        (last_candle["RSI_3"] > 86.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_19"
+      elif (
+        (last_candle["RSI_3"] > 44.0)
+        and (last_candle["RSI_14"] < 46.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_20"
+      elif (
+        (last_candle["RSI_3"] > 55.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_21"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_22"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_23"
+      elif (
+        (last_candle["RSI_3"] > 86.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_24"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_25"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_26"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_27"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_28"
     elif 0.06 > current_profit >= 0.05:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5356,6 +8388,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_5_3"
+      elif (
+        (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_5_4"
+      elif (
+        (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_14"] > 64.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_7"
+      elif (
+        (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_8"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_9"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_10"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_11"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_12"
+      elif (last_candle["RSI_3"] > 80.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_5_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -12.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_14"
+      elif (last_candle["RSI_3"] > 86.0) and (last_candle["RSI_14"] > 58.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_5_15"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_16"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -35.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_17"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_18"
+      elif (
+        (last_candle["RSI_3"] > 84.0)
+        and (last_candle["RSI_14"] > 64.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_19"
+      elif (
+        (last_candle["RSI_3"] > 42.0)
+        and (last_candle["RSI_14"] < 48.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_20"
+      elif (
+        (last_candle["RSI_3"] > 50.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_21"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_22"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_23"
+      elif (
+        (last_candle["RSI_3"] > 84.0)
+        and (last_candle["RSI_14"] > 64.0)
+        and (last_candle["WILLR_14"] > -35.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_24"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["WILLR_14"] > -12.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_25"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["WILLR_14"] > -12.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_26"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_27"
+      elif (
+        (last_candle["RSI_3"] > 60.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_28"
     elif 0.07 > current_profit >= 0.06:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5392,6 +8607,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_6_3"
+      elif (
+        (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_6_4"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_7"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_8"
+      elif (
+        (last_candle["WILLR_14"] > -7.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_9"
+      elif (
+        (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_10"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_11"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_12"
+      elif (last_candle["RSI_3"] > 85.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_6_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_14"
+      elif (last_candle["RSI_3"] > 88.0) and (last_candle["RSI_14"] > 60.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_6_15"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_16"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_17"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] > 65.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_18"
+      elif (
+        (last_candle["RSI_3"] > 86.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_19"
+      elif (
+        (last_candle["RSI_3"] > 44.0)
+        and (last_candle["RSI_14"] < 46.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_20"
+      elif (
+        (last_candle["RSI_3"] > 60.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_21"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_22"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_23"
+      elif (
+        (last_candle["RSI_3"] > 86.0)
+        and (last_candle["RSI_14"] > 66.0)
+        and (last_candle["WILLR_14"] > -30.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_24"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_25"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_26"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_27"
+      elif (
+        (last_candle["RSI_3"] > 65.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_28"
     elif 0.08 > current_profit >= 0.07:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5428,6 +8826,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_7_3"
+      elif (
+        (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_7_4"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_7"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_8"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_9"
+      elif (
+        (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_10"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_11"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_12"
+      elif (last_candle["RSI_3"] > 90.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_7_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_14"
+      elif (last_candle["RSI_3"] > 90.0) and (last_candle["RSI_14"] > 62.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_7_15"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_16"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_17"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_18"
+      elif (
+        (last_candle["RSI_3"] > 88.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_19"
+      elif (
+        (last_candle["RSI_3"] > 46.0)
+        and (last_candle["RSI_14"] < 44.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_20"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_21"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_22"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_23"
+      elif (
+        (last_candle["RSI_3"] > 88.0)
+        and (last_candle["RSI_14"] > 68.0)
+        and (last_candle["WILLR_14"] > -25.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_24"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_25"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_26"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_27"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_28"
     elif 0.09 > current_profit >= 0.08:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5464,6 +9045,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_8_3"
+      elif (
+        (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_8_4"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_7"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_8"
+      elif (
+        (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_9"
+      elif (
+        (last_candle["WILLR_14"] > -8.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_10"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_11"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_12"
+      elif (last_candle["RSI_3"] > 95.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_8_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_14"
+      elif (last_candle["RSI_3"] > 92.0) and (last_candle["RSI_14"] > 64.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_8_15"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_16"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_17"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_18"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_19"
+      elif (
+        (last_candle["RSI_3"] > 48.0)
+        and (last_candle["RSI_14"] < 42.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_20"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_21"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_22"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_23"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] > 70.0)
+        and (last_candle["WILLR_14"] > -20.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_24"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_25"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_26"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_27"
+      elif (
+        (last_candle["RSI_3"] > 75.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_28"
     elif 0.1 > current_profit >= 0.09:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5500,6 +9264,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_9_3"
+      elif (
+        (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_14"] > 74.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_9_4"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_7"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_8"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_9"
+      elif (
+        (last_candle["WILLR_14"] > -6.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_10"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_11"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_12"
+      elif (last_candle["RSI_3"] > 96.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_9_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_14"
+      elif (last_candle["RSI_3"] > 94.0) and (last_candle["RSI_14"] > 66.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_9_15"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_16"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_17"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["RSI_14"] > 74.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_18"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_19"
+      elif (
+        (last_candle["RSI_3"] > 50.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_20"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_21"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_22"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_23"
+      elif (
+        (last_candle["RSI_3"] > 92.0)
+        and (last_candle["RSI_14"] > 72.0)
+        and (last_candle["WILLR_14"] > -15.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_24"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_25"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_26"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_27"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_28"
     elif 0.12 > current_profit >= 0.1:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5536,6 +9483,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_10_3"
+      elif (
+        (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_14"] > 76.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_10_4"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 74.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_7"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_8"
+      elif (
+        (last_candle["WILLR_14"] > -3.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_9"
+      elif (
+        (last_candle["WILLR_14"] > -4.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_10"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_11"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_12"
+      elif (last_candle["RSI_3"] > 96.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_10_13"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_14"
+      elif (last_candle["RSI_3"] > 96.0) and (last_candle["RSI_14"] > 68.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_10_15"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_16"
+      elif (
+        (last_candle["RSI_3"] > 97.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_17"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["RSI_14"] > 76.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_18"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["RSI_14"] > 74.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_19"
+      elif (
+        (last_candle["RSI_3"] > 60.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_20"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_21"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_22"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_23"
+      elif (
+        (last_candle["RSI_3"] > 94.0)
+        and (last_candle["RSI_14"] > 74.0)
+        and (last_candle["WILLR_14"] > -10.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_24"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_25"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_26"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_27"
+      elif (
+        (last_candle["RSI_3"] > 85.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_28"
     elif 0.2 > current_profit >= 0.12:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5572,6 +9702,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_11_3"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_11_4"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 76.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_7"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 98.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_8"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3"] > 95.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_9"
+      elif (
+        (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_10"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_11"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_12"
+      elif (last_candle["RSI_3"] > 98.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_11_13"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_14"
+      elif (last_candle["RSI_3"] > 98.0) and (last_candle["RSI_14"] > 70.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_11_15"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_16"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_17"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_18"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["RSI_14"] > 76.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_19"
+      elif (
+        (last_candle["RSI_3"] > 80.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_20"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_21"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_22"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["WILLR_14"] > -2.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_23"
+      elif (
+        (last_candle["RSI_3"] > 96.0)
+        and (last_candle["RSI_14"] > 76.0)
+        and (last_candle["WILLR_14"] > -5.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_24"
+      elif (
+        (last_candle["RSI_3"] > 97.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_25"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_26"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_27"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_28"
     elif current_profit >= 0.2:
       if (
         (last_candle["WILLR_14"] > -1.0)
@@ -5608,6 +9921,189 @@ class NostalgiaForInfinityX5(IStrategy):
         )
       ):
         return True, f"exit_{mode_name}_d_12_3"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 70.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] < last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] < last_candle["EMA_200_4h"])
+        )
+      ):
+        return True, f"exit_{mode_name}_d_12_4"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["ROC_9_1h"] < -5.0)
+        and (last_candle["ROC_9_4h"] < -5.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_5"
+      elif (
+        (last_candle["RSI_3"] > 70.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 70.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_6"
+      elif (
+        (last_candle["RSI_14"] < 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -40.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_7"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] > 99.0)
+        and (last_candle["CMF_20_1h"] < -0.1)
+        and (last_candle["CMF_20_4h"] < -0.1)
+        and (last_candle["change_pct_1d"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 15.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_8"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3"] > 99.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_9"
+      elif (
+        (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_4h"] < -10.0)
+        and (last_candle["ROC_9_1d"] > 10.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_10"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] < 45.0)
+        and (last_candle["ROC_9_15m"] < -10.0)
+        and (last_candle["ROC_9_1h"] < -10.0)
+        and (last_candle["ROC_9_1d"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_11"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_1h"] < -20.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_12"
+      elif (last_candle["RSI_3"] > 99.0) and (last_candle["RSI_3_4h"] < 5.0) and (last_candle["ROC_9_4h"] < -25.0):
+        return True, f"exit_{mode_name}_d_12_13"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 5.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_14"
+      elif (last_candle["RSI_3"] > 99.0) and (last_candle["RSI_14"] > 75.0) and (last_candle["ROC_9_4h"] < -30.0):
+        return True, f"exit_{mode_name}_d_12_15"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["AROONU_14_4h"] > 25.0)
+        and (last_candle["ROC_9_4h"] < -25.0)
+        and (last_candle["AROONU_14_1d"] > 50.0)
+        and (last_candle["change_pct_1d"] < -15.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_16"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 30.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_17"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] > 80.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["ROC_2_1d"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_18"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 70.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_19"
+      elif (
+        (last_candle["RSI_3"] > 90.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_1h"] < 10.0)
+        and (last_candle["AROONU_14_1h"] > 25.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_20"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 90.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_21"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["change_pct_4h"] < -5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 50.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_22"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_1h"] < 15.0)
+        and (last_candle["RSI_3_1d"] < 5.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_23"
+      elif (
+        (last_candle["RSI_3"] > 98.0)
+        and (last_candle["RSI_14"] > 78.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 30.0)
+        and (last_candle["AROONU_14_4h"] > 75.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_24"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_25"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["WILLR_14"] > -1.0)
+        and (last_candle["RSI_3_4h"] < 15.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_26"
+      elif (
+        (last_candle["RSI_3"] > 99.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_1h"] < 20.0)
+        and (last_candle["RSI_3_4h"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_27"
+      elif (
+        (last_candle["RSI_3"] > 95.0)
+        and (last_candle["RSI_14"] < 50.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+        and (last_candle["ROC_9_4h"] > 50.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_28"
 
     return False, None
 
@@ -5645,7 +10141,7 @@ class NostalgiaForInfinityX5(IStrategy):
         # / trade.leverage
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       return True, f"exit_{mode_name}_stoploss_doom"
 
@@ -5663,7 +10159,7 @@ class NostalgiaForInfinityX5(IStrategy):
       and (last_candle["RSI_14"] > (last_candle["RSI_14_1h"] + 16.0))
       and (current_time - timedelta(minutes=720) > trade.open_date_utc)
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       return True, f"exit_{mode_name}_stoploss_u_e"
 
@@ -6396,7 +10892,7 @@ class NostalgiaForInfinityX5(IStrategy):
             else:
               return -ft_sell_amount
 
-    is_long_grind_buy = self.long_grind_buy(last_candle, previous_candle, slice_profit)
+    is_long_grind_entry = self.long_grind_entry(last_candle, previous_candle, slice_profit)
 
     # Grinding derisk 1
     # Buy
@@ -6424,11 +10920,11 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
         and (
-          is_long_grind_buy
+          is_long_grind_entry
           or (
             (grind_1_derisk_1_sub_grind_count > 0)
             and (
-              is_long_grind_buy
+              is_long_grind_entry
               or (
                 (last_candle["RSI_3"] > 6.0)
                 and (last_candle["AROONU_14_15m"] < 25.0)
@@ -6498,7 +10994,7 @@ class NostalgiaForInfinityX5(IStrategy):
       and (grind_1_derisk_1_current_grind_stake_profit < (slice_amount * grind_1_derisk_1_stop_grinds))
       and (is_derisk or is_derisk_calc)
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_1_derisk_1_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -6552,11 +11048,11 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
         and (
-          is_long_grind_buy
+          is_long_grind_entry
           or (
             (grind_2_derisk_1_sub_grind_count > 0)
             and (
-              is_long_grind_buy
+              is_long_grind_entry
               or (
                 (last_candle["RSI_3"] > 6.0)
                 and (last_candle["AROONU_14_15m"] < 25.0)
@@ -6626,7 +11122,7 @@ class NostalgiaForInfinityX5(IStrategy):
       and (grind_2_derisk_1_current_grind_stake_profit < (slice_amount * grind_2_derisk_1_stop_grinds))
       and (is_derisk or is_derisk_calc)
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_2_derisk_1_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -6671,7 +11167,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_1_stakes[grind_1_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -6761,7 +11257,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_1_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -6806,7 +11302,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_2_stakes[grind_2_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -6864,7 +11360,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_2_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -6909,7 +11405,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_3_stakes[grind_3_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -6967,7 +11463,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_3_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -7013,13 +11509,15 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
         and (
-          (is_long_grind_buy)
+          (is_long_grind_entry)
           or (
             (last_candle["RSI_3"] > 10.0)
             and (last_candle["RSI_3_15m"] > 10.0)
             and (last_candle["RSI_14"] < 36.0)
             and (last_candle["close"] < last_candle["BBM_20_2.0"])
             and (previous_candle["close"] < previous_candle["BBM_20_2.0"])
+            # and (last_candle["AROONU_14"] < 25.0)
+            # and (last_candle["AROONU_14_15m"] < 25.0)
           )
         )
       ):
@@ -7079,7 +11577,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_4_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -7124,7 +11622,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_5_stakes[grind_5_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -7182,7 +11680,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_5_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -7228,13 +11726,15 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
         and (
-          (is_long_grind_buy)
+          (is_long_grind_entry)
           or (
             (last_candle["RSI_3"] > 10.0)
             and (last_candle["RSI_3_15m"] > 10.0)
             and (last_candle["RSI_14"] < 36.0)
             and (last_candle["close"] < last_candle["BBM_20_2.0"])
             and (previous_candle["close"] < previous_candle["BBM_20_2.0"])
+            # and (last_candle["AROONU_14"] < 25.0)
+            # and (last_candle["AROONU_14_15m"] < 25.0)
           )
         )
       ):
@@ -7294,7 +11794,7 @@ class NostalgiaForInfinityX5(IStrategy):
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 8, 16) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_6_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -7351,7 +11851,7 @@ class NostalgiaForInfinityX5(IStrategy):
           (last_candle["global_protections_long_pump"] == True)
           and (last_candle["global_protections_long_dump"] == True)
         )
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = derisk_1_order.safe_filled * derisk_1_order.safe_price
         if buy_amount < (min_stake * 1.5):
@@ -7470,62 +11970,26 @@ class NostalgiaForInfinityX5(IStrategy):
 
     return None
 
-  # Long Grinding Buy
+  # Long Grinding Entry
   # ---------------------------------------------------------------------------------------------
-  def long_grind_buy(self, last_candle: Series, previous_candle: Series, slice_profit: float) -> float:
+  def long_grind_entry(self, last_candle: Series, previous_candle: Series, slice_profit: float) -> float:
     if (
       (last_candle["protections_long_global"] == True)
       and (last_candle["protections_long_rebuy"] == True)
       and (last_candle["global_protections_long_pump"] == True)
       and (last_candle["global_protections_long_dump"] == True)
-      # and (
-      #   (last_candle["close"] > (last_candle["close_max_12"] * 0.88))
-      #   and (last_candle["close"] > (last_candle["close_max_24"] * 0.82))
-      #   and (last_candle["close"] > (last_candle["close_max_48"] * 0.76))
-      #   and (last_candle["btc_pct_close_max_72_5m"] < 0.03)
-      #   and (last_candle["btc_pct_close_max_24_5m"] < 0.03)
-      # )
       and (
         (last_candle["enter_long"] == True)
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (last_candle["RSI_14_15m"] < 46.0)
           and (last_candle["RSI_3"] > 6.0)
-          # and (last_candle["RSI_3_15m"] > 12.0)
-          # and (last_candle["RSI_3_1h"] > 12.0)
-          # and (last_candle["RSI_3_4h"] > 12.0)
-          # and (last_candle["WILLR_14"] > -90.0)
-          # and (last_candle["WILLR_14_15m"] > -90.0)
-          # and (last_candle["WILLR_14_1h"] > -90.0)
-          # and (last_candle["WILLR_14_4h"] > -90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3"] > last_candle["STOCHRSId_14_14_3_3"])
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] > last_candle["STOCHRSId_14_14_3_3_1h"])
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] > last_candle["STOCHRSId_14_14_3_3_4h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
           and (last_candle["close"] < (last_candle["EMA_16"] * 0.958))
         )
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (previous_candle["RSI_3"] > 10.0)
-          # and (last_candle["RSI_3_15m"] > 16.0)
-          # and (last_candle["RSI_3_1h"] > 26.0)
-          # and (last_candle["RSI_3_4h"] > 26.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 90.0)
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
           and (last_candle["EMA_26"] > last_candle["EMA_12"])
           and ((last_candle["EMA_26"] - last_candle["EMA_12"]) > (last_candle["open"] * 0.030))
           and ((previous_candle["EMA_26"] - previous_candle["EMA_12"]) > (last_candle["open"] / 100.0))
-          # and (last_candle["rsi_3_1h"] > 20.0)
-          # and (last_candle["rsi_3_4h"] > 20.0)
-          # and (last_candle["CTI_20_1h"] < 0.8)
-          # and (last_candle["rsi_14_1h"] < 80.0)
         )
         or (
           (last_candle["RSI_14"] < 36.0)
@@ -7537,72 +12001,24 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (last_candle["RSI_14_15m"] < 36.0)
           and (last_candle["RSI_3"] > 16.0)
-          # and (last_candle["AROOND_14"] < previous_candle["AROOND_14"])
           and (last_candle["AROONU_14_15m"] < 25.0)
           and (last_candle["close"] < (last_candle["EMA_12"] * 0.984))
-          # and (last_candle["RSI_3_1h"] > 10.0)
-          # and (last_candle["RSI_3_4h"] > 10.0)
         )
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (last_candle["WILLR_14"] > -90.0)
-          # and (last_candle["WILLR_14_15m"] > -90.0)
-          # and (last_candle["WILLR_14_1h"] > -90.0)
-          # and (last_candle["WILLR_14_4h"] > -90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 90.0)
-          #  and (last_candle["RSI_14_15m"] < 46.0)
-          # and (last_candle["RSI_3"] > 20.0)
-          # and (last_candle["RSI_3_15m"] > 26.0)
-          # and (last_candle["RSI_3_1h"] > 26.0)
-          # and (last_candle["RSI_3_4h"] > 26.0)
           and (last_candle["AROONU_14_1h"] > last_candle["AROOND_14_1h"])
           and (last_candle["AROONU_14_4h"] > last_candle["AROOND_14_4h"])
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] > last_candle["STOCHRSId_14_14_3_3_1h"])
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] > last_candle["STOCHRSId_14_14_3_3_4h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
-          # and (last_candle["EMA_12_1h"] > last_candle["EMA_26_1h"])
-          # and (last_candle["EMA_12_4h"] > last_candle["EMA_26_4h"])
           and (last_candle["close"] < (last_candle["EMA_26"] * 0.978))
           and (last_candle["close"] < (last_candle["BBL_20_2.0"] * 0.999))
         )
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (last_candle["WILLR_14"] > -90.0)
-          # and (last_candle["WILLR_14_15m"] > -90.0)
-          # and (last_candle["WILLR_14_1h"] > -90.0)
-          # and (last_candle["WILLR_14_4h"] > -90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 90.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 90.0)
-          #  and (last_candle["RSI_14_15m"] < 46.0)
-          # and (last_candle["RSI_3"] > 20.0)
-          # and (last_candle["RSI_3_15m"] > 26.0)
-          # and (last_candle["RSI_3_1h"] > 26.0)
-          # and (last_candle["RSI_3_4h"] > 26.0)
-          # and (last_candle["AROONU_14_15m"] < 25.0)
-          # and (last_candle["STOCHRSIk_14_14_3_3_1h"] > last_candle["STOCHRSId_14_14_3_3_1h"])
-          # and (last_candle["STOCHRSIk_14_14_3_3_4h"] > last_candle["STOCHRSId_14_14_3_3_4h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
-          # and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
-          # and (last_candle["EMA_12_1h"] > last_candle["EMA_26_1h"])
-          # and (last_candle["EMA_12_4h"] > last_candle["EMA_26_4h"])
-          # and (last_candle["close"] < (last_candle["EMA_100"] * 0.988))
-          # and (last_candle["close"] < (last_candle["BBL_20_2.0"] * 0.998))
           and (last_candle["AROONU_14"] > last_candle["AROOND_14"])
           and (previous_candle["AROONU_14"] < previous_candle["AROOND_14"])
         )
         or (
           (last_candle["RSI_14"] < 36.0)
-          # and (last_candle["RSI_3"] > 5.0)
-          # and (last_candle["RSI_3_1h"] > 10.0)
-          # and (last_candle["RSI_3_4h"] > 10.0)
-          # and (last_candle["KST_10_15_20_30_10_10_10_15"] < -0.0)
-          # and (last_candle["KSTs_9"] < -0.0)
           and (last_candle["KST_10_15_20_30_10_10_10_15"] > last_candle["KSTs_9"])
           and (previous_candle["KST_10_15_20_30_10_10_10_15"] < previous_candle["KSTs_9"])
         )
@@ -8130,7 +12546,7 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag = order.ft_order_tag
         return -ft_sell_amount, order_tag, is_derisk
 
-    is_long_grind_buy = self.long_grind_buy(last_candle, previous_candle, slice_profit)
+    is_long_grind_entry = self.long_grind_entry(last_candle, previous_candle, slice_profit)
 
     # Rebuy
     if (not partial_sell) and (not rebuy_is_sell_found) and (rebuy_sub_grind_count < max_rebuy_sub_grinds):
@@ -8143,7 +12559,7 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         and (current_time - timedelta(minutes=10) > filled_entries[-1].order_filled_utc)
         and ((current_time - timedelta(hours=12) > filled_orders[-1].order_filled_utc) or (slice_profit < -0.06))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8181,7 +12597,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8305,7 +12721,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8399,7 +12815,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8493,7 +12909,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8587,7 +13003,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit < -0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit < -0.03))
-        and is_long_grind_buy
+        and is_long_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -8682,7 +13098,7 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         # and ((num_open_grinds == 0) or (slice_profit < -0.03))
         and (
-          (is_long_grind_buy)
+          (is_long_grind_entry)
           or (
             (last_candle["RSI_3"] > 10.0)
             and (last_candle["RSI_3_15m"] > 10.0)
@@ -8769,15 +13185,18 @@ class NostalgiaForInfinityX5(IStrategy):
         return -ft_sell_amount, order_tag, is_derisk
 
     # De-risk
-    if profit_stake < (
-      slice_amount
-      * (
-        (self.regular_mode_derisk_futures if self.is_futures_mode else self.regular_mode_derisk_spot)
-        if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 3, 19) or is_backtest)
-        else (self.regular_mode_derisk_futures_old if self.is_futures_mode else self.regular_mode_derisk_spot_old)
+    if (
+      profit_stake
+      < (
+        slice_amount
+        * (
+          (self.regular_mode_derisk_futures if self.is_futures_mode else self.regular_mode_derisk_spot)
+          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
+          else (self.regular_mode_derisk_futures_old if self.is_futures_mode else self.regular_mode_derisk_spot_old)
+        )
+        # / (trade.leverage if self.is_futures_mode else 1.0)
       )
-      # / (trade.leverage if self.is_futures_mode else 1.0)
-    ):
+    ) and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest):
       sell_amount = trade.amount * exit_rate / trade.leverage - (min_stake * 1.55)
       ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
       if sell_amount > min_stake and ft_sell_amount > min_stake:
@@ -8794,13 +13213,13 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       has_order_tags
       and not is_derisk_1
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 5) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       and profit_stake
       < (
         slice_amount
         * (
           (self.regular_mode_derisk_1_futures if self.is_futures_mode else self.regular_mode_derisk_1_spot)
-          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
           else (
             self.regular_mode_derisk_1_futures_old if self.is_futures_mode else self.regular_mode_derisk_1_spot_old
           )
@@ -9024,7 +13443,9 @@ class NostalgiaForInfinityX5(IStrategy):
   #
 
   ###############################################################################################
+
   # SHORT EXIT FUNCTIONS STARTS HERE
+
   ###############################################################################################
 
   # Short Exit Normal
@@ -9256,7 +13677,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= self.profit_max_thresholds[0]:
+      if profit_init_ratio >= 0.005:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
@@ -9266,8 +13687,8 @@ class NostalgiaForInfinityX5(IStrategy):
 
     if signal_name not in [
       f"exit_profit_{self.short_normal_mode_name}_max",
-      f"exit_{self.short_normal_mode_name}_stoploss_doom",
-      f"exit_{self.short_normal_mode_name}_stoploss_u_e",
+      # f"exit_{self.short_normal_mode_name}_stoploss_doom",
+      # f"exit_{self.short_normal_mode_name}_stoploss_u_e",
     ]:
       if sell and (signal_name is not None):
         return True, f"{signal_name}"
@@ -9503,7 +13924,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= self.profit_max_thresholds[2]:
+      if profit_init_ratio >= 0.005:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
@@ -9513,8 +13934,8 @@ class NostalgiaForInfinityX5(IStrategy):
 
     if signal_name not in [
       f"exit_profit_{self.short_pump_mode_name}_max",
-      f"exit_{self.short_pump_mode_name}_stoploss_doom",
-      f"exit_{self.short_pump_mode_name}_stoploss_u_e",
+      # f"exit_{self.short_pump_mode_name}_stoploss_doom",
+      # f"exit_{self.short_pump_mode_name}_stoploss_u_e",
     ]:
       if sell and (signal_name is not None):
         return True, f"{signal_name}"
@@ -9647,11 +14068,31 @@ class NostalgiaForInfinityX5(IStrategy):
       if (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_14"] < 22.0):
         sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_1"
 
-      if (0.09 >= profit_init_ratio > 0.02) and (last_candle["CTI_20"] < -0.95):
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["MFI_14"] < 16.0):
         sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_2"
 
-      if (0.09 >= profit_init_ratio > 0.02) and (last_candle["WILLR_14"] <= -0.99):
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["WILLR_14"] <= -0.99):
         sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_3"
+
+      elif (
+        (0.09 >= profit_init_ratio > 0.02)
+        and (last_candle["RSI_14"] <= 18.0)
+        and (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_3_15m"] < 10.0)
+      ):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_4"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3_15m"] < 4.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_5"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3"] < 15.0) and (last_candle["RSI_3_15m"] < 15.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_6"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3"] < 10.0) and (last_candle["RSI_3_15m"] < 20.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_7"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3"] < 8.0) and (last_candle["RSI_3_15m"] < 25.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_8"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3"] < 6.0) and (last_candle["RSI_3_15m"] < 30.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_9"
+      elif (0.09 >= profit_init_ratio > 0.02) and (last_candle["RSI_3"] < 1.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_q_10"
 
     # Profit Target Signal
     # Check if pair exist on target_profit_cache
@@ -9682,7 +14123,7 @@ class NostalgiaForInfinityX5(IStrategy):
       if sell_max and signal_name_max is not None:
         return True, f"{signal_name_max}_m"
       if previous_sell_reason in [f"exit_{self.short_quick_mode_name}_stoploss_u_e"]:
-        if profit_ratio > (previous_profit + 0.005):
+        if profit_ratio > (previous_profit + 0.001):
           mark_pair, mark_signal = self.mark_profit_target(
             self.short_quick_mode_name,
             pair,
@@ -9761,7 +14202,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= self.profit_max_thresholds[4]:
+      if profit_init_ratio >= 0.005:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
@@ -9771,8 +14212,8 @@ class NostalgiaForInfinityX5(IStrategy):
 
     if signal_name not in [
       f"exit_profit_{self.short_quick_mode_name}_max",
-      f"exit_{self.short_quick_mode_name}_stoploss_doom",
-      f"exit_{self.short_quick_mode_name}_stoploss_u_e",
+      # f"exit_{self.short_quick_mode_name}_stoploss_doom",
+      # f"exit_{self.short_quick_mode_name}_stoploss_u_e",
     ]:
       if sell and (signal_name is not None):
         return True, f"{signal_name}"
@@ -9803,12 +14244,13 @@ class NostalgiaForInfinityX5(IStrategy):
     current_time: "datetime",
     enter_tags,
   ) -> tuple:
+    is_backtest = self.dp.runmode.value in ["backtest", "hyperopt"]
     sell = False
 
     # Original sell signals
     sell, signal_name = self.short_exit_signals(
       self.short_rebuy_mode_name,
-      profit_init_ratio,
+      profit_current_stake_ratio,
       max_profit,
       max_loss,
       last_candle,
@@ -9826,7 +14268,7 @@ class NostalgiaForInfinityX5(IStrategy):
     if not sell:
       sell, signal_name = self.short_exit_main(
         self.short_rebuy_mode_name,
-        profit_init_ratio,
+        profit_current_stake_ratio,
         max_profit,
         max_loss,
         last_candle,
@@ -9844,7 +14286,7 @@ class NostalgiaForInfinityX5(IStrategy):
     if not sell:
       sell, signal_name = self.short_exit_williams_r(
         self.short_rebuy_mode_name,
-        profit_init_ratio,
+        profit_current_stake_ratio,
         max_profit,
         max_loss,
         last_candle,
@@ -9862,7 +14304,7 @@ class NostalgiaForInfinityX5(IStrategy):
     if not sell:
       sell, signal_name = self.short_exit_dec(
         self.short_rebuy_mode_name,
-        profit_init_ratio,
+        profit_current_stake_ratio,
         max_profit,
         max_loss,
         last_candle,
@@ -9878,10 +14320,15 @@ class NostalgiaForInfinityX5(IStrategy):
 
     # Stoplosses
     if not sell:
-      if profit_stake < -(
-        filled_entries[0].cost
-        * (self.stop_threshold_futures_rebuy if self.is_futures_mode else self.stop_threshold_spot_rebuy)
-        / (trade.leverage if self.is_futures_mode else 1.0)
+      if (
+        profit_stake
+        < -(
+          filled_entries[0].cost
+          * (self.stop_threshold_futures_rebuy if self.is_futures_mode else self.stop_threshold_spot_rebuy)
+          # / (trade.leverage if self.is_futures_mode else 1.0)
+        )
+        # temporary
+        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       ):
         sell, signal_name = True, f"exit_{self.short_rebuy_mode_name}_stoploss_doom"
 
@@ -9914,7 +14361,7 @@ class NostalgiaForInfinityX5(IStrategy):
       if sell_max and signal_name_max is not None:
         return True, f"{signal_name_max}_m"
       if previous_sell_reason in [f"exit_{self.short_rebuy_mode_name}_stoploss_u_e"]:
-        if profit_ratio > (previous_profit + 0.005):
+        if profit_ratio > (previous_profit + 0.001):
           mark_pair, mark_signal = self.mark_profit_target(
             self.short_rebuy_mode_name,
             pair,
@@ -9993,7 +14440,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= self.profit_max_thresholds[6]:
+      if profit_init_ratio >= 0.005:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
@@ -10035,7 +14482,7 @@ class NostalgiaForInfinityX5(IStrategy):
 
     # Original sell signals
     sell, signal_name = self.short_exit_signals(
-      self.short_mode_name,
+      self.short_high_profit_mode_name,
       profit_init_ratio,
       max_profit,
       max_loss,
@@ -10053,7 +14500,7 @@ class NostalgiaForInfinityX5(IStrategy):
     # Main sell signals
     if not sell:
       sell, signal_name = self.short_exit_main(
-        self.short_mode_name,
+        self.short_high_profit_mode_name,
         profit_init_ratio,
         max_profit,
         max_loss,
@@ -10071,7 +14518,7 @@ class NostalgiaForInfinityX5(IStrategy):
     # Williams %R based sells
     if not sell:
       sell, signal_name = self.short_exit_williams_r(
-        self.short_mode_name,
+        self.short_high_profit_mode_name,
         profit_init_ratio,
         max_profit,
         max_loss,
@@ -10089,7 +14536,7 @@ class NostalgiaForInfinityX5(IStrategy):
     # Stoplosses
     if not sell:
       sell, signal_name = self.short_exit_stoploss(
-        self.short_mode_name,
+        self.short_high_profit_mode_name,
         current_rate,
         profit_stake,
         profit_ratio,
@@ -10118,7 +14565,7 @@ class NostalgiaForInfinityX5(IStrategy):
       previous_time_profit_reached = datetime.fromisoformat(self.target_profit_cache.data[pair]["time_profit_reached"])
 
       sell_max, signal_name_max = self.exit_profit_target(
-        self.short_mode_name,
+        self.short_high_profit_mode_name,
         pair,
         trade,
         current_time,
@@ -10137,10 +14584,10 @@ class NostalgiaForInfinityX5(IStrategy):
       )
       if sell_max and signal_name_max is not None:
         return True, f"{signal_name_max}_m"
-      if previous_sell_reason in [f"exit_{self.short_mode_name}_stoploss_u_e"]:
-        if profit_ratio > (previous_profit + 0.005):
+      if previous_sell_reason in [f"exit_{self.short_high_profit_mode_name}_stoploss_u_e"]:
+        if profit_ratio > (previous_profit + 0.001):
           mark_pair, mark_signal = self.mark_profit_target(
-            self.short_mode_name,
+            self.short_high_profit_mode_name,
             pair,
             True,
             previous_sell_reason,
@@ -10154,11 +14601,11 @@ class NostalgiaForInfinityX5(IStrategy):
           if mark_pair:
             self._set_profit_target(pair, mark_signal, current_rate, profit_ratio, current_time)
       elif (profit_init_ratio > (previous_profit + 0.001)) and (
-        previous_sell_reason not in [f"exit_{self.short_mode_name}_stoploss_doom"]
+        previous_sell_reason not in [f"exit_{self.short_high_profit_mode_name}_stoploss_doom"]
       ):
         # Update the target, raise it.
         mark_pair, mark_signal = self.mark_profit_target(
-          self.short_mode_name,
+          self.short_high_profit_mode_name,
           pair,
           True,
           previous_sell_reason,
@@ -10178,11 +14625,11 @@ class NostalgiaForInfinityX5(IStrategy):
       if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
         previous_profit = self.target_profit_cache.data[pair]["profit"]
       if signal_name in [
-        f"exit_{self.short_mode_name}_stoploss_doom",
-        f"exit_{self.short_mode_name}_stoploss_u_e",
+        f"exit_{self.short_high_profit_mode_name}_stoploss_doom",
+        f"exit_{self.short_high_profit_mode_name}_stoploss_u_e",
       ]:
         mark_pair, mark_signal = self.mark_profit_target(
-          self.short_mode_name,
+          self.short_high_profit_mode_name,
           pair,
           sell,
           signal_name,
@@ -10200,7 +14647,7 @@ class NostalgiaForInfinityX5(IStrategy):
           return True, f"{signal_name}"
       elif (previous_profit is None) or (previous_profit < profit_init_ratio):
         mark_pair, mark_signal = self.mark_profit_target(
-          self.short_mode_name,
+          self.short_high_profit_mode_name,
           pair,
           sell,
           signal_name,
@@ -10217,18 +14664,18 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= self.profit_max_thresholds[8]:
+      if profit_init_ratio >= 0.03:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
         if (previous_profit is None) or (previous_profit < profit_init_ratio):
-          mark_signal = f"exit_profit_{self.short_mode_name}_max"
+          mark_signal = f"exit_profit_{self.short_high_profit_mode_name}_max"
           self._set_profit_target(pair, mark_signal, current_rate, profit_init_ratio, current_time)
 
     if signal_name not in [
-      f"exit_profit_{self.short_mode_name}_max",
-      f"exit_{self.short_mode_name}_stoploss_doom",
-      f"exit_{self.short_mode_name}_stoploss_u_e",
+      f"exit_profit_{self.short_high_profit_mode_name}_max",
+      # f"exit_{self.short_high_profit_mode_name}_stoploss_doom",
+      # f"exit_{self.short_high_profit_mode_name}_stoploss_u_e",
     ]:
       if sell and (signal_name is not None):
         return True, f"{signal_name}"
@@ -10259,6 +14706,7 @@ class NostalgiaForInfinityX5(IStrategy):
     current_time: "datetime",
     enter_tags,
   ) -> tuple:
+    is_backtest = self.dp.runmode.value in ["backtest", "hyperopt"]
     sell = False
 
     # Original sell signals
@@ -10358,20 +14806,44 @@ class NostalgiaForInfinityX5(IStrategy):
 
     # Extra sell logic
     if not sell:
-      if (0.09 >= profit_init_ratio > 0.01) and (last_candle["RSI_14"] < 22.0):
-        sell, signal_name = True, f"exit_{self.short_rapid_mode_name}_rpd_1"
-
-      if (0.09 >= profit_init_ratio > 0.01) and (last_candle["CTI_20"] < -0.95):
-        sell, signal_name = True, f"exit_{self.short_rapid_mode_name}_rpd_2"
-
-      if (0.09 >= profit_init_ratio > 0.01) and (last_candle["WILLR_14"] <= -0.99):
-        sell, signal_name = True, f"exit_{self.short_rapid_mode_name}_rpd_3"
+      if (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_14"] < 22.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_1"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["MFI_14"] > 84.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_2"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["WILLR_14"] >= -0.1):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_3"
+      elif (
+        (0.09 >= profit_init_ratio > 0.005)
+        and (last_candle["RSI_14"] >= 72.0)
+        and (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+      ):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_4"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3_15m"] < 4.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_5"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3"] < 15.0) and (last_candle["RSI_3_15m"] < 15.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_6"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3"] < 10.0) and (last_candle["RSI_3_15m"] < 20.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_7"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3"] < 8.0) and (last_candle["RSI_3_15m"] < 25.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_8"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3"] < 6.0) and (last_candle["RSI_3_15m"] < 30.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_9"
+      elif (0.09 >= profit_init_ratio > 0.005) and (last_candle["RSI_3"] < 1.0):
+        sell, signal_name = True, f"exit_{self.short_quick_mode_name}_rpd_10"
 
       # Stoplosses
-      if profit_stake < -(
-        filled_entries[0].cost
-        * (self.stop_threshold_futures_rapid if self.is_futures_mode else self.stop_threshold_spot_rapid)
-        / (trade.leverage if self.is_futures_mode else 1.0)
+      if (
+        (
+          profit_stake
+          < -(
+            filled_entries[0].cost
+            * (self.stop_threshold_rapid_futures if self.is_futures_mode else self.stop_threshold_rapid_spot)
+            # / (trade.leverage if self.is_futures_mode else 1.0)
+          )
+        )
+        # temporary
+        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       ):
         sell, signal_name = True, f"exit_{self.short_rapid_mode_name}_stoploss_doom"
 
@@ -10483,7 +14955,7 @@ class NostalgiaForInfinityX5(IStrategy):
           # Just sell it, without maximize
           return True, f"{signal_name}"
     else:
-      if profit_init_ratio >= 0.01:
+      if profit_init_ratio >= 0.005:
         previous_profit = None
         if self.target_profit_cache is not None and pair in self.target_profit_cache.data:
           previous_profit = self.target_profit_cache.data[pair]["profit"]
@@ -10521,7 +14993,7 @@ class NostalgiaForInfinityX5(IStrategy):
     current_time: "datetime",
     enter_tags,
   ) -> tuple:
-    if len(filled_exits) > 30 and profit_init_ratio > 1.0:
+    if profit_init_ratio > 0.25:
       return True, f"exit_{self.short_grind_mode_name}_g"
     return False, None
 
@@ -10721,7 +15193,7 @@ class NostalgiaForInfinityX5(IStrategy):
 
     return False, None
 
-  # Short Exit Based on Williams R
+  # Short Exit Williams R
   # ---------------------------------------------------------------------------------------------
   def short_exit_williams_r(
     self,
@@ -10747,166 +15219,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] > 60.0):
         return True, f"exit_{mode_name}_w_0_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 22.0) and (last_candle["WILLR_480_1h"] < -80.0)
+        (last_candle["WILLR_14"] <= -99.0)
+        and (last_candle["RSI_14"] < 20.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_0_4"
-      elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 25.0) and (last_candle["CTI_20"] < -0.97):
-        return True, f"exit_{mode_name}_w_0_5"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 25.0)
-        and (last_candle["WILLR_480_1h"] < -95.0)
-        and (last_candle["WILLR_480_4h"] < -95.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_0_6"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 25.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_0_7"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_0_8"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 18.0)
-        and (last_candle["RSI_14_15m"] <= 28.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_0_9"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_0_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 26.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_0_11"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_0_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_0_13"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_0_14"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_0_15"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_0_16"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_0_17"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_0_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_0_19"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_0_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 25.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_0_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_0_22"
     elif 0.02 > current_profit >= 0.01:
       if last_candle["WILLR_480"] < -99.8:
         return True, f"exit_{mode_name}_w_1_1"
@@ -10915,166 +15233,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 54.0):
         return True, f"exit_{mode_name}_w_1_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 26.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -98.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_1_4"
-      elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_1_5"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] < 30.0)
-        and (last_candle["WILLR_480_1h"] < -90.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_1_6"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_1_7"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_1_8"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_1_9"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_1_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_1_11"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_1_12"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_1_13"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_1_14"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_1_15"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_1_16"
-      elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_1_17"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_1_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_1_19"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_1_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_1_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_1_22"
     elif 0.03 > current_profit >= 0.02:
       if last_candle["WILLR_480"] < -99.7:
         return True, f"exit_{mode_name}_w_2_1"
@@ -11083,166 +15247,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 52.0):
         return True, f"exit_{mode_name}_w_2_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 27.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -95.0)
+        and (last_candle["RSI_14"] < 25.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_2_4"
-      elif (last_candle["WILLR_14"] <= -97.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_2_5"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -80.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_2_6"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_2_7"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_2_8"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 32.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_2_9"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_2_10"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_2_11"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_2_12"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_2_13"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_2_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_2_15"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_2_16"
-      elif (
-        (last_candle["WILLR_14"] <= -82.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_2_17"
-      elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_2_18"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_2_19"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_2_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_2_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_2_22"
     elif 0.04 > current_profit >= 0.03:
       if last_candle["WILLR_480"] < -99.6:
         return True, f"exit_{mode_name}_w_3_1"
@@ -11251,166 +15261,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 50.0):
         return True, f"exit_{mode_name}_w_3_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 28.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -95.0)
+        and (last_candle["RSI_14"] < 25.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_3_4"
-      elif (last_candle["WILLR_14"] <= -96.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_3_5"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -80.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_3_6"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_3_7"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_3_8"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 34.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_3_9"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_3_10"
-      elif (
-        (last_candle["WILLR_14"] <= -97.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_3_11"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_3_12"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_3_13"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_3_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_3_15"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_3_16"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_3_17"
-      elif (
-        (last_candle["WILLR_14"] <= -65.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_3_18"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_3_19"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_3_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_3_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_3_22"
     elif 0.05 > current_profit >= 0.04:
       if last_candle["WILLR_480"] < -99.5:
         return True, f"exit_{mode_name}_w_4_1"
@@ -11419,166 +15275,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 48.0):
         return True, f"exit_{mode_name}_w_4_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 29.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -95.0)
+        and (last_candle["RSI_14"] < 25.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_4_4"
-      elif (last_candle["WILLR_14"] <= -95.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_4_5"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -80.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_4_6"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_4_7"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_4_8"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 36.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_4_9"
-      elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_4_10"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_4_11"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_4_12"
-      elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_4_13"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_4_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_4_15"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_4_16"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_4_17"
-      elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_4_18"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_4_19"
-      elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_4_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_4_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_4_22"
     elif 0.06 > current_profit >= 0.05:
       if last_candle["WILLR_480"] < -99.4:
         return True, f"exit_{mode_name}_w_5_1"
@@ -11587,166 +15289,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 46.0):
         return True, f"exit_{mode_name}_w_5_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 30.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -90.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_5_4"
-      elif (last_candle["WILLR_14"] <= -94.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_5_5"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -80.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_5_6"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_5_7"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_5_8"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 38.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_5_9"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_5_10"
-      elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_5_11"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_5_12"
-      elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_5_13"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_5_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_5_15"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_5_16"
-      elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_5_17"
-      elif (
-        (last_candle["WILLR_14"] <= -55.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_5_18"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_5_19"
-      elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_5_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_5_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_5_22"
     elif 0.07 > current_profit >= 0.06:
       if last_candle["WILLR_480"] < -99.3:
         return True, f"exit_{mode_name}_w_6_1"
@@ -11755,838 +15303,68 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 48.0):
         return True, f"exit_{mode_name}_w_6_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 29.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_6_4"
-      elif (last_candle["WILLR_14"] <= -95.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_6_5"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -80.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_6_6"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_6_7"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_6_8"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 36.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_6_9"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_6_10"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_6_11"
-      elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_6_12"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_6_13"
-      elif (
-        (last_candle["WILLR_14"] <= -82.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_6_14"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_6_15"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_6_16"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_6_17"
-      elif (
-        (last_candle["WILLR_14"] <= -65.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_6_18"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_6_19"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_6_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_6_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_6_22"
     elif 0.08 > current_profit >= 0.07:
-      if last_candle["WILLR_480"] < -99.5:
+      if last_candle["WILLR_480"] < -99.2:
         return True, f"exit_{mode_name}_w_7_1"
       elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 24.0):
         return True, f"exit_{mode_name}_w_7_2"
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 50.0):
         return True, f"exit_{mode_name}_w_7_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 28.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_7_4"
-      elif (last_candle["WILLR_14"] <= -96.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_7_5"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -85.0)
-        and (last_candle["WILLR_480_4h"] < -90.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_7_6"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_7_7"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_7_8"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 34.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_7_9"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_7_10"
-      elif (
-        (last_candle["WILLR_14"] <= -97.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_7_11"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_7_12"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_7_13"
-      elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_7_14"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_7_15"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_7_16"
-      elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_7_17"
-      elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_7_18"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_7_19"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_7_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_7_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_7_22"
     elif 0.09 > current_profit >= 0.08:
-      if last_candle["WILLR_480"] < -99.6:
+      if last_candle["WILLR_480"] < -99.1:
         return True, f"exit_{mode_name}_w_8_1"
       elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 23.0):
         return True, f"exit_{mode_name}_w_8_2"
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 52.0):
         return True, f"exit_{mode_name}_w_8_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 27.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_8_4"
-      elif (last_candle["WILLR_14"] <= -97.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_8_5"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -85.0)
-        and (last_candle["WILLR_480_4h"] < -90.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_8_6"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_8_7"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_8_8"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 32.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_8_9"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_8_10"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_8_11"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_8_12"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_8_13"
-      elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_8_14"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_8_15"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_8_16"
-      elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_8_17"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_8_18"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_8_19"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_8_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_8_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_8_22"
     elif 0.1 > current_profit >= 0.09:
-      if last_candle["WILLR_480"] < -99.7:
+      if last_candle["WILLR_480"] < -99.0:
         return True, f"exit_{mode_name}_w_9_1"
       elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 22.0):
         return True, f"exit_{mode_name}_w_9_2"
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 54.0):
         return True, f"exit_{mode_name}_w_9_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 26.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_9_4"
-      elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_9_5"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -85.0)
-        and (last_candle["WILLR_480_4h"] < -90.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_9_6"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] < 40.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_9_7"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_9_8"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_9_9"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_9_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_9_11"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_9_12"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_9_13"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_9_14"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_9_15"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_9_16"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_9_17"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_9_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_9_19"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_9_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_9_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_9_22"
     elif 0.12 > current_profit >= 0.1:
-      if last_candle["WILLR_480"] > -99.8:
+      if last_candle["WILLR_480"] < -98.9:
         return True, f"exit_{mode_name}_w_10_1"
-      elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] > 79.0):
+      elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["RSI_14"] < 21.0):
         return True, f"exit_{mode_name}_w_10_2"
-      elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] < 44.0):
+      elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 56.0):
         return True, f"exit_{mode_name}_w_10_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 25.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_10_4"
-      elif (last_candle["WILLR_14"] <= -99.0) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_10_5"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 35.0)
-        and (last_candle["WILLR_480_1h"] < -90.0)
-        and (last_candle["WILLR_480_4h"] < -95.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_10_6"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 35.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_10_7"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_10_8"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 28.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_10_9"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_10_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 28.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_10_11"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_10_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_10_13"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_10_14"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_10_15"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_10_16"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_10_17"
-      elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_10_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_10_19"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_10_20"
-      elif (
-        (last_candle["WILLR_14"] >= -99.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_10_21"
-      elif (
-        (last_candle["WILLR_14"] >= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_10_22"
     elif 0.2 > current_profit >= 0.12:
       if last_candle["WILLR_480"] < -99.6:
         return True, f"exit_{mode_name}_w_11_1"
@@ -12595,166 +15373,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 58.0):
         return True, f"exit_{mode_name}_w_11_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 24.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -85.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_11_4"
-      elif (last_candle["WILLR_14"] <= -99.5) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_11_5"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 30.0)
-        and (last_candle["WILLR_480_1h"] < -90.0)
-        and (last_candle["WILLR_480_4h"] < -95.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_11_6"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 30.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_11_7"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_11_8"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 26.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_11_9"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_11_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 26.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_11_11"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_11_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_11_13"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_11_14"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_11_15"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_11_16"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_11_17"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_11_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 35.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_11_19"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_11_20"
-      elif (
-        (last_candle["WILLR_14"] >= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_11_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 25.0)
-        and (last_candle["RSI_14_15m"] <= 35.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_11_22"
     elif current_profit >= 0.2:
       if last_candle["WILLR_480"] < -99.8:
         return True, f"exit_{mode_name}_w_12_1"
@@ -12763,166 +15387,12 @@ class NostalgiaForInfinityX5(IStrategy):
       elif (last_candle["WILLR_14"] <= -98.0) and (last_candle["RSI_14"] > 60.0):
         return True, f"exit_{mode_name}_w_12_3"
       elif (
-        (last_candle["WILLR_14"] <= -95.0) and (last_candle["RSI_14"] < 23.0) and (last_candle["WILLR_480_1h"] < -75.0)
+        (last_candle["WILLR_14"] <= -99.0)
+        and (last_candle["RSI_14"] < 20.0)
+        and (last_candle["ROC_9_1h"] > 0.0)
+        and (last_candle["ROC_9_4h"] < -20.0)
       ):
         return True, f"exit_{mode_name}_w_12_4"
-      elif (last_candle["WILLR_14"] <= -0.99) and (last_candle["CTI_20"] < -0.95):
-        return True, f"exit_{mode_name}_w_12_5"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 25.0)
-        and (last_candle["WILLR_480_1h"] < -95.0)
-        and (last_candle["WILLR_480_4h"] < -95.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 40.0)
-        and (last_candle["CTI_20_1d"] < -0.80)
-      ):
-        return True, f"exit_{mode_name}_w_12_6"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] < 25.0)
-        and (last_candle["WILLR_480_1h"] < -75.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["RSI_14_1h"] < 50.0)
-        and (last_candle["RSI_14_4h"] < 50.0)
-        and (last_candle["RSI_14_1d"] < 50.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_12_7"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["RSI_14_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-      ):
-        return True, f"exit_{mode_name}_w_12_8"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 24.0)
-        and (last_candle["CTI_20_4h"] >= 0.50)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-      ):
-        return True, f"exit_{mode_name}_w_12_9"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_12_10"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_14_15m"] <= 24.0)
-        and (last_candle["RSI_14_1h"] <= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-      ):
-        return True, f"exit_{mode_name}_w_12_11"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["change_pct_1d"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_12_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["RSI_14_4h"] <= 35.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.01)
-      ):
-        return True, f"exit_{mode_name}_w_12_13"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_1h"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-      ):
-        return True, f"exit_{mode_name}_w_12_14"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_4h"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] < -85.0)
-        and (last_candle["change_pct_1h"] > 0.00)
-      ):
-        return True, f"exit_{mode_name}_w_12_15"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["bot_wick_pct_1d"] > 0.16)
-        and (last_candle["close"] > (last_candle["low_min_24_1h"] * 1.20))
-        and (last_candle["hl_pct_change_6_1d"] > 0.75)
-      ):
-        return True, f"exit_{mode_name}_w_12_16"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["WILLR_480_1h"] < -70.0)
-        and (last_candle["WILLR_480_4h"] < -75.0)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["bot_wick_pct_1d"] > 0.08)
-      ):
-        return True, f"exit_{mode_name}_w_12_17"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.90)
-      ):
-        return True, f"exit_{mode_name}_w_12_18"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 20.0)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["hl_pct_change_48_1h"] > 0.50)
-      ):
-        return True, f"exit_{mode_name}_w_12_19"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] < -70.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_12_20"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 25.0)
-        and (last_candle["CTI_20_dec_3_1h"] == False)
-        and (last_candle["WILLR_480_4h"] > -50.0)
-      ):
-        return True, f"exit_{mode_name}_w_12_21"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["RSI_14_15m"] <= 25.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
-        return True, f"exit_{mode_name}_w_12_22"
 
     return False, None
 
@@ -12948,3044 +15418,2849 @@ class NostalgiaForInfinityX5(IStrategy):
       if (
         (last_candle["WILLR_14"] < -99.0)
         and (last_candle["RSI_14"] < 30.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_0_1"
       elif (
         (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_0_2"
       elif (
         (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_0_3"
       elif (
         (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
         and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_0_4"
       elif (
         (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_0_5"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 5.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_0_6"
       elif (
-        (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_0_7"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_0_8"
       elif (
-        (last_candle["RSI_14"] >= 80.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3"] < 1.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_0_9"
       elif (
-        (last_candle["RSI_14"] >= 80.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_0_10"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_0_11"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_0_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 1.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_0_13"
       elif (
-        (last_candle["RSI_14"] >= 70.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_0_14"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 1.0) and (last_candle["RSI_14"] < 22.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_0_15"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_0_16"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_0_17"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] < 25.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_0_18"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_0_19"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_0_20"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_0_21"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_0_22"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_0_23"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 5.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] <= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_0_24"
       elif (
-        (last_candle["WILLR_14"] >= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_0_25"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_26"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_27"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_0_28"
     elif 0.02 > current_profit >= 0.01:
       if (
-        (last_candle["WILLR_14"] < -90.0)
-        and (last_candle["RSI_14"] < 34.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_1_1"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_1_2"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_1_3"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_1_4"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_1_5"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_1_6"
       elif (
-        (last_candle["RSI_3"] <= 40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_1_7"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_1_8"
       elif (
-        (last_candle["RSI_14"] >= 70.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_1_9"
       elif (
-        (last_candle["RSI_14"] >= 54.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_1_10"
       elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_1_11"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_1_12"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 20.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_1_13"
       elif (
-        (last_candle["RSI_14"] >= 54.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_1_14"
-      elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 5.0) and (last_candle["RSI_14"] < 25.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_1_15"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_1_16"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_1_17"
       elif (
-        (last_candle["WILLR_14"] <= -40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_1_18"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_1_19"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 50.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_1_20"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_1_21"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_1_22"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_1_23"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] < 25.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_1_24"
       elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_1_25"
+      elif (
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_26"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_27"
+      elif (
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_1_28"
     elif 0.03 > current_profit >= 0.02:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 44.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_2_1"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_2_2"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_2_3"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_2_4"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_2_5"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_2_6"
       elif (
-        (last_candle["RSI_3"] <= 40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_2_7"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_2_8"
       elif (
-        (last_candle["RSI_14"] >= 60.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_2_9"
       elif (
-        (last_candle["RSI_14"] <= 48.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_2_10"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_2_11"
       elif (
-        (last_candle["WILLR_14"] <= -91.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_2_12"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 20.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_2_13"
       elif (
-        (last_candle["RSI_14"] <= 48.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_2_14"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 8.0) and (last_candle["RSI_14"] < 30.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_2_15"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_2_16"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_2_17"
       elif (
-        (last_candle["WILLR_14"] <= -40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_2_18"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_2_19"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 52.0)
+        and (last_candle["RSI_14"] > 58.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_2_20"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_2_21"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_2_22"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_2_23"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_2_24"
       elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_2_25"
+      elif (
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_26"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_27"
+      elif (
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_2_28"
     elif 0.04 > current_profit >= 0.03:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 46.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_3_1"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 36.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_3_2"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_3_3"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_3_4"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_3_5"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_3_6"
       elif (
-        (last_candle["RSI_3"] <= 40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_3_7"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_3_8"
       elif (
-        (last_candle["RSI_14"] >= 58.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_3_9"
       elif (
-        (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_3_10"
       elif (
-        (last_candle["WILLR_14"] <= -93.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_3_11"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_3_12"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 20.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_3_13"
       elif (
-        (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_3_14"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 10.0) and (last_candle["RSI_14"] < 35.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_3_15"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_3_16"
       elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_3_17"
       elif (
-        (last_candle["WILLR_14"] <= -40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_3_18"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 12.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_3_19"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 54.0)
+        and (last_candle["RSI_14"] > 56.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_3_20"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 40.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_3_21"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_3_22"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_3_23"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 20.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 12.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_3_24"
       elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_3_25"
+      elif (
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_26"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_27"
+      elif (
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_3_28"
     elif 0.05 > current_profit >= 0.04:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 48.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_4_1"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 38.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_4_2"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_4_3"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_4_4"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_4_5"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_4_6"
       elif (
-        (last_candle["RSI_3"] <= 40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_4_7"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_4_8"
       elif (
-        (last_candle["RSI_14"] <= 44.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -93.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_4_9"
       elif (
-        (last_candle["RSI_14"] >= 48.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_4_10"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_4_11"
       elif (
-        (last_candle["WILLR_14"] >= -11.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_4_12"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 20.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_4_13"
       elif (
-        (last_candle["RSI_14"] >= 48.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_4_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 12.0) and (last_candle["RSI_14"] < 40.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_4_15"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_4_16"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_4_17"
       elif (
-        (last_candle["WILLR_14"] <= -40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_4_18"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 14.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_4_19"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 56.0)
+        and (last_candle["RSI_14"] > 54.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_4_20"
       elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 45.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_4_21"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_4_22"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_4_23"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 14.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_4_24"
       elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_4_25"
+      elif (
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_26"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_27"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_4_28"
     elif 0.06 > current_profit >= 0.05:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_5_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_5_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_5_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_5_4"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_14"] < 36.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_5_5"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_5_6"
       elif (
-        (last_candle["RSI_3"] <= 40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_5_7"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_5_8"
       elif (
-        (last_candle["RSI_14"] >= 54.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_5_9"
       elif (
-        (last_candle["RSI_14"] >= 46.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_5_10"
       elif (
-        (last_candle["WILLR_14"] <= -91.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_5_11"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_5_12"
-      elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 20.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_5_13"
       elif (
-        (last_candle["RSI_14"] >= 46.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -88.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_5_14"
-      elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 14.0) and (last_candle["RSI_14"] > 58.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_5_15"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_5_16"
       elif (
-        (last_candle["WILLR_14"] <= -76.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -65.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_5_17"
       elif (
-        (last_candle["WILLR_14"] <= -40.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] < 40.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_5_18"
       elif (
-        (last_candle["WILLR_14"] <= -60.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 16.0)
+        and (last_candle["RSI_14"] < 36.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_5_19"
       elif (
-        (last_candle["WILLR_14"] <= -70.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 58.0)
+        and (last_candle["RSI_14"] > 52.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_5_20"
       elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 50.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_5_21"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_5_22"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_5_23"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 16.0)
+        and (last_candle["RSI_14"] < 36.0)
+        and (last_candle["WILLR_14"] < -65.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_5_24"
       elif (
-        (last_candle["WILLR_14"] <= -75.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["WILLR_14"] < -88.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_5_25"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["WILLR_14"] < -88.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_26"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_27"
+      elif (
+        (last_candle["RSI_3"] < 40.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_5_28"
     elif 0.07 > current_profit >= 0.06:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_6_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 38.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_6_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_6_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_6_4"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_3"] <= 6.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_6_5"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_6_6"
       elif (
-        (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_6_7"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_6_8"
       elif (
-        (last_candle["RSI_14"] <= 44.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -93.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_6_9"
       elif (
-        (last_candle["RSI_14"] >= 48.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_6_10"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_6_11"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_6_12"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 15.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_6_13"
       elif (
-        (last_candle["RSI_14"] >= 48.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_6_14"
-      elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 12.0) and (last_candle["RSI_14"] < 40.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_6_15"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_6_16"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_6_17"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] < 35.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_6_18"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 14.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_6_19"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 56.0)
+        and (last_candle["RSI_14"] > 54.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_6_20"
       elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 40.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_6_21"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_6_22"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_6_23"
       elif (
-        (last_candle["WILLR_14"] <= -84.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 14.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["WILLR_14"] < -70.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_6_24"
       elif (
-        (last_candle["WILLR_14"] <= -80.0)
-        and (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 26.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_6_25"
+      elif (
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_26"
+      elif (
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_27"
+      elif (
+        (last_candle["RSI_3"] < 35.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_6_28"
     elif 0.08 > current_profit >= 0.07:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_7_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 36.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_7_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_7_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_7_4"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_3"] <= 4.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_7_5"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_7_6"
       elif (
-        (last_candle["RSI_3"] <= 5.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_7_7"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_7_8"
       elif (
-        (last_candle["RSI_14"] <= 42.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_7_9"
       elif (
-        (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_7_10"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_7_11"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_7_12"
-      elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 10.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_7_13"
       elif (
-        (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_7_14"
-      elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 10.0) and (last_candle["RSI_14"] < 38.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_7_15"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_7_16"
       elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_7_17"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_7_18"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 12.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_7_19"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 54.0)
+        and (last_candle["RSI_14"] > 56.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_7_20"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_7_21"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_7_22"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_7_23"
       elif (
-        (last_candle["WILLR_14"] <= -86.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 12.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["WILLR_14"] < -75.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_7_24"
       elif (
-        (last_candle["WILLR_14"] <= -85.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_7_25"
+      elif (
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_26"
+      elif (
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_27"
+      elif (
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_7_28"
     elif 0.09 > current_profit >= 0.08:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_8_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 34.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_8_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_8_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_8_4"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_8_5"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_3"] <= 5.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_8_6"
       elif (
-        (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_8_7"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_8_8"
       elif (
-        (last_candle["RSI_14"] >= 60.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_8_9"
       elif (
-        (last_candle["RSI_14"] <= 48.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -92.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_8_10"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_8_11"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_8_12"
-      elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 5.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_8_13"
       elif (
-        (last_candle["RSI_14"] <= 48.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_8_14"
-      elif (
-        (last_candle["WILLR_14"] <= -95.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 8.0) and (last_candle["RSI_14"] < 36.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_8_15"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_8_16"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_8_17"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_8_18"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_8_19"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 52.0)
+        and (last_candle["RSI_14"] > 58.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_8_20"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_8_21"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_8_22"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_8_23"
       elif (
-        (last_candle["WILLR_14"] <= -88.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["WILLR_14"] < -80.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_8_24"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_8_25"
+      elif (
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_26"
+      elif (
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_27"
+      elif (
+        (last_candle["RSI_3"] < 25.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_8_28"
     elif 0.1 > current_profit >= 0.09:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 48.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_9_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 32.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_9_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_9_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_9_4"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_9_5"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.70)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_9_6"
       elif (
-        (last_candle["RSI_3"] >= 99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_9_7"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_9_8"
       elif (
-        (last_candle["RSI_14"] <= 38.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_9_9"
       elif (
-        (last_candle["RSI_14"] >= 54.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -94.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_9_10"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 36.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_9_11"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_9_12"
-      elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 4.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_9_13"
       elif (
-        (last_candle["RSI_14"] >= 54.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_9_14"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 6.0) and (last_candle["RSI_14"] < 34.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_9_15"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_9_16"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 34.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_9_17"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_9_18"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_9_19"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 50.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_9_20"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_9_21"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_9_22"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_9_23"
       elif (
-        (last_candle["WILLR_14"] <= -90.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 8.0)
+        and (last_candle["RSI_14"] < 28.0)
+        and (last_candle["WILLR_14"] < -85.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_9_24"
       elif (
-        (last_candle["WILLR_14"] <= -92.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_9_25"
+      elif (
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_26"
+      elif (
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_27"
+      elif (
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_9_28"
     elif 0.12 > current_profit >= 0.1:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 46.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_10_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 30.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_10_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_10_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_14"] < 24.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_10_4"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_10_5"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_10_6"
       elif (
-        (last_candle["RSI_3"] >= 99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_10_7"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_10_8"
       elif (
-        (last_candle["RSI_14"] >= 64.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -97.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_10_9"
       elif (
-        (last_candle["RSI_14"] <= 44.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -96.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_10_10"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_10_11"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_10_12"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 4.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_10_13"
       elif (
-        (last_candle["RSI_14"] <= 44.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_10_14"
-      elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 4.0) and (last_candle["RSI_14"] < 32.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_10_15"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_10_16"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 32.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 3.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_10_17"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["RSI_14"] < 24.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_10_18"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_10_19"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 40.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_10_20"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_10_21"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_10_22"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_10_23"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 6.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["WILLR_14"] < -90.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_10_24"
       elif (
-        (last_candle["WILLR_14"] <= -94.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_10_25"
+      elif (
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_26"
+      elif (
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_27"
+      elif (
+        (last_candle["RSI_3"] < 15.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_10_28"
     elif 0.2 > current_profit >= 0.12:
       if (
-        (last_candle["WILLR_14"] < -84.0)
-        and (last_candle["RSI_14"] < 44.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_11_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 26.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_11_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_11_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_11_4"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 24.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_11_5"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_11_6"
       elif (
-        (last_candle["RSI_3"] <= 1.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_11_7"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 2.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_11_8"
       elif (
-        (last_candle["RSI_14"] >= 66.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3"] < 5.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_11_9"
       elif (
-        (last_candle["RSI_14"] >= 60.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_11_10"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_11_11"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_11_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 2.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_11_13"
       elif (
-        (last_candle["RSI_14"] <= 42.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_11_14"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 2.0) and (last_candle["RSI_14"] < 30.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_11_15"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_11_16"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_11_17"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_11_18"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["RSI_14"] < 24.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_11_19"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 20.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_11_20"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_11_21"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_11_22"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["WILLR_14"] < -98.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_11_23"
       elif (
-        (last_candle["WILLR_14"] <= -96.0)
-        and (last_candle["RSI_3"] <= 20.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 4.0)
+        and (last_candle["RSI_14"] < 24.0)
+        and (last_candle["WILLR_14"] < -95.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_11_24"
       elif (
-        (last_candle["WILLR_14"] <= -98.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 3.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_11_25"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_26"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_27"
+      elif (
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_11_28"
     elif current_profit >= 0.2:
       if (
-        (last_candle["WILLR_14"] < -90.0)
-        and (last_candle["RSI_14"] < 34.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
+        and (last_candle["KST_10_15_20_30_10_10_10_15_1h"] > last_candle["KSTs_9_1h"])
+        and (last_candle["KST_10_15_20_30_10_10_10_15_4h"] > last_candle["KSTs_9_4h"])
       ):
         return True, f"exit_{mode_name}_d_12_1"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-        and (last_candle["change_pct_4h"] > 0.03)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_12_2"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_14_4h"] <= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_4h"] >= 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.0)
+        and (last_candle["CMF_20_4h"] > 0.0)
+        and (
+          (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0) and (last_candle["STOCHRSIk_14_14_3_3_change_pct_4h"] > 10.0)
+        )
       ):
         return True, f"exit_{mode_name}_d_12_3"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 10.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] > -25.0)
-        and (last_candle["CTI_20_1d"] < -0.50)
-        and (last_candle["RSI_14_1d"] <= 30.0)
-        and (last_candle["change_pct_1h"] > 0.03)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 20.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+        and (
+          isinstance(last_candle["EMA_200_1h"], np.float64) and (last_candle["EMA_12_1h"] > last_candle["EMA_200_1h"])
+        )
+        and (
+          isinstance(last_candle["EMA_200_4h"], np.float64) and (last_candle["EMA_12_4h"] > last_candle["EMA_200_4h"])
+        )
       ):
         return True, f"exit_{mode_name}_d_12_4"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["change_pct_1d"] > 0.02)
-        and (last_candle["change_pct_4h"] > 0.02)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["ROC_9_1h"] > 5.0)
+        and (last_candle["ROC_9_4h"] > 5.0)
       ):
         return True, f"exit_{mode_name}_d_12_5"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 2.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.80)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 30.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 30.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -50.0)
       ):
         return True, f"exit_{mode_name}_d_12_6"
       elif (
-        (last_candle["RSI_3"] >= 99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_4h"] <= -0.50)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_24"] == False)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_14"] > 50.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 40.0)
       ):
         return True, f"exit_{mode_name}_d_12_7"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["WILLR_480_4h"] > -10.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["STOCHRSIk_14_14_3_3"] < 1.0)
+        and (last_candle["CMF_20_1h"] > 0.1)
+        and (last_candle["CMF_20_4h"] > 0.1)
+        and (last_candle["change_pct_1d"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -15.0)
       ):
         return True, f"exit_{mode_name}_d_12_8"
       elif (
-        (last_candle["RSI_14"] >= 70.0)
-        and (last_candle["RSI_3_1h"] >= 90.0)
-        and (last_candle["RSI_3_4h"] >= 94.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3"] < 1.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["ROC_9_1d"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_12_9"
       elif (
-        (last_candle["RSI_14"] >= 64.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["RSI_14_4h"] <= 40.0)
-        and (last_candle["change_pct_1h"] > 0.04)
+        (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_4h"] > 10.0)
+        and (last_candle["ROC_9_1d"] < -10.0)
       ):
         return True, f"exit_{mode_name}_d_12_10"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["change_pct_1d"] > 0.10)
-        and (last_candle["not_downtrend_4h"] == True)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] > 55.0)
+        and (last_candle["ROC_9_15m"] > 10.0)
+        and (last_candle["ROC_9_1h"] > 10.0)
+        and (last_candle["ROC_9_1d"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_12_11"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 20.0)
-        and (last_candle["CTI_20_1d"] <= -0.80)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_1h"] > 20.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
       ):
         return True, f"exit_{mode_name}_d_12_12"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 26.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["change_pct_4h"] > 0.03)
-        and (last_candle["bot_wick_pct_4h"] > 0.03)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
-      ):
+      elif (last_candle["RSI_3"] < 1.0) and (last_candle["RSI_3_4h"] > 95.0) and (last_candle["ROC_9_4h"] > 25.0):
         return True, f"exit_{mode_name}_d_12_13"
       elif (
-        (last_candle["RSI_14"] >= 60.0)
-        and (last_candle["RSI_14_15m"] >= 60.0)
-        and (last_candle["RSI_3_1d"] >= 94.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 95.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_12_14"
-      elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 24.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["WILLR_480_4h"] <= -70.0)
-        and (last_candle["not_downtrend_1h"] == True)
-      ):
+      elif (last_candle["RSI_3"] < 1.0) and (last_candle["RSI_14"] < 25.0) and (last_candle["ROC_9_4h"] > 30.0):
         return True, f"exit_{mode_name}_d_12_15"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["CTI_20_1d"] <= -0.70)
-        and (last_candle["change_pct_1d"] > 0.04)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["AROONU_14_4h"] < 75.0)
+        and (last_candle["ROC_9_4h"] > 25.0)
+        and (last_candle["AROONU_14_1d"] < 50.0)
+        and (last_candle["change_pct_1d"] > 15.0)
       ):
         return True, f"exit_{mode_name}_d_12_16"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 28.0)
-        and (last_candle["RSI_14_15m"] <= 40.0)
-        and (last_candle["RSI_14_1h"] <= 40.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["WILLR_480_4h"] > -30.0)
-        and (last_candle["change_pct_1d"] > 0.04)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
+        and (last_candle["ROC_9_4h"] < -30.0)
       ):
         return True, f"exit_{mode_name}_d_12_17"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_24_15m"] == False)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_24_4h"] == False)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] < 20.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["ROC_2_1d"] > 50.0)
       ):
         return True, f"exit_{mode_name}_d_12_18"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 15.0)
-        and (last_candle["change_pct_1h"] > 0.01)
-        and (last_candle["change_pct_4h"] > 0.06)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 30.0)
       ):
         return True, f"exit_{mode_name}_d_12_19"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_1d"] <= 30.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 10.0)
+        and (last_candle["RSI_14"] > 60.0)
+        and (last_candle["RSI_3_1h"] > 90.0)
+        and (last_candle["AROONU_14_1h"] < 75.0)
       ):
         return True, f"exit_{mode_name}_d_12_20"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 50.0)
-        and (last_candle["CTI_20_dec_3_1d"] == False)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["close"] > (last_candle["low_min_48_1h"] * 1.25))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 10.0)
       ):
         return True, f"exit_{mode_name}_d_12_21"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 40.0)
-        and (last_candle["RSI_14_max_6_4h"] <= 30.0)
-        and (last_candle["change_pct_4h"] > 0.01)
-        and (last_candle["not_downtrend_4h"] == True)
-        and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.30))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["change_pct_4h"] > 5.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 50.0)
+        and (last_candle["ROC_9_1d"] > 30.0)
       ):
         return True, f"exit_{mode_name}_d_12_22"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 30.0)
-        and (last_candle["not_downtrend_1h"] == True)
-        and (last_candle["not_downtrend_1d"] == True)
-        and (last_candle["close"] > (last_candle["low_min_6_1d"] * 1.20))
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_1h"] > 85.0)
+        and (last_candle["RSI_3_1d"] > 95.0)
       ):
         return True, f"exit_{mode_name}_d_12_23"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_3"] <= 5.0)
-        and (last_candle["RSI_14"] >= 50.0)
-        and (last_candle["RSI_14_15m"] >= 50.0)
-        and (last_candle["RSI_3_1h"] >= 80.0)
-        and (last_candle["change_pct_1h"] > 0.02)
-        and (last_candle["not_downtrend_1h"] == True)
+        (last_candle["RSI_3"] < 2.0)
+        and (last_candle["RSI_14"] < 22.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 70.0)
+        and (last_candle["AROONU_14_4h"] < 25.0)
       ):
         return True, f"exit_{mode_name}_d_12_24"
       elif (
-        (last_candle["WILLR_14"] <= -99.0)
-        and (last_candle["RSI_14"] <= 22.0)
-        and (last_candle["RSI_14_15m"] <= 50.0)
-        and (last_candle["RSI_14_1d"] <= 50.0)
-        and (last_candle["RSI_3_1d"] >= 74.0)
-        and (last_candle["EMA_200_dec_48_1h"] == False)
-        and (last_candle["EMA_200_dec_4_1d"] == False)
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 90.0)
+        and (last_candle["ROC_9_4h"] > 15.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_1d"] < 50.0)
       ):
         return True, f"exit_{mode_name}_d_12_25"
+      elif (
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["WILLR_14"] < -99.0)
+        and (last_candle["RSI_3_4h"] > 85.0)
+        and (last_candle["ROC_9_4h"] > 20.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_26"
+      elif (
+        (last_candle["RSI_3"] < 1.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_1h"] > 80.0)
+        and (last_candle["RSI_3_4h"] > 80.0)
+        and (last_candle["STOCHRSIk_14_14_3_3_4h"] < 80.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_27"
+      elif (
+        (last_candle["RSI_3"] < 5.0)
+        and (last_candle["RSI_14"] > 50.0)
+        and (last_candle["RSI_3_15m"] > 90.0)
+        and (last_candle["ROC_9_4h"] < -50.0)
+      ):
+        return True, f"exit_{mode_name}_d_12_28"
 
     return False, None
 
@@ -16016,22 +18291,34 @@ class NostalgiaForInfinityX5(IStrategy):
     is_backtest = self.dp.runmode.value in ["backtest", "hyperopt"]
     # Stoploss doom
     if (
-      self.is_futures_mode is False
-      and profit_stake
-      < -(filled_entries[0].cost * self.stop_threshold / (trade.leverage if self.is_futures_mode else 1.0))
+      profit_stake
+      < -(
+        filled_entries[0].cost
+        * (self.stop_threshold_doom_futures if self.is_futures_mode else self.stop_threshold_doom_spot)
+        # / trade.leverage
+      )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2023, 6, 13) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
-      return True, f"exit_{mode_name}_stoploss"
+      return True, f"exit_{mode_name}_stoploss_doom"
 
+    # Stoploss u_e
     if (
-      self.is_futures_mode is True
-      and profit_stake
-      < -(filled_entries[0].cost * self.stop_threshold_futures / (trade.leverage if self.is_futures_mode else 1.0))
+      profit_stake
+      < -(
+        filled_entries[0].cost * (self.stop_threshold_futures if self.is_futures_mode else self.stop_threshold_spot)
+        # / trade.leverage
+      )
+      and (last_candle["close"] > last_candle["EMA_200"])
+      and (last_candle["CMF_20"] > 0.0)
+      and (((last_candle["close"] - last_candle["EMA_200"]) / last_candle["EMA_200"]) < 0.010)
+      and (last_candle["RSI_14"] < previous_candle_1["RSI_14"])
+      and (last_candle["RSI_14"] < (last_candle["RSI_14_1h"] - 16.0))
+      and (current_time - timedelta(minutes=720) > trade.open_date_utc)
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2023, 10, 17) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
-      return True, f"exit_{mode_name}_stoploss"
+      return True, f"exit_{mode_name}_stoploss_u_e"
 
     return False, None
 
@@ -16180,14 +18467,12 @@ class NostalgiaForInfinityX5(IStrategy):
 
     if not is_rebuy_mode and not is_grind_mode:
       # First entry is lower now, therefore the grinds must adjust
-      if trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 2, 5) or is_backtest:
+      if trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest:
         slice_amount /= (
           self.regular_mode_stake_multiplier_futures[0]
           if self.is_futures_mode
           else self.regular_mode_stake_multiplier_spot[0]
         )
-
-    grind_derisk = self.grind_derisk_futures if self.is_futures_mode else self.grind_derisk_spot
 
     grind_1_max_sub_grinds = 0
     grind_1_stakes = self.grind_1_stakes_futures.copy() if self.is_futures_mode else self.grind_1_stakes_spot.copy()
@@ -16503,6 +18788,12 @@ class NostalgiaForInfinityX5(IStrategy):
           "g4",
           "g5",
           "g6",
+          "sg1",
+          "sg2",
+          "sg3",
+          "sg4",
+          "sg5",
+          "sg6",
           "gd2",
           "gd3",
           "gd4",
@@ -16560,6 +18851,7 @@ class NostalgiaForInfinityX5(IStrategy):
           grind_3_is_sell_found = True
           grind_4_is_sell_found = True
           grind_5_is_sell_found = True
+          grind_6_is_sell_found = True
           grind_1_derisk_1_is_sell_found = True
           grind_2_derisk_1_is_sell_found = True
         elif order_tag not in [
@@ -16573,6 +18865,12 @@ class NostalgiaForInfinityX5(IStrategy):
           "g4",
           "g5",
           "g6",
+          "sg1",
+          "sg2",
+          "sg3",
+          "sg4",
+          "sg5",
+          "sg6",
           "gd2",
           "gd3",
           "gd4",
@@ -16634,6 +18932,28 @@ class NostalgiaForInfinityX5(IStrategy):
       + grind_6_sub_grind_count
       + grind_1_derisk_1_sub_grind_count
       + grind_2_derisk_1_sub_grind_count
+    )
+    grinds_total_stake_profit = (
+      derisk_1_current_grind_stake_profit
+      + grind_1_derisk_1_current_grind_stake_profit
+      + grind_2_derisk_1_current_grind_stake_profit
+      + grind_1_current_grind_stake_profit
+      + grind_2_current_grind_stake_profit
+      + grind_3_current_grind_stake_profit
+      + grind_4_current_grind_stake_profit
+      + grind_5_current_grind_stake_profit
+      + grind_6_current_grind_stake_profit
+    )
+    grinds_total_amount = (
+      derisk_1_total_amount
+      + grind_1_derisk_1_total_amount
+      + grind_2_derisk_1_total_amount
+      + grind_1_total_amount
+      + grind_2_total_amount
+      + grind_3_total_amount
+      + grind_4_total_amount
+      + grind_5_total_amount
+      + grind_6_total_amount
     )
 
     # Sell remaining if partial fill on exit
@@ -16731,7 +19051,7 @@ class NostalgiaForInfinityX5(IStrategy):
             else:
               return -ft_sell_amount
 
-    is_short_grind_buy = self.short_grind_buy(last_candle, previous_candle, slice_profit)
+    is_short_grind_entry = self.short_grind_entry(last_candle, previous_candle, slice_profit)
 
     # Grinding derisk 1
     # Buy
@@ -16757,39 +19077,20 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
         and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
-          and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
-          and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
-          and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
-          and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.16))
-          and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.18))
-        )
-        and (
-          (last_candle["zlma_50_dec_15m"] == True)
-          and (last_candle["zlma_50_dec_1h"] == True)
-          and (last_candle["zlma_50_dec_4h"] == True)
-          and (last_candle["EMA_200_dec_48_1h"] == True)
-          and (last_candle["EMA_200_dec_24_4h"] == True)
-        )
-        and (
-          is_short_grind_buy
+          is_short_grind_entry
           or (
-            (last_candle["RSI_3"] < 84.0)
-            and (last_candle["RSI_3_15m"] < 84.0)
-            and (last_candle["RSI_3_1h"] < 70.0)
-            and (last_candle["RSI_3_4h"] < 70.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] < last_candle["res_hlevel_4h"])
-            and (last_candle["close"] > last_candle["sup_level_4h"])
+            (grind_1_derisk_1_sub_grind_count > 0)
+            and (
+              is_short_grind_entry
+              or (
+                (last_candle["RSI_3"] < 94.0)
+                and (last_candle["AROONU_14_15m"] > 75.0)
+                and (last_candle["RSI_14"] > 64.0)
+                and (last_candle["close"] > (last_candle["EMA_26"] * 1.006))
+              )
+            )
           )
         )
       ):
@@ -16894,47 +19195,18 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
         and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
-          and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
-          and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
-          and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
-        )
-        and (
-          (
-            (grind_2_derisk_1_sub_grind_count == 0)
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 84.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 80.0)
-                and (last_candle["RSI_3_4h"] < 80.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_15m"] == True)
-                and (last_candle["zlma_50_dec_1h"] == True)
-                and (last_candle["zlma_50_dec_4h"] == True)
-              )
-            )
-          )
+          is_short_grind_entry
           or (
             (grind_2_derisk_1_sub_grind_count > 0)
             and (
-              is_short_grind_buy
+              is_short_grind_entry
               or (
-                (last_candle["RSI_3"] < 88.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 84.0)
-                and (last_candle["RSI_3_4h"] < 84.0)
-                and (last_candle["RSI_14"] > 54.0)
+                (last_candle["RSI_3"] < 94.0)
+                and (last_candle["AROONU_14_15m"] > 75.0)
+                and (last_candle["RSI_14"] > 64.0)
+                and (last_candle["close"] > (last_candle["EMA_26"] * 1.006))
               )
             )
           )
@@ -16992,11 +19264,14 @@ class NostalgiaForInfinityX5(IStrategy):
     # Grind stop
     if (
       (grind_2_derisk_1_sub_grind_count > 0)
-      and (
-        (-(exit_rate - grind_2_derisk_1_current_open_rate) / grind_2_derisk_1_current_open_rate)
-        < grind_2_derisk_1_stop_grinds
-      )
+      # and (
+      #   (-(exit_rate - grind_2_derisk_1_current_open_rate) / grind_2_derisk_1_current_open_rate)
+      #   < grind_2_derisk_1_stop_grinds
+      # )
+      and (grind_2_derisk_1_current_grind_stake_profit < (slice_amount * grind_2_derisk_1_stop_grinds))
       and (is_derisk or is_derisk_calc)
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_2_derisk_1_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -17040,72 +19315,8 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_1_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_1_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_1_stakes[grind_1_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -17190,15 +19401,12 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       (
         (grind_1_sub_grind_count > 0)
-        and ((-(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate) < grind_1_stop_grinds)
-        # (
-        #   grind_1_current_grind_stake_profit
-        #   < (slice_amount * grind_1_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        # and ((-(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate) < grind_1_stop_grinds)
+        and (grind_1_current_grind_stake_profit < (slice_amount * grind_1_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 14) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_1_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -17242,72 +19450,8 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_2_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_2_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_2_stakes[grind_2_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -17360,15 +19504,12 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       (
         (grind_2_sub_grind_count > 0)
-        and ((-(exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate) < grind_2_stop_grinds)
-        # (
-        #   grind_2_current_grind_stake_profit
-        #   < (slice_amount * grind_2_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        # and ((-(exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate) < grind_2_stop_grinds)
+        and (grind_2_current_grind_stake_profit < (slice_amount * grind_2_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 14) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_2_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -17412,72 +19553,8 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_3_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_3_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_3_stakes[grind_3_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -17530,15 +19607,12 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       (
         (grind_3_sub_grind_count > 0)
-        and ((-(exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate) < grind_3_stop_grinds)
-        # (
-        #   grind_3_current_grind_stake_profit
-        #   < (slice_amount * grind_3_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        # and ((-(exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate) < grind_3_stop_grinds)
+        and (grind_3_current_grind_stake_profit < (slice_amount * grind_3_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 14) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_3_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -17582,70 +19656,17 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
         and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_4_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_4_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
+          (is_short_grind_entry)
           or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
+            (last_candle["RSI_3"] < 90.0)
             and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
             and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
+            and (last_candle["close"] > last_candle["BBM_20_2.0"])
+            and (previous_candle["close"] > previous_candle["BBM_20_2.0"])
+            # and (last_candle["AROONU_14"] < 25.0)
+            # and (last_candle["AROONU_14_15m"] < 25.0)
           )
         )
       ):
@@ -17700,11 +19721,8 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       (
         (grind_4_sub_grind_count > 0)
-        and ((-(exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate) < grind_4_stop_grinds)
-        # (
-        #   grind_4_current_grind_stake_profit
-        #   < (slice_amount * grind_4_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        # and ((-(exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate) < grind_4_stop_grinds)
+        and (grind_4_current_grind_stake_profit < (slice_amount * grind_4_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
@@ -17752,72 +19770,8 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_5_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_5_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount * grind_5_stakes[grind_5_sub_grind_count] / (trade.leverage if self.is_futures_mode else 1.0)
@@ -17870,15 +19824,12 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       (
         (grind_5_sub_grind_count > 0)
-        and ((-(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate) < grind_5_stop_grinds)
-        # (
-        #   grind_5_current_grind_stake_profit
-        #   < (slice_amount * grind_5_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        # and ((-(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate) < grind_5_stop_grinds)
+        and (grind_5_current_grind_stake_profit < (slice_amount * grind_5_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 14) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_5_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -17888,7 +19839,7 @@ class NostalgiaForInfinityX5(IStrategy):
         grind_profit = 0.0
         if grind_5_current_open_rate > 0.0:
           grind_profit = (
-            (-(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate)
+            ((exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate)
             if grind_5_is_sell_found
             else profit_ratio
           )
@@ -17922,70 +19873,17 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
         and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-            )
-            and (
-              (
-                (grind_6_sub_grind_count == 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["RSI_14"] > 64.0)
-                    # and (last_candle["zlma_50_dec_15m"] == True)
-                    # and (last_candle["zlma_50_dec_1h"] == False)
-                    # and (last_candle["zlma_50_dec_4h"] == False)
-                    and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-                  )
-                  or (
-                    (last_candle["RSI_14"] > 64.0)
-                    and (previous_candle["RSI_3"] < 90.0)
-                    and (last_candle["RSI_3_15m"] < 90.0)
-                    and (last_candle["RSI_3_1h"] < 90.0)
-                    and (last_candle["RSI_3_4h"] < 90.0)
-                    and (last_candle["close"] > (last_candle["SMA_16"] * 1.012))
-                  )
-                )
-              )
-              or (
-                (grind_6_sub_grind_count > 0)
-                and (
-                  is_short_grind_buy
-                  or (
-                    (last_candle["RSI_3"] < 88.0)
-                    and (last_candle["RSI_3_15m"] < 88.0)
-                    # and (last_candle["RSI_3_1h"] < 88.0)
-                    # and (last_candle["RSI_3_4h"] < 88.0)
-                    and (last_candle["RSI_14"] > 58.0)
-                  )
-                )
-              )
-            )
-          )
+          (is_short_grind_entry)
           or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
+            (last_candle["RSI_3"] < 90.0)
             and (last_candle["RSI_3_15m"] < 90.0)
-            and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 58.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.006))
+            and (last_candle["RSI_14"] > 64.0)
+            and (last_candle["close"] > last_candle["BBM_20_2.0"])
+            and (previous_candle["close"] > previous_candle["BBM_20_2.0"])
+            # and (last_candle["AROONU_14"] < 25.0)
+            # and (last_candle["AROONU_14_15m"] < 25.0)
           )
         )
       ):
@@ -18041,14 +19939,11 @@ class NostalgiaForInfinityX5(IStrategy):
       (
         (grind_6_sub_grind_count > 0)
         and ((-(exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate) < grind_6_stop_grinds)
-        # (
-        #   grind_6_current_grind_stake_profit
-        #   < (slice_amount * grind_6_stop_grinds / (trade.leverage if self.is_futures_mode else 1.0))
-        # )
+        and (grind_6_current_grind_stake_profit < (slice_amount * grind_6_stop_grinds))
         and (is_derisk or is_derisk_calc or is_grind_mode)
       )
       # temporary
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 14) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
     ):
       sell_amount = grind_6_total_amount * exit_rate / trade.leverage
       if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
@@ -18098,41 +19993,14 @@ class NostalgiaForInfinityX5(IStrategy):
           or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
           or (slice_profit > 0.06)
         )
-        and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
         and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
+          # (last_candle["protections_short_rebuy"] == True)
+          # and (last_candle["protections_short_global"] == True)
+          (last_candle["global_protections_short_pump"] == True)
           and (last_candle["global_protections_short_dump"] == True)
         )
-        and (
-          (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
-          and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
-          and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
-          and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
-          and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.16))
-          and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.18))
-        )
-        and (
-          (last_candle["zlma_50_dec_15m"] == True)
-          and (last_candle["zlma_50_dec_1h"] == True)
-          and (last_candle["zlma_50_dec_4h"] == True)
-          and (last_candle["EMA_200_dec_48_1h"] == True)
-          and (last_candle["EMA_200_dec_24_4h"] == True)
-          and (last_candle["close"] < last_candle["res_hlevel_4h"])
-          and (last_candle["close"] > last_candle["sup_level_4h"])
-        )
-        and (
-          is_short_grind_buy
-          or (
-            (last_candle["RSI_3"] < 70.0)
-            and (last_candle["RSI_3_15m"] < 70.0)
-            and (last_candle["RSI_3_1h"] < 70.0)
-            and (last_candle["RSI_3_4h"] < 70.0)
-            and (last_candle["RSI_14"] > 58.0)
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = derisk_1_order.safe_filled * derisk_1_order.safe_price
         if buy_amount < (min_stake * 1.5):
@@ -18165,7 +20033,11 @@ class NostalgiaForInfinityX5(IStrategy):
       # and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 5) or is_backtest)
       and -derisk_1_distance_ratio
       < (
-        (self.regular_mode_derisk_1_futures if self.is_futures_mode else self.regular_mode_derisk_1_spot)
+        (
+          self.regular_mode_derisk_1_reentry_futures
+          if self.is_futures_mode
+          else self.regular_mode_derisk_1_reentry_spot
+        )
         / (trade.leverage if self.is_futures_mode else 1.0)
       )
     ):
@@ -18183,276 +20055,59 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         return -ft_sell_amount, "d1"
 
-    # De-risk
-    if (
-      not is_derisk_found
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 2, 5) or is_backtest)
-      and profit_stake
-      < (
-        slice_amount
-        * (
-          (self.regular_mode_derisk_futures if self.is_futures_mode else self.regular_mode_derisk_spot)
-          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 5) or is_backtest)
-          else (self.regular_mode_derisk_futures_old if self.is_futures_mode else self.regular_mode_derisk_spot_old)
-        )
-        # / (trade.leverage if self.is_futures_mode else 1.0)
-      )
-    ):
-      sell_amount = trade.amount * exit_rate / trade.leverage
-      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
-        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
-      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
-      if sell_amount > min_stake and ft_sell_amount > min_stake:
-        grind_profit = 0.0
-        self.dp.send_msg(
-          f"De-risk [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
-        )
-        log.info(
-          f"De-risk [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
-        )
-        return -ft_sell_amount, "d", is_derisk
-
-    # De-risk
-    if (
-      (
-        (profit_stake < (slice_amount * grind_derisk / (trade.leverage if self.is_futures_mode else 1.0)))
-        and (
-          (
-            (trade.amount * exit_rate / (trade.leverage if self.is_futures_mode else 1.0))
-            - (
-              (
-                derisk_1_total_amount
-                + grind_1_derisk_1_total_amount
-                + grind_2_derisk_1_total_amount
-                + grind_1_total_amount
-                + grind_2_total_amount
-                + grind_3_total_amount
-                + grind_4_total_amount
-                + grind_5_total_amount
-                + grind_6_total_amount
-              )
-              * exit_rate
-              # / (trade.leverage if self.is_futures_mode else 1.0)
-            )
-          )
-          > (min_stake * 3.0)
-        )
-        # temporary
-        and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2023, 12, 19) or is_backtest)
-      )
-      # temporary
-      and (
-        (trade.open_date_utc.replace(tzinfo=None) >= datetime(2023, 8, 28) or is_backtest)
-        or (filled_entries[-1].order_date_utc.replace(tzinfo=None) >= datetime(2023, 8, 28) or is_backtest)
-      )
-    ):
-      sell_amount = trade.amount * exit_rate / trade.leverage
-      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
-        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
-      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
-      if sell_amount > min_stake and ft_sell_amount > min_stake:
-        self.dp.send_msg(
-          f"De-risk (dd0) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
-        )
-        log.info(
-          f"De-risk (dd0) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
-        )
-        order_tag = "dd0"
-        for grind_entry_id in (
-          grind_1_buy_orders
-          + grind_2_buy_orders
-          + grind_3_buy_orders
-          + grind_4_buy_orders
-          + grind_5_buy_orders
-          + grind_6_buy_orders
-          + grind_1_derisk_1_buy_orders
-          + grind_2_derisk_1_buy_orders
-        ):
-          order_tag += " " + str(grind_entry_id)
-        if has_order_tags:
-          return -ft_sell_amount, order_tag
-        else:
-          return -ft_sell_amount
-
     return None
 
-  # Short Grinding Buy
+  # Short Grinding Entry
   # ---------------------------------------------------------------------------------------------
-  def short_grind_buy(self, last_candle: Series, previous_candle: Series, slice_profit: float) -> float:
+  def short_grind_entry(self, last_candle: Series, previous_candle: Series, slice_profit: float) -> float:
     if (
       (last_candle["protections_short_global"] == True)
       and (last_candle["protections_short_rebuy"] == True)
       and (last_candle["global_protections_short_pump"] == True)
       and (last_candle["global_protections_short_dump"] == True)
       and (
-        (last_candle["close"] < (last_candle["close_min_12"] * 1.12))
-        and (last_candle["close"] < (last_candle["close_min_24"] * 1.18))
-        and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-        and (last_candle["btc_pct_close_min_72_5m"] < -0.03)
-        and (last_candle["btc_pct_close_min_24_5m"] < -0.03)
-      )
-      and (
         (last_candle["enter_short"] == True)
         or (
-          (last_candle["RSI_3"] < 90.0)
-          and (last_candle["RSI_3_15m"] < 80.0)
-          and (last_candle["RSI_3_1h"] < 80.0)
-          and (last_candle["RSI_3_4h"] < 80.0)
-          and (last_candle["RSI_14"] > 56.0)
-          and (last_candle["ha_close"] < last_candle["ha_open"])
-          and (last_candle["EMA_12"] > (last_candle["EMA_26"] * 1.010))
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] < 80.0)
-        )
-        or (
           (last_candle["RSI_14"] > 64.0)
-          and (last_candle["close"] > (last_candle["SMA_16"] * 1.006))
-          and (last_candle["RSI_3"] < 86.0)
-          and (last_candle["RSI_3_15m"] < 70.0)
-          and (last_candle["RSI_3_1h"] < 70.0)
-          and (last_candle["RSI_3_4h"] < 70.0)
-          and (last_candle["zlma_50_dec_1h"] == True)
-        )
-        or (
-          (last_candle["RSI_14"] > 64.0)
-          and (previous_candle["RSI_3"] < 94.0)
-          and (last_candle["EMA_26"] < last_candle["EMA_12"])
-          and ((last_candle["EMA_26"] - last_candle["EMA_12"]) > (last_candle["open"] * 0.010))
-          and ((previous_candle["EMA_26"] - previous_candle["EMA_12"]) > (last_candle["open"] / 100.0))
-          and (last_candle["RSI_3_1h"] < 80.0)
-          and (last_candle["RSI_3_4h"] < 80.0)
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
-        )
-        or (
-          (last_candle["RSI_14"] < 70.0)
-          and (last_candle["RSI_14"] > 40.0)
-          and (last_candle["hma_70_buy"] == False)
-          and (last_candle["close"] < (last_candle["low_min_12_1h"] * 0.90))
-          and (last_candle["CTI_20_15m"] > -0.50)
-          and (last_candle["RSI_14_15m"] > 50.0)
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
-          and (last_candle["zlma_50_dec_1h"] == True)
-          and (last_candle["zlma_50_dec_4h"] == True)
-        )
-        or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 80.0)
-          and (last_candle["RSI_3_1h"] < 80.0)
-          and (last_candle["RSI_3_4h"] < 80.0)
-          and (last_candle["RSI_14"] > 64.0)
-          and (last_candle["zlma_50_dec_15m"] == True)
-          and (last_candle["zlma_50_dec_1h"] == True)
-        )
-        or (
-          (last_candle["RSI_14"] > 60.0)
-          and (last_candle["RSI_14_15m"] > 60.0)
           and (last_candle["RSI_3"] < 94.0)
-          and (last_candle["EMA_26_15m"] < last_candle["EMA_12_15m"])
-          and ((last_candle["EMA_12_15m"] - last_candle["EMA_26_15m"]) > (last_candle["open_15m"] * 0.006))
-          and ((previous_candle["EMA_12_15m"] - previous_candle["EMA_26_15m"]) > (last_candle["open_15m"] / 100.0))
-          and (last_candle["RSI_3_15m"] < 90.0)
-          and (last_candle["RSI_3_1h"] < 74.0)
-          and (last_candle["RSI_3_4h"] < 74.0)
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
+          and (last_candle["close"] > (last_candle["EMA_16"] * 1.042))
         )
         or (
-          (last_candle["RSI_14"] < 65.0)
-          and (last_candle["RSI_3"] < 96.0)
-          and (last_candle["RSI_3"] > 54.0)
-          and (last_candle["RSI_14"] > previous_candle["RSI_14"])
-          and (last_candle["close"] > (last_candle["SMA_16"] * 1.018))
-          and (last_candle["CTI_20"] > 0.60)
-          and (last_candle["RSI_3_1h"] < 80.0)
-          and (last_candle["RSI_3_4h"] < 80.0)
-          and (last_candle["not_downtrend_1d"] == False)
-          and (last_candle["zlma_50_dec_1h"] == True)
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["EMA_12"] > last_candle["EMA_26"])
+          and ((last_candle["EMA_12"] - last_candle["EMA_26"]) > (last_candle["open"] * 0.030))
+          and ((previous_candle["EMA_12"] - previous_candle["EMA_26"]) > (last_candle["open"] / 100.0))
         )
         or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 74.0)
-          and (last_candle["RSI_3_1h"] < 74.0)
-          and (last_candle["RSI_3_4h"] < 74.0)
-          and (last_candle["RSI_14"] > 60.0)
-          and (last_candle["EMA_12"] > (last_candle["EMA_26"] * 1.006))
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
-          and (last_candle["CTI_20_4h"] > -0.80)
-          and (last_candle["RSI_14_4h"] > 20.0)
-          and (last_candle["EMA_200_dec_48_1h"] == True)
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["RSI_3"] < 95.0)
+          and (last_candle["EMA_12"] > last_candle["EMA_26"])
+          and ((last_candle["EMA_12"] - last_candle["EMA_26"]) > (last_candle["open"] * 0.005))
+          and ((previous_candle["EMA_12"] - previous_candle["EMA_26"]) > (last_candle["open"] / 100.0))
+          and (last_candle["RSI_3_1h"] < 90.0)
         )
         or (
-          (last_candle["RSI_14"] > 40.0)
-          and (last_candle["hma_55_buy"] == False)
-          and (last_candle["RSI_3_1h"] < 96.0)
-          and (last_candle["RSI_3_4h"] < 96.0)
-          and (last_candle["CTI_20_15m"] > -0.80)
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["CTI_20_4h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
-          and (last_candle["close"] > (last_candle["low_min_12_1h"] * 1.10))
-          and (last_candle["zlma_50_dec_1h"] == True)
-          and (last_candle["zlma_50_dec_4h"] == True)
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["RSI_3"] < 84.0)
+          and (last_candle["AROOND_14_15m"] < 25.0)
+          and (last_candle["close"] > (last_candle["EMA_12"] * 1.016))
         )
         or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 70.0)
-          and (last_candle["RSI_3_1h"] < 70.0)
-          and (last_candle["RSI_3_4h"] < 70.0)
-          and (last_candle["RSI_14"] > 60.0)
-          and (last_candle["CTI_20_15m"] > -0.80)
-          and (last_candle["RSI_14_15m"] > 30.0)
-          and (last_candle["CTI_20_1h"] > -0.80)
-          and (last_candle["RSI_14_1h"] > 20.0)
-          and (last_candle["CTI_20_4h"] > -0.80)
-          and (last_candle["RSI_14_4h"] > 20.0)
-          and (last_candle["WILLR_14_1h"] < -20.0)
-          and (last_candle["EMA_12"] > (last_candle["EMA_26"] * 1.005))
-          and (last_candle["zlma_50_dec_1h"] == True)
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["AROONU_14_1h"] < last_candle["AROOND_14_1h"])
+          and (last_candle["AROONU_14_4h"] < last_candle["AROOND_14_4h"])
+          and (last_candle["close"] > (last_candle["EMA_26"] * 1.022))
+          and (last_candle["close"] > (last_candle["BBL_20_2.0"] * 1.001))
         )
         or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 70.0)
-          and (last_candle["RSI_3_1h"] < 70.0)
-          and (last_candle["RSI_3_4h"] < 70.0)
-          and (last_candle["RSI_14"] > 60.0)
-          and (last_candle["RSI_14_1d"] > 30.0)
-          and (last_candle["close"] > last_candle["sup_level_1h"])
-          and (last_candle["close"] > last_candle["sup_level_4h"])
-          and (last_candle["close"] > last_candle["sup_level_1d"])
-          and (last_candle["not_downtrend_1h"] == False)
-          and (last_candle["not_downtrend_4h"] == False)
-          and (last_candle["not_downtrend_1d"] == False)
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["AROONU_14"] < last_candle["AROOND_14"])
+          and (previous_candle["AROONU_14"] > previous_candle["AROOND_14"])
         )
         or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 70.0)
-          and (last_candle["RSI_3_1h"] < 70.0)
-          and (last_candle["RSI_3_4h"] < 70.0)
-          and (last_candle["RSI_14"] > 60.0)
-          and (last_candle["ha_close"] < last_candle["ha_open"])
-          and (last_candle["close"] < last_candle["res_hlevel_4h"])
-          and (last_candle["close"] > last_candle["sup_level_4h"])
-          and (last_candle["close"] < last_candle["res_hlevel_1d"])
-          and (last_candle["close"] > last_candle["sup_level_1d"])
-          and (last_candle["close"] > last_candle["sup3_1d"])
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.15))
-          and (last_candle["hl_pct_change_24_1h"] > -0.35)
-        )
-        or (
-          (last_candle["RSI_3"] < 88.0)
-          and (last_candle["RSI_3_15m"] < 70.0)
-          and (last_candle["RSI_3_1h"] < 70.0)
-          and (last_candle["RSI_3_4h"] < 70.0)
-          and (last_candle["RSI_14"] > 54.0)
-          and (previous_candle["chandelier_dir"] > 0)
-          and (last_candle["chandelier_dir"] < -0)
-          and (last_candle["close"] < last_candle["res_hlevel_4h"])
-          and (last_candle["close"] > last_candle["sup_level_4h"])
-          and (last_candle["close"] < last_candle["res_hlevel_1d"])
-          and (last_candle["close"] > last_candle["sup_level_1d"])
+          (last_candle["RSI_14"] > 64.0)
+          and (last_candle["KST_10_15_20_30_10_10_10_15"] < last_candle["KSTs_9"])
+          and (previous_candle["KST_10_15_20_30_10_10_10_15"] > previous_candle["KSTs_9"])
         )
       )
     ):
@@ -18643,6 +20298,33 @@ class NostalgiaForInfinityX5(IStrategy):
       else self.regular_mode_grind_5_profit_threshold_spot
     )
 
+    max_grind_6_sub_grinds = 0
+    regular_mode_grind_6_stakes = (
+      self.regular_mode_grind_6_stakes_futures.copy()
+      if self.is_futures_mode
+      else self.regular_mode_grind_6_stakes_spot.copy()
+    )
+    regular_mode_grind_6_sub_thresholds = (
+      self.regular_mode_grind_6_thresholds_futures
+      if self.is_futures_mode
+      else self.regular_mode_grind_6_thresholds_spot
+    )
+    if (slice_amount * regular_mode_grind_6_stakes[0] / trade.leverage) < min_stake:
+      multi = min_stake / slice_amount / regular_mode_grind_6_stakes[0] * trade.leverage
+      for i, _ in enumerate(regular_mode_grind_6_stakes):
+        regular_mode_grind_6_stakes[i] *= multi
+    max_grind_6_sub_grinds = len(regular_mode_grind_6_stakes)
+    regular_mode_grind_6_stop_grinds = (
+      self.regular_mode_grind_6_stop_grinds_futures
+      if self.is_futures_mode
+      else self.regular_mode_grind_6_stop_grinds_spot
+    )
+    regular_mode_grind_6_profit_threshold = (
+      self.regular_mode_grind_6_profit_threshold_futures
+      if self.is_futures_mode
+      else self.regular_mode_grind_6_profit_threshold_spot
+    )
+
     partial_sell = False
     is_derisk = False
     is_derisk_1 = False
@@ -18706,6 +20388,16 @@ class NostalgiaForInfinityX5(IStrategy):
     grind_5_found = False
     grind_5_buy_orders = []
     grind_5_distance_ratio = 0.0
+    grind_6_sub_grind_count = 0
+    grind_6_total_amount = 0.0
+    grind_6_total_cost = 0.0
+    grind_6_current_open_rate = 0.0
+    grind_6_current_grind_stake = 0.0
+    grind_6_current_grind_stake_profit = 0.0
+    grind_6_is_sell_found = False
+    grind_6_found = False
+    grind_6_buy_orders = []
+    grind_6_distance_ratio = 0.0
     for order in reversed(filled_orders):
       if (order.ft_order_side == "sell") and (order is not filled_orders[0]):
         order_tag = ""
@@ -18752,6 +20444,14 @@ class NostalgiaForInfinityX5(IStrategy):
           if not grind_5_found:
             grind_5_distance_ratio = (exit_rate - order.safe_price) / order.safe_price
             grind_5_found = True
+        elif not grind_6_is_sell_found and order_tag == "g6":
+          grind_6_sub_grind_count += 1
+          grind_6_total_amount += order.safe_filled
+          grind_6_total_cost += order.safe_filled * order.safe_price
+          grind_6_buy_orders.append(order.id)
+          if not grind_6_found:
+            grind_6_distance_ratio = (exit_rate - order.safe_price) / order.safe_price
+            grind_6_found = True
         elif not rebuy_is_sell_found and order_tag not in [
           "g1",
           "g2",
@@ -18759,6 +20459,12 @@ class NostalgiaForInfinityX5(IStrategy):
           "g4",
           "g5",
           "g6",
+          "sg1",
+          "sg2",
+          "sg3",
+          "sg4",
+          "sg5",
+          "sg6",
           "dl1",
           "dl2",
           "gd1",
@@ -18791,16 +20497,18 @@ class NostalgiaForInfinityX5(IStrategy):
             order_mode = sell_order_tag.split(" ", 1)
             if len(order_mode) > 0:
               order_tag = order_mode[0]
-        if order_tag == "g1":
+        if order_tag in ["g1", "sg1"]:
           grind_1_is_sell_found = True
-        elif order_tag == "g2":
+        elif order_tag in ["g2", "sg2"]:
           grind_2_is_sell_found = True
-        elif order_tag == "g3":
+        elif order_tag in ["g3", "sg3"]:
           grind_3_is_sell_found = True
-        elif order_tag == "g4":
+        elif order_tag in ["g4", "sg4"]:
           grind_4_is_sell_found = True
-        elif order_tag == "g5":
+        elif order_tag in ["g5", "sg5"]:
           grind_5_is_sell_found = True
+        elif order_tag in ["g6", "sg6"]:
+          grind_6_is_sell_found = True
         elif order_tag in ["d", "d1", "dd0", "ddl1", "ddl2", "dd1", "dd2", "dd3", "dd4", "dd5", "dd6"]:
           is_derisk = True
           if order_tag in ["d1"]:
@@ -18810,6 +20518,7 @@ class NostalgiaForInfinityX5(IStrategy):
           grind_3_is_sell_found = True
           grind_4_is_sell_found = True
           grind_5_is_sell_found = True
+          grind_6_is_sell_found = True
           rebuy_is_sell_found = True
         elif order_tag not in [
           "p",
@@ -18819,6 +20528,12 @@ class NostalgiaForInfinityX5(IStrategy):
           "g4",
           "g5",
           "g6",
+          "sg1",
+          "sg2",
+          "sg3",
+          "sg4",
+          "sg5",
+          "sg6",
           "dl1",
           "dl2",
           "gd1",
@@ -18850,6 +20565,7 @@ class NostalgiaForInfinityX5(IStrategy):
           and grind_3_is_sell_found
           and grind_4_is_sell_found
           and grind_5_is_sell_found
+          and grind_6_is_sell_found
         ):
           break
 
@@ -18883,6 +20599,10 @@ class NostalgiaForInfinityX5(IStrategy):
       grind_5_current_open_rate = grind_5_total_cost / grind_5_total_amount
       grind_5_current_grind_stake = grind_5_total_amount * exit_rate * (1 + trade.fee_close)
       grind_5_current_grind_stake_profit = grind_5_total_cost - grind_5_current_grind_stake
+    if grind_6_sub_grind_count > 0:
+      grind_6_current_open_rate = grind_6_total_cost / grind_6_total_amount
+      grind_6_current_grind_stake = grind_6_total_amount * exit_rate * (1 + trade.fee_close)
+      grind_6_current_grind_stake_profit = grind_6_current_grind_stake - grind_6_total_cost
 
     num_open_grinds = (
       grind_1_sub_grind_count
@@ -18890,6 +20610,7 @@ class NostalgiaForInfinityX5(IStrategy):
       + grind_3_sub_grind_count
       + grind_4_sub_grind_count
       + grind_5_sub_grind_count
+      + grind_6_sub_grind_count
     )
 
     fee_open_rate = trade.fee_open if self.custom_fee_open_rate is None else self.custom_fee_open_rate
@@ -18912,7 +20633,7 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag = order.ft_order_tag
         return -ft_sell_amount, order_tag, is_derisk
 
-    is_short_grind_buy = self.short_grind_buy(last_candle, previous_candle, slice_profit)
+    is_short_grind_entry = self.short_grind_entry(last_candle, previous_candle, slice_profit)
 
     # Rebuy
     if (not partial_sell) and (not rebuy_is_sell_found) and (rebuy_sub_grind_count < max_rebuy_sub_grinds):
@@ -18925,35 +20646,7 @@ class NostalgiaForInfinityX5(IStrategy):
         )
         and (current_time - timedelta(minutes=10) > filled_entries[-1].order_filled_utc)
         and ((current_time - timedelta(hours=12) > filled_orders[-1].order_filled_utc) or (slice_profit > 0.06))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
-          and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
-          and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
-          and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
-          and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.16))
-          and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.18))
-          and (last_candle["btc_pct_close_min_72_5m"] > -0.03)
-          and (last_candle["btc_pct_close_min_24_5m"] > -0.03)
-        )
-        and (
-          is_short_grind_buy
-          or (
-            (last_candle["RSI_3"] < 70.0)
-            and (last_candle["RSI_3_15m"] < 70.0)
-            and (last_candle["RSI_3_1h"] < 70.0)
-            and (last_candle["RSI_3_4h"] < 70.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["zlma_50_dec_1h"] == True)
-            and (last_candle["zlma_50_dec_4h"] == True)
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -18975,7 +20668,7 @@ class NostalgiaForInfinityX5(IStrategy):
         order_tag = "r"
         return buy_amount, order_tag, is_derisk
 
-    # Gringing g1
+    # Grinding g1
     # Grinding entry
     if has_order_tags and (not partial_sell) and (grind_1_sub_grind_count < max_grind_1_sub_grinds):
       if (
@@ -18991,54 +20684,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit > 0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-              # and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.24))
-              # and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.30))
-            )
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 84.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 80.0)
-                and (last_candle["RSI_3_4h"] < 80.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_1h"] == True)
-                # and (last_candle["zlma_50_dec_4h"] == True)
-                and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-              )
-              or (
-                (last_candle["RSI_14"] > 64.0)
-                and (previous_candle["RSI_3"] < 90.0)
-                and (last_candle["RSI_3_15m"] < 90.0)
-                and (last_candle["RSI_3_1h"] < 90.0)
-                and (last_candle["RSI_3_4h"] < 90.0)
-                and (last_candle["close"] > (last_candle["SMA_16"] * 1.014))
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            # and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -19113,7 +20759,42 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag += " " + str(grind_entry_id)
           return -ft_sell_amount, order_tag, is_derisk
 
-    # Gringing g2
+    # Grind stop
+    if (
+      (
+        (grind_1_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (
+          ((exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate) < regular_mode_grind_1_stop_grinds
+        )  # CHECK HERE
+      )
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+    ):
+      sell_amount = grind_1_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate  # CHECK HERE
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_1_current_open_rate > 0.0:  # CHECK HERE
+          grind_profit = -(
+            ((exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate)
+            if grind_1_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg1"
+        for grind_entry_id in grind_1_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # Grinding g2
     # Grinding entry
     if has_order_tags and (not partial_sell) and (grind_2_sub_grind_count < max_grind_2_sub_grinds):
       if (
@@ -19129,54 +20810,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit > 0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-              # and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.24))
-              # and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.30))
-            )
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 84.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 80.0)
-                and (last_candle["RSI_3_4h"] < 80.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_1h"] == True)
-                # and (last_candle["zlma_50_dec_4h"] == True)
-                and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-              )
-              or (
-                (last_candle["RSI_14"] > 64.0)
-                and (previous_candle["RSI_3"] < 90.0)
-                and (last_candle["RSI_3_15m"] < 90.0)
-                and (last_candle["RSI_3_1h"] < 90.0)
-                and (last_candle["RSI_3_4h"] < 90.0)
-                and (last_candle["close"] > (last_candle["SMA_16"] * 1.014))
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            # and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -19221,7 +20855,40 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag += " " + str(grind_entry_id)
           return -ft_sell_amount, order_tag, is_derisk
 
-    # Gringing g3
+    # Grind stop
+    if (
+      (
+        (grind_2_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (((exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate) < regular_mode_grind_2_stop_grinds)
+      )
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+    ):
+      sell_amount = grind_2_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_2_current_open_rate > 0.0:
+          grind_profit = -(
+            ((exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate)  # CHECK HERE
+            if grind_2_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg2"
+        for grind_entry_id in grind_2_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # Grinding g3
     # Grinding entry
     if has_order_tags and (not partial_sell) and (grind_3_sub_grind_count < max_grind_3_sub_grinds):
       if (
@@ -19237,54 +20904,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit > 0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-              # and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.24))
-              # and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.30))
-            )
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 88.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 84.0)
-                and (last_candle["RSI_3_4h"] < 84.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_1h"] == True)
-                # and (last_candle["zlma_50_dec_4h"] == True)
-                and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-              )
-              or (
-                (last_candle["RSI_14"] > 64.0)
-                and (previous_candle["RSI_3"] < 90.0)
-                and (last_candle["RSI_3_15m"] < 90.0)
-                and (last_candle["RSI_3_1h"] < 90.0)
-                and (last_candle["RSI_3_4h"] < 90.0)
-                and (last_candle["close"] > (last_candle["SMA_16"] * 1.014))
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            # and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -19329,7 +20949,40 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag += " " + str(grind_entry_id)
           return -ft_sell_amount, order_tag, is_derisk
 
-    # Gringing g4
+    # Grind stop
+    if (
+      (
+        (grind_3_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (((exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate) < regular_mode_grind_3_stop_grinds)
+      )
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+    ):
+      sell_amount = grind_3_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate  # CHECK HERE
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_3_current_open_rate > 0.0:  # CHECK HERE
+          grind_profit = -(
+            ((exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate)
+            if grind_3_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg3) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg3) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg3"
+        for grind_entry_id in grind_3_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # Grinding g4
     # Grinding entry
     if has_order_tags and (not partial_sell) and (grind_4_sub_grind_count < max_grind_4_sub_grinds):
       if (
@@ -19345,54 +20998,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit > 0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-              # and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.24))
-              # and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.30))
-            )
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 88.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 84.0)
-                and (last_candle["RSI_3_4h"] < 84.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_1h"] == True)
-                # and (last_candle["zlma_50_dec_4h"] == True)
-                and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-              )
-              or (
-                (last_candle["RSI_14"] > 64.0)
-                and (previous_candle["RSI_3"] < 90.0)
-                and (last_candle["RSI_3_15m"] < 90.0)
-                and (last_candle["RSI_3_1h"] < 90.0)
-                and (last_candle["RSI_3_4h"] < 90.0)
-                and (last_candle["close"] > (last_candle["SMA_16"] * 1.014))
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            # and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -19437,7 +21043,42 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag += " " + str(grind_entry_id)
           return -ft_sell_amount, order_tag, is_derisk
 
-    # Gringing g5
+    # Grind stop
+    if (
+      (
+        (grind_4_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (
+          ((exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate) < regular_mode_grind_4_stop_grinds
+        )  # CHECK HERE
+      )
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+    ):
+      sell_amount = grind_4_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate  # CHECK HERE
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_4_current_open_rate > 0.0:  # CHECK HERE
+          grind_profit = -(
+            ((exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate)
+            if grind_4_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg4) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg4) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg4"
+        for grind_entry_id in grind_4_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # Grinding g5
     # Grinding entry
     if has_order_tags and (not partial_sell) and (grind_5_sub_grind_count < max_grind_5_sub_grinds):
       if (
@@ -19453,54 +21094,7 @@ class NostalgiaForInfinityX5(IStrategy):
           or (slice_profit > 0.06)
         )
         and ((num_open_grinds == 0) or (slice_profit > 0.03))
-        and (
-          (last_candle["protections_short_rebuy"] == True)
-          and (last_candle["protections_short_global"] == True)
-          and (last_candle["global_protections_short_pump"] == True)
-          and (last_candle["global_protections_short_dump"] == True)
-        )
-        and (
-          (
-            (
-              (last_candle["close"] < (last_candle["close_min_12"] * 1.16))
-              and (last_candle["close"] < (last_candle["close_min_24"] * 1.20))
-              and (last_candle["close"] < (last_candle["close_min_48"] * 1.24))
-              and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.26))
-              and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.30))
-              # and (last_candle["close"] < (last_candle["low_min_6_1d"] * 1.24))
-              # and (last_candle["close"] < (last_candle["low_min_12_1d"] * 1.30))
-            )
-            and (
-              is_short_grind_buy
-              or (
-                (last_candle["RSI_3"] < 88.0)
-                and (last_candle["RSI_3_15m"] < 84.0)
-                and (last_candle["RSI_3_1h"] < 84.0)
-                and (last_candle["RSI_3_4h"] < 84.0)
-                and (last_candle["RSI_14"] > 64.0)
-                # and (last_candle["zlma_50_dec_1h"] == True)
-                # and (last_candle["zlma_50_dec_4h"] == True)
-                and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-              )
-              or (
-                (last_candle["RSI_14"] > 64.0)
-                and (previous_candle["RSI_3"] < 90.0)
-                and (last_candle["RSI_3_15m"] < 90.0)
-                and (last_candle["RSI_3_1h"] < 90.0)
-                and (last_candle["RSI_3_4h"] < 90.0)
-                and (last_candle["close"] > (last_candle["SMA_16"] * 1.014))
-              )
-            )
-          )
-          or (
-            (slice_profit > 0.06)
-            and (last_candle["RSI_3"] < 90.0)
-            and (last_candle["RSI_3_15m"] < 90.0)
-            # and (last_candle["RSI_14"] < 72.0)
-            and (last_candle["RSI_14"] > 64.0)
-            and (last_candle["close"] > (last_candle["EMA_26"] * 1.012))
-          )
-        )
+        and is_short_grind_entry
       ):
         buy_amount = (
           slice_amount
@@ -19545,16 +21139,155 @@ class NostalgiaForInfinityX5(IStrategy):
             order_tag += " " + str(grind_entry_id)
           return -ft_sell_amount, order_tag, is_derisk
 
-    # De-risk
-    if profit_stake < (
-      slice_amount
-      * (
-        (self.regular_mode_derisk_futures if self.is_futures_mode else self.regular_mode_derisk_spot)
-        if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 3, 19) or is_backtest)
-        else (self.regular_mode_derisk_futures_old if self.is_futures_mode else self.regular_mode_derisk_spot_old)
+    # Grind stop
+    if (
+      (
+        (grind_5_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (((exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate) < regular_mode_grind_5_stop_grinds)
       )
-      # / (trade.leverage if self.is_futures_mode else 1.0)
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
     ):
+      sell_amount = grind_5_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_5_current_open_rate > 0.0:
+          grind_profit = (
+            (-(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate)  # CHECK HERE
+            if grind_5_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg5) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg5) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg5"
+        for grind_entry_id in grind_5_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # Grinding g6
+    # Grinding entry
+    if has_order_tags and (not partial_sell) and (grind_6_sub_grind_count < max_grind_6_sub_grinds):
+      if (
+        (
+          (-grind_6_distance_ratio if (grind_6_sub_grind_count > 0) else profit_init_ratio)
+          < (regular_mode_grind_6_sub_thresholds[grind_6_sub_grind_count])
+        )
+        and (current_time - timedelta(minutes=10) > filled_entries[-1].order_filled_utc)
+        and ((current_time - timedelta(hours=2) > filled_orders[-1].order_filled_utc) or (slice_profit > 0.02))
+        and (
+          (num_open_grinds == 0)
+          or (current_time - timedelta(hours=6) > filled_orders[-1].order_filled_utc)
+          or (slice_profit > 0.06)
+        )
+        # and ((num_open_grinds == 0) or (slice_profit > 0.03))
+        and (
+          (is_short_grind_entry)
+          or (
+            (last_candle["RSI_3"] < 90.0)
+            and (last_candle["RSI_3_15m"] < 90.0)
+            and (last_candle["RSI_14"] > 64.0)
+            and (last_candle["close"] > last_candle["BBM_20_2.0"])
+            and (previous_candle["close"] > previous_candle["BBM_20_2.0"])
+          )
+        )
+      ):
+        buy_amount = (
+          slice_amount
+          * regular_mode_grind_6_stakes[grind_6_sub_grind_count]
+          / (trade.leverage if self.is_futures_mode else 1.0)
+        )
+        if buy_amount < (min_stake * 1.5):
+          buy_amount = min_stake * 1.5
+        if buy_amount > max_stake:
+          return None, "", is_derisk
+        grind_profit = 0.0
+        grind_profit_stake = 0.0
+        if grind_6_sub_grind_count > 0:
+          grind_profit = -(exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
+          grind_profit_stake = grind_6_current_grind_stake_profit
+        self.dp.send_msg(
+          f"Grinding entry (g6) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+        )
+        log.info(
+          f"Grinding entry (g6) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+        )
+        order_tag = "g6"
+        return buy_amount, order_tag, is_derisk
+
+    # Grinding Exit
+    if has_order_tags and grind_6_sub_grind_count > 0:
+      grind_profit = -(exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
+      if grind_profit > (regular_mode_grind_6_profit_threshold + fee_open_rate + fee_close_rate):
+        sell_amount = grind_6_total_amount * exit_rate / trade.leverage
+        if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+          sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+        ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
+        if sell_amount > min_stake and ft_sell_amount > min_stake:
+          self.dp.send_msg(
+            f"Grinding exit (g6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+          )
+          log.info(
+            f"Grinding exit (g6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+          )
+          order_tag = "g6"
+          for grind_entry_id in grind_6_buy_orders:
+            order_tag += " " + str(grind_entry_id)
+          return -ft_sell_amount, order_tag, is_derisk
+
+    # Grind stop
+    if (
+      (
+        (grind_6_sub_grind_count > 0)
+        and self.regular_mode_use_grind_stops
+        and (((exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate) < regular_mode_grind_6_stop_grinds)
+      )
+      # temporary
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 16) or is_backtest)
+    ):
+      sell_amount = grind_6_total_amount * exit_rate / trade.leverage
+      if ((current_stake_amount / trade.leverage) - sell_amount) < (min_stake * 1.55):
+        sell_amount = (trade.amount * exit_rate / trade.leverage) - (min_stake * 1.55)
+      ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
+      if sell_amount > min_stake and ft_sell_amount > min_stake:
+        grind_profit = 0.0
+        if grind_6_current_open_rate > 0.0:  # CHECK HERE
+          grind_profit = -(
+            ((exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate)
+            if grind_6_is_sell_found
+            else profit_ratio
+          )
+        self.dp.send_msg(
+          f"Grinding stop exit (sg6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        log.info(
+          f"Grinding stop exit (sg6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}%"
+        )
+        order_tag = "sg6"
+        for grind_entry_id in grind_6_buy_orders:
+          order_tag += " " + str(grind_entry_id)
+        return -ft_sell_amount, order_tag, is_derisk
+
+    # De-risk
+    if (
+      profit_stake
+      < (
+        slice_amount
+        * (
+          (self.regular_mode_derisk_futures if self.is_futures_mode else self.regular_mode_derisk_spot)
+          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
+          else (self.regular_mode_derisk_futures_old if self.is_futures_mode else self.regular_mode_derisk_spot_old)
+        )
+        # / (trade.leverage if self.is_futures_mode else 1.0)
+      )
+    ) and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest):
       sell_amount = trade.amount * exit_rate / trade.leverage - (min_stake * 1.55)
       ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
       if sell_amount > min_stake and ft_sell_amount > min_stake:
@@ -19571,12 +21304,17 @@ class NostalgiaForInfinityX5(IStrategy):
     if (
       has_order_tags
       and not is_derisk_1
-      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 4, 5) or is_backtest)
+      and (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
       and profit_stake
       < (
         slice_amount
-        * (self.regular_mode_derisk_1_futures if self.is_futures_mode else self.regular_mode_derisk_1_spot)
-        # / (trade.leverage if self.is_futures_mode else 1.0)
+        * (
+          (self.regular_mode_derisk_1_futures if self.is_futures_mode else self.regular_mode_derisk_1_spot)
+          if (trade.open_date_utc.replace(tzinfo=None) >= datetime(2024, 9, 13) or is_backtest)
+          else (
+            self.regular_mode_derisk_1_futures_old if self.is_futures_mode else self.regular_mode_derisk_1_spot_old
+          )
+        )
       )
     ):
       sell_amount = trade.amount * exit_rate / trade.leverage - (min_stake * 1.55)
@@ -19709,15 +21447,15 @@ class NostalgiaForInfinityX5(IStrategy):
         and (last_candle["protections_short_rebuy"] == True)
         and (last_candle["global_protections_short_pump"] == True)
         and (last_candle["global_protections_short_dump"] == True)
-        and (
-          (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
-          and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
-          and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
-          and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
-          and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
-          and (last_candle["btc_pct_close_min_72_5m"] > 0.03)
-          and (last_candle["btc_pct_close_min_24_5m"] > 0.03)
-        )
+        # and (
+        #   (last_candle["close"] < (last_candle["close_min_12"] * 1.06))
+        #   and (last_candle["close"] < (last_candle["close_min_24"] * 1.08))
+        #   and (last_candle["close"] < (last_candle["close_min_48"] * 1.10))
+        #   and (last_candle["close"] < (last_candle["low_min_24_1h"] * 1.12))
+        #   and (last_candle["close"] < (last_candle["low_min_48_1h"] * 1.14))
+        #   and (last_candle["btc_pct_close_min_72_5m"] > 0.03)
+        #   and (last_candle["btc_pct_close_min_24_5m"] > 0.03)
+        # )
         and (
           (last_candle["RSI_3"] < 90.0)
           and (last_candle["RSI_3_15m"] < 90.0)
@@ -19746,13 +21484,13 @@ class NostalgiaForInfinityX5(IStrategy):
           return buy_amount
 
       if profit_stake < (
-        slice_amount
-        * (self.rebuy_mode_derisk_futures if self.is_futures_mode else self.rebuy_mode_derisk_spot)
-        / (trade.leverage if self.is_futures_mode else 1.0)
+        slice_amount * (self.rebuy_mode_derisk_futures if self.is_futures_mode else self.rebuy_mode_derisk_spot)
+        # / (trade.leverage if self.is_futures_mode else 1.0)
       ):
         sell_amount = trade.amount * exit_rate / trade.leverage - (min_stake * 1.55)
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
+          grind_profit = 0.0
           self.dp.send_msg(
             f"Rebuy de-risk (d1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
           )
