@@ -35,7 +35,7 @@ path_trading_mode_futures = 'user_data/trading_mode-futures.json'
 # Paths to strategy files
 path_strategy4 = Path(path_strategy + 'NostalgiaForInfinityX4.py')
 path_strategy5 = Path(path_strategy + 'NostalgiaForInfinityX5.py')
-path_strategy_c = Path(path_strategy + 'NostalgiaForCustom.py')
+path_strategy6 = Path(path_strategy + 'NostalgiaForInfinityX6.py')
 
 # Local variables
 restart_required = False
@@ -45,7 +45,7 @@ ft_update = False
 update_ft = True
 update_x4 = True
 update_x5 = True
-update_xC = True
+update_x6 = True
 
 messagetext = 'Performed updates:\n'
 
@@ -118,7 +118,7 @@ def update_strategy_file(update_enabled, remote_url, local_path, strategy_name):
 print("🔄 Checking for strategy updates...")
 update_strategy_file(update_x4, 'https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX4.py', path_strategy4, 'NFIX4')
 update_strategy_file(update_x5, 'https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX5.py', path_strategy5, 'NFIX5')
-update_strategy_file(update_xC, 'https://raw.githubusercontent.com/Maxim-Lanskoy/FreqtradeInfinityPM2/loader/loader/user_data/strategies/NostalgiaForCustom.py', path_strategy_c, 'NFI Custom')
+update_strategy_file(update_x5, 'https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX6.py', path_strategy6, 'NFIX6')
 
 ####################################
 # BLACKLIST UPDATER
@@ -150,7 +150,7 @@ def update_blacklist(exchange):
     except FileNotFoundError:
         now_bl = {}
         print(f'⚠️ Local blacklist for {exchange} not found.')
-    
+
     try:
         with open(path_private_blacklist, "r") as file:
             json_text = file.read()
@@ -320,7 +320,7 @@ def fix_json_syntax(json_file_path):
     try:
         with open(json_file_path, 'r') as file:
             json_content = file.read()
-        
+
         # Remove trailing commas before closing curly braces or brackets
         json_content = re.sub(r',\s*}', '}', json_content)
         json_content = re.sub(r',\s*]', ']', json_content)
@@ -335,12 +335,12 @@ def generate_files_for_exchange(exchange, user_data_dir):
     Generate configuration files for a given exchange.
     """
     exchange_lower = exchange.lower()
-    
+
     print(f"🔄 Generating files for exchange {exchange}")
 
     # Load environment variables for this exchange
     load_env_file(Path(f'../.env.{exchange_lower}'))
-    
+
     required_vars = [
         "FREQTRADE__TELEGRAM__CHAT_ID",
         "FREQTRADE__TELEGRAM__TOKEN",
@@ -351,7 +351,7 @@ def generate_files_for_exchange(exchange, user_data_dir):
         "FREQTRADE__STRATEGY_FILE_NAME",
         "FREQTRADE__TRADING_MODE_TYPE"
     ]
-    
+
     for var in required_vars:
         if not os.getenv(var):
             print(f"❌ ERROR: {var} is not set!")
@@ -451,7 +451,7 @@ for exchange in exchanges:
 
     url = f"https://api.telegram.org/bot{telegram_api_key}/sendMessage?chat_id={telegram_chat_id}&text={messagetext}&parse_mode=HTML"
     response = requests.get(url)
-    
+
     if response.ok:
         print(f"✅ Notification sent successfully for {exchange}.")
     else:
